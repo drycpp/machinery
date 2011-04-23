@@ -103,6 +103,7 @@ extern ssize_t mips_emit_sub(mips_insn_t* insn, const mips_reg_t rd, const mips_
 extern ssize_t mips_emit_subu(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt);
 extern ssize_t mips_emit_mult(mips_insn_t* insn, const mips_reg_t rs, const mips_reg_t rt);
 extern ssize_t mips_emit_multu(mips_insn_t* insn, const mips_reg_t rs, const mips_reg_t rt);
+extern ssize_t mips_emit_mul(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt);
 extern ssize_t mips_emit_div(mips_insn_t* insn, const mips_reg_t rs, const mips_reg_t rt);
 extern ssize_t mips_emit_divu(mips_insn_t* insn, const mips_reg_t rs, const mips_reg_t rt);
 extern ssize_t mips_emit_and(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt);

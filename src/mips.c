@@ -101,6 +101,11 @@ mips_emit_multu(mips_insn_t* insn, const mips_reg_t rs, const mips_reg_t rt) {
 }
 
 ssize_t
+mips_emit_mul(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt) {
+  return mips_encode_r_insn(insn, 28, rs, rt, rd, 0, 2);
+}
+
+ssize_t
 mips_emit_div(mips_insn_t* insn, const mips_reg_t rs, const mips_reg_t rt) {
   return mips_encode_r_insn(insn, 0, rs, rt, 0, 0, 26);
 }
