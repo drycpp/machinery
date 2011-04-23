@@ -95,6 +95,8 @@ extern ssize_t mips_encode_j_insn(mips_insn_t* insn, const mips_op_t op, const m
 extern ssize_t mips_emit_nop(mips_insn_t* insn);
 extern ssize_t mips_emit_add(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt);
 extern ssize_t mips_emit_addu(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt);
+extern ssize_t mips_emit_addi(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_imm_t imm);
+extern ssize_t mips_emit_addiu(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_imm_t imm);
 extern ssize_t mips_emit_sub(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt);
 extern ssize_t mips_emit_subu(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt);
 
