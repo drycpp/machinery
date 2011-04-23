@@ -91,6 +91,9 @@ extern ssize_t mips_encode_r_insn(mips_insn_t* insn, const mips_op_t op, const m
 extern ssize_t mips_encode_i_insn(mips_insn_t* insn, const mips_op_t op, const mips_reg_t rs, const mips_reg_t rt, const mips_imm_t imm);
 extern ssize_t mips_encode_j_insn(mips_insn_t* insn, const mips_op_t op, const mips_addr_t addr);
 
+/* MIPS instructions emitters */
+extern ssize_t mips_emit_nop(mips_insn_t* insn);
+
 #ifdef __cplusplus
 }
 #endif

@@ -44,3 +44,8 @@ mips_encode_j_insn(mips_insn_t* insn, const mips_op_t op, const mips_addr_t addr
 
   return sizeof(mips_insn_t);
 }
+
+ssize_t
+mips_emit_nop(mips_insn_t* insn) {
+  return mips_encode_r_insn(insn, 0, 0, 0, 0, 0, 0);
+}
