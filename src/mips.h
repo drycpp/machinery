@@ -10,6 +10,14 @@ extern "C" {
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <unistd.h>   /* for ssize_t */
+
+/* MIPS field types */
+typedef int8_t  mips_op_t;
+typedef int8_t  mips_shamt_t;
+typedef int8_t  mips_funct_t;
+typedef int16_t mips_imm_t;
+typedef int32_t mips_addr_t;
 
 /* MIPS registers */
 typedef enum {
@@ -77,6 +85,11 @@ typedef union {
   mips_i_insn_t i;
   mips_j_insn_t j;
 } mips_insn_t;
+
+/* MIPS instruction encoders */
+extern ssize_t mips_encode_r_insn(mips_insn_t* insn, const mips_op_t op, const mips_reg_t rs, const mips_reg_t rt, const mips_reg_t rd, const mips_shamt_t shamt, const mips_funct_t funct);
+extern ssize_t mips_encode_i_insn(mips_insn_t* insn, const mips_op_t op, const mips_reg_t rs, const mips_reg_t rt, const mips_imm_t imm);
+extern ssize_t mips_encode_j_insn(mips_insn_t* insn, const mips_op_t op, const mips_addr_t addr);
 
 #ifdef __cplusplus
 }
