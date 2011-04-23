@@ -36,24 +36,94 @@ typedef struct {
 typedef int8_t  x86_disp8_t;
 typedef int16_t x86_disp16_t;
 typedef int32_t x86_disp32_t;
+typedef int64_t x86_disp64_t;
 typedef union {
   x86_disp8_t  b;
   x86_disp16_t w;
-  x86_disp32_t l;
+  x86_disp32_t d;
+  x86_disp64_t q;
 } x86_disp_t;
 
 /* x86 immediate operands */
 typedef int8_t  x86_imm8_t;
 typedef int16_t x86_imm16_t;
 typedef int32_t x86_imm32_t;
+typedef int64_t x86_imm64_t;
 
 /* x86 instruction formats */
 typedef union {
   x86_opcode_t opcode;
 } x86_insn_t;
 
-/* x86 instruction emitters */
+/* x86 instruction emitters (general-purpose instructions) */
+extern ssize_t x86_emit_aaa(x86_insn_t* insn);
+extern ssize_t x86_emit_aas(x86_insn_t* insn);
+extern ssize_t x86_emit_cbw(x86_insn_t* insn);
+extern ssize_t x86_emit_cwde(x86_insn_t* insn);
+extern ssize_t x86_emit_cdqe(x86_insn_t* insn);
+extern ssize_t x86_emit_cwd(x86_insn_t* insn);
+extern ssize_t x86_emit_cdq(x86_insn_t* insn);
+extern ssize_t x86_emit_cqo(x86_insn_t* insn);
+extern ssize_t x86_emit_clc(x86_insn_t* insn);
+extern ssize_t x86_emit_cld(x86_insn_t* insn);
+extern ssize_t x86_emit_cmc(x86_insn_t* insn);
+extern ssize_t x86_emit_cmpsb(x86_insn_t* insn);
+extern ssize_t x86_emit_cmpsw(x86_insn_t* insn);
+extern ssize_t x86_emit_cmpsd(x86_insn_t* insn);
+extern ssize_t x86_emit_cmpsq(x86_insn_t* insn);
+extern ssize_t x86_emit_daa(x86_insn_t* insn);
+extern ssize_t x86_emit_das(x86_insn_t* insn);
+extern ssize_t x86_emit_insb(x86_insn_t* insn);
+extern ssize_t x86_emit_insw(x86_insn_t* insn);
+extern ssize_t x86_emit_insd(x86_insn_t* insn);
+extern ssize_t x86_emit_into(x86_insn_t* insn);
+extern ssize_t x86_emit_lahf(x86_insn_t* insn);
+extern ssize_t x86_emit_leave(x86_insn_t* insn);
+extern ssize_t x86_emit_lodsb(x86_insn_t* insn);
+extern ssize_t x86_emit_lodsw(x86_insn_t* insn);
+extern ssize_t x86_emit_lodsd(x86_insn_t* insn);
+extern ssize_t x86_emit_lodsq(x86_insn_t* insn);
+extern ssize_t x86_emit_movsb(x86_insn_t* insn);
+extern ssize_t x86_emit_movsw(x86_insn_t* insn);
+extern ssize_t x86_emit_movsd(x86_insn_t* insn);
+extern ssize_t x86_emit_movsq(x86_insn_t* insn);
 extern ssize_t x86_emit_nop(x86_insn_t* insn);
+extern ssize_t x86_emit_outsb(x86_insn_t* insn);
+extern ssize_t x86_emit_outsw(x86_insn_t* insn);
+extern ssize_t x86_emit_outsd(x86_insn_t* insn);
+extern ssize_t x86_emit_popa(x86_insn_t* insn);
+extern ssize_t x86_emit_popad(x86_insn_t* insn);
+extern ssize_t x86_emit_popf(x86_insn_t* insn);
+extern ssize_t x86_emit_popfd(x86_insn_t* insn);
+extern ssize_t x86_emit_popfq(x86_insn_t* insn);
+extern ssize_t x86_emit_pusha(x86_insn_t* insn);
+extern ssize_t x86_emit_pushad(x86_insn_t* insn);
+extern ssize_t x86_emit_pushf(x86_insn_t* insn);
+extern ssize_t x86_emit_pushfd(x86_insn_t* insn);
+extern ssize_t x86_emit_pushfq(x86_insn_t* insn);
+extern ssize_t x86_emit_ret(x86_insn_t* insn);
+extern ssize_t x86_emit_retf(x86_insn_t* insn);
+extern ssize_t x86_emit_sahf(x86_insn_t* insn);
+extern ssize_t x86_emit_scasb(x86_insn_t* insn);
+extern ssize_t x86_emit_scasw(x86_insn_t* insn);
+extern ssize_t x86_emit_scasd(x86_insn_t* insn);
+extern ssize_t x86_emit_scasq(x86_insn_t* insn);
+extern ssize_t x86_emit_stc(x86_insn_t* insn);
+extern ssize_t x86_emit_std(x86_insn_t* insn);
+extern ssize_t x86_emit_stosb(x86_insn_t* insn);
+extern ssize_t x86_emit_stosw(x86_insn_t* insn);
+extern ssize_t x86_emit_stosd(x86_insn_t* insn);
+extern ssize_t x86_emit_stosq(x86_insn_t* insn);
+extern ssize_t x86_emit_xlatb(x86_insn_t* insn);
+
+/* x86 instruction emitters (system instructions) */
+extern ssize_t x86_emit_cli(x86_insn_t* insn);
+extern ssize_t x86_emit_hlt(x86_insn_t* insn);
+extern ssize_t x86_emit_int3(x86_insn_t* insn);
+extern ssize_t x86_emit_iret(x86_insn_t* insn);
+extern ssize_t x86_emit_iretd(x86_insn_t* insn);
+extern ssize_t x86_emit_iretq(x86_insn_t* insn);
+extern ssize_t x86_emit_sti(x86_insn_t* insn);
 
 #ifdef __cplusplus
 }
