@@ -49,3 +49,13 @@ ssize_t
 mips_emit_nop(mips_insn_t* insn) {
   return mips_encode_r_insn(insn, 0, 0, 0, 0, 0, 0);
 }
+
+ssize_t
+mips_emit_add(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt) {
+  return mips_encode_r_insn(insn, 0, rs, rt, rd, 0, 32);
+}
+
+ssize_t
+mips_emit_addu(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt) {
+  return mips_encode_r_insn(insn, 0, rs, rt, rd, 0, 33);
+}
