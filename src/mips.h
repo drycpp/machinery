@@ -99,6 +99,8 @@ extern ssize_t mips_emit_addi(mips_insn_t* insn, const mips_reg_t rd, const mips
 extern ssize_t mips_emit_addiu(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_imm_t imm);
 extern ssize_t mips_emit_sub(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt);
 extern ssize_t mips_emit_subu(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt);
+extern ssize_t mips_emit_j(mips_insn_t* insn, const mips_addr_t target);
+extern ssize_t mips_emit_jal(mips_insn_t* insn, const mips_addr_t target);
 
 #ifdef __cplusplus
 }

@@ -79,3 +79,13 @@ ssize_t
 mips_emit_subu(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt) {
   return mips_encode_r_insn(insn, 0, rs, rt, rd, 0, 35);
 }
+
+ssize_t
+mips_emit_j(mips_insn_t* insn, const mips_addr_t target) {
+  return mips_encode_j_insn(insn, 2, target);
+}
+
+ssize_t
+mips_emit_jal(mips_insn_t* insn, const mips_addr_t target) {
+  return mips_encode_j_insn(insn, 3, target);
+}
