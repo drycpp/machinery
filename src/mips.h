@@ -47,6 +47,37 @@ typedef enum {
   MIPS_REG_RA   = 31, /* return address */
 } mips_reg_t;
 
+/* MIPS R-format instruction */
+typedef struct {
+  int op       : 6;   /* opcode */
+  int rs       : 5;   /* first register source operand */
+  int rt       : 5;   /* second register source operand */
+  int rd       : 5;   /* register destination operand */
+  int shamt    : 5;   /* shift amount */
+  int funct    : 6;   /* function code */
+} mips_r_insn_t;
+
+/* MIPS I-format instruction */
+typedef struct {
+  int op       : 6;   /* opcode */
+  int rs       : 5;
+  int rt       : 5;
+  int imm      : 16;  /* constant or address */
+} mips_i_insn_t;
+
+/* MIPS J-format instruction */
+typedef struct {
+  int op       : 6;   /* opcode */
+  int addr     : 26;  /* address */
+} mips_j_insn_t;
+
+/* MIPS instruction */
+typedef union {
+  mips_r_insn_t r;
+  mips_i_insn_t i;
+  mips_j_insn_t j;
+} mips_insn_t;
+
 #ifdef __cplusplus
 }
 #endif
