@@ -91,6 +91,26 @@ mips_emit_subu(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, cons
 }
 
 ssize_t
+mips_emit_mult(mips_insn_t* insn, const mips_reg_t rs, const mips_reg_t rt) {
+  return mips_encode_r_insn(insn, 0, rs, rt, 0, 0, 24);
+}
+
+ssize_t
+mips_emit_multu(mips_insn_t* insn, const mips_reg_t rs, const mips_reg_t rt) {
+  return mips_encode_r_insn(insn, 0, rs, rt, 0, 0, 25);
+}
+
+ssize_t
+mips_emit_div(mips_insn_t* insn, const mips_reg_t rs, const mips_reg_t rt) {
+  return mips_encode_r_insn(insn, 0, rs, rt, 0, 0, 26);
+}
+
+ssize_t
+mips_emit_divu(mips_insn_t* insn, const mips_reg_t rs, const mips_reg_t rt) {
+  return mips_encode_r_insn(insn, 0, rs, rt, 0, 0, 27);
+}
+
+ssize_t
 mips_emit_and(mips_insn_t* insn, const mips_reg_t rd, const mips_reg_t rs, const mips_reg_t rt) {
   return mips_encode_r_insn(insn, 0, rs, rt, rd, 0, 36);
 }
