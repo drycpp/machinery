@@ -19,7 +19,7 @@ ARM support has not been implemented as yet.
 .
 .SS MIPS code generation
 .
-Code generation targeting the MIPS32 and MIPS64 instruction sets is
+Basic code generation targeting the MIPS32 and MIPS64 instruction sets is
 supported.
 .
 .PP
@@ -62,19 +62,19 @@ MIPS register number (0..31).
   \fBMIPS_REG_SP\fP             $sp             29
   \fBMIPS_REG_FP\fP             $fp             30
   \fBMIPS_REG_RA\fP             $ra             31
-
+.
 .TP
 .B struct mips_r_insn_t
-MIPS R-format instruction (32 bits).
+MIPS R-format instruction (4 bytes).
 .TP
 .B struct mips_i_insn_t
-MIPS I-format instruction (32 bits).
+MIPS I-format instruction (4 bytes).
 .TP
 .B struct mips_j_insn_t
-MIPS J-format instruction (32 bits).
+MIPS J-format instruction (4 bytes).
 .TP
 .B union mips_insn_t
-MIPS R/I/J-format instruction (32 bits).
+MIPS R/I/J-format instruction (4 bytes).
 .LP
 .
 .B ssize_t mips_emit_nop(mips_insn_t* \fIinsn\fP);
@@ -133,10 +133,19 @@ SPARC support has not been implemented as yet.
 .
 .SS x86 code generation
 .
-x86 support has not been implemented as yet.
+Basic code generation targeting the x86 and x86-64 instruction sets is
+supported.
 .
 .PP
 .B #include <machinery/x86.h>
+.
+.TP
+.B union x86_insn_t
+x86 instruction (1 to 15 bytes).
+.LP
+.
+.br
+.B ssize_t x86_emit_nop(x86_insn_t* \fIinsn\fP);
 .
 .SH EXAMPLES
 .EX

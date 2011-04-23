@@ -52,6 +52,9 @@ typedef union {
   x86_opcode_t opcode;
 } x86_insn_t;
 
+/* x86 instruction emitters */
+extern ssize_t x86_emit_nop(x86_insn_t* insn);
+
 #ifdef __cplusplus
 }
 #endif
