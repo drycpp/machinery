@@ -1,3 +1,4 @@
+.dirstamp
 machinery/
 machinery.aux
 machinery.cp
@@ -22,3 +23,4 @@ machinery.vr
 machinery.vrs
 stamp-vti
 texinfo.tex
+version.texi
