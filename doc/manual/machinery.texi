@@ -40,8 +40,10 @@ this manual for any purpose, commercial or non-commercial, and by any means.
 * SPARC Code Generation::
 * x86 Code Generation::
 * Concept Index::
-* Function Index::
+* Function and Type Index::
 @end menu
+
+@comment *********************************************************************
 
 @node Overview of Machinery
 @chapter Overview of Machinery
@@ -50,52 +52,282 @@ Machinery is a portable C library for cross-architecture code generation.
 It is designed to be useful for writing compilers, assemblers, linkers,
 disassemblers, emulators, and other low-level toolchain machinery.
 
+@section Installation
+
+@section Error Handling
+@cindex error handling
+@findex errno
+
+@comment *********************************************************************
+
 @node ARM Code Generation
 @chapter ARM Code Generation
 @cindex ARM
+
 @section ARM Overview
+@cindex architecture, ARM
+
 @section ARM Registers
+@cindex registers, ARM
+
 @section ARM Instruction Formats
+@cindex instruction format, ARM
+
 @section ARM Instructions
+@cindex instruction set, ARM
+
+@comment *********************************************************************
 
 @node MIPS Code Generation
 @chapter MIPS Code Generation
 @cindex MIPS
+
 @section MIPS Overview
+@cindex architecture, MIPS
+@cindex MIPS32
+@cindex MIPS64
+
+MIPS is a RISC instruction set architecture first introduced in 1985.
+
 @section MIPS Registers
+@cindex registers, MIPS
+@findex mips_reg_t
+
+MIPS provides 32 general-purpose registers and 32 floating-point registers.
+
+@subsection General-purpose registers
+@multitable @columnfractions .25 .15 .10
+@headitem Constant @tab Mnemonic @tab Number
+@item @code{MIPS_REG_ZERO} @tab @code{$zero} @tab 0
+@item @code{MIPS_REG_AT}   @tab @code{$at} @tab 1
+@item @code{MIPS_REG_V0}   @tab @code{$v0} @tab 2
+@item @code{MIPS_REG_V1}   @tab @code{$v1} @tab 3
+@item @code{MIPS_REG_A0}   @tab @code{$a0} @tab 4
+@item @code{MIPS_REG_A1}   @tab @code{$a1} @tab 5
+@item @code{MIPS_REG_A2}   @tab @code{$a2} @tab 6
+@item @code{MIPS_REG_A3}   @tab @code{$a3} @tab 7
+@item @code{MIPS_REG_T0}   @tab @code{$t0} @tab 8
+@item @code{MIPS_REG_T1}   @tab @code{$t1} @tab 9
+@item @code{MIPS_REG_T2}   @tab @code{$t2} @tab 10
+@item @code{MIPS_REG_T3}   @tab @code{$t3} @tab 11
+@item @code{MIPS_REG_T4}   @tab @code{$t4} @tab 12
+@item @code{MIPS_REG_T5}   @tab @code{$t5} @tab 13
+@item @code{MIPS_REG_T6}   @tab @code{$t6} @tab 14
+@item @code{MIPS_REG_T7}   @tab @code{$t7} @tab 15
+@item @code{MIPS_REG_S0}   @tab @code{$s0} @tab 16
+@item @code{MIPS_REG_S1}   @tab @code{$s1} @tab 17
+@item @code{MIPS_REG_S2}   @tab @code{$s2} @tab 18
+@item @code{MIPS_REG_S3}   @tab @code{$s3} @tab 19
+@item @code{MIPS_REG_S4}   @tab @code{$s4} @tab 20
+@item @code{MIPS_REG_S5}   @tab @code{$s5} @tab 21
+@item @code{MIPS_REG_S6}   @tab @code{$s6} @tab 22
+@item @code{MIPS_REG_S7}   @tab @code{$s7} @tab 23
+@item @code{MIPS_REG_T8}   @tab @code{$t8} @tab 24
+@item @code{MIPS_REG_T9}   @tab @code{$t9} @tab 25
+@item @code{MIPS_REG_K0}   @tab @code{$k0} @tab 26
+@item @code{MIPS_REG_K1}   @tab @code{$k1} @tab 27
+@item @code{MIPS_REG_GP}   @tab @code{$gp} @tab 28
+@item @code{MIPS_REG_SP}   @tab @code{$sp} @tab 29
+@item @code{MIPS_REG_FP}   @tab @code{$fp} @tab 30
+@item @code{MIPS_REG_RA}   @tab @code{$ra} @tab 31
+@end multitable
+
+@subsection Floating-point registers
+
 @section MIPS Instruction Formats
+@cindex instruction format, MIPS
+@findex mips_insn_t
+
+MIPS uses 32-bit fixed-length instructions, and all instructions can be
+divided into three distinct instruction formats: R, I, and J. These are
+each described in the following subsections.
+
+@subsection R-format
+@findex mips_r_insn_t
+
+@subsection I-format
+@findex mips_i_insn_t
+
+@subsection J-format
+@findex mips_j_insn_t
+
 @section MIPS Instructions
+@cindex instruction set, MIPS
+
+@subsection NOP
+@findex mips_emit_nop
+@deftypefn {Function} ssize_t mips_emit_nop (mips_insn_t* @var{insn})
+@end deftypefn
+
+@subsection SSNOP
+@findex mips_emit_ssnop
+@deftypefn {Function} ssize_t mips_emit_ssnop (mips_insn_t* @var{insn})
+@end deftypefn
+
+@subsection SYNC
+@findex mips_emit_sync
+@deftypefn {Function} ssize_t mips_emit_sync (mips_insn_t* @var{insn})
+@end deftypefn
+
+@subsection ADD
+@findex mips_emit_add
+@deftypefn {Function} ssize_t mips_emit_add (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
+@end deftypefn
+
+@subsection ADDU
+@findex mips_emit_addu
+@deftypefn {Function} ssize_t mips_emit_addu (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
+@end deftypefn
+
+@subsection ADDI
+@findex mips_emit_addi
+@deftypefn {Function} ssize_t mips_emit_addi (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_imm_t @var{imm})
+@end deftypefn
+
+@subsection ADDIU
+@findex mips_emit_addiu
+@deftypefn {Function} ssize_t mips_emit_addiu (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_imm_t @var{imm})
+@end deftypefn
+
+@subsection SUB
+@findex mips_emit_sub
+@deftypefn {Function} ssize_t mips_emit_sub (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
+@end deftypefn
+
+@subsection SUBU
+@findex mips_emit_subu
+@deftypefn {Function} ssize_t mips_emit_subu (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
+@end deftypefn
+
+@subsection MULT
+@findex mips_emit_mult
+@deftypefn {Function} ssize_t mips_emit_mult (mips_insn_t* @var{insn}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
+@end deftypefn
+
+@subsection MULTU
+@findex mips_emit_multu
+@deftypefn {Function} ssize_t mips_emit_multu (mips_insn_t* @var{insn}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
+@end deftypefn
+
+@subsection MUL
+@findex mips_emit_mul
+@deftypefn {Function} ssize_t mips_emit_mul (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
+@end deftypefn
+
+@subsection DIV
+@findex mips_emit_div
+@deftypefn {Function} ssize_t mips_emit_div (mips_insn_t* @var{insn}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
+@end deftypefn
+
+@subsection DIVU
+@findex mips_emit_divu
+@deftypefn {Function} ssize_t mips_emit_divu (mips_insn_t* @var{insn}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
+@end deftypefn
+
+@subsection AND
+@findex mips_emit_and
+@deftypefn {Function} ssize_t mips_emit_and (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
+@end deftypefn
+
+@subsection OR
+@findex mips_emit_or
+@deftypefn {Function} ssize_t mips_emit_or (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
+@end deftypefn
+
+@subsection XOR
+@findex mips_emit_xor
+@deftypefn {Function} ssize_t mips_emit_xor (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
+@end deftypefn
+
+@subsection NOR
+@findex mips_emit_nor
+@deftypefn {Function} ssize_t mips_emit_nor (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
+@end deftypefn
+
+@subsection J
+@findex mips_emit_j
+@deftypefn {Function} ssize_t mips_emit_j (mips_insn_t* @var{insn}, mips_addr_t @var{target})
+@end deftypefn
+
+@subsection JAL
+@findex mips_emit_jal
+@deftypefn {Function} ssize_t mips_emit_jal (mips_insn_t* @var{insn}, mips_addr_t @var{target})
+@end deftypefn
+
+@comment *********************************************************************
 
 @node PowerPC Code Generation
 @chapter PowerPC Code Generation
 @cindex PowerPC
+
 @section PowerPC Overview
+@cindex architecture, PowerPC
+
 @section PowerPC Registers
+@cindex registers, PowerPC
+
 @section PowerPC Instruction Formats
+@cindex instruction format, PowerPC
+
 @section PowerPC Instructions
+@cindex instruction set, PowerPC
+
+@comment *********************************************************************
 
 @node SPARC Code Generation
 @chapter SPARC Code Generation
 @cindex SPARC
+
 @section SPARC Overview
+@cindex architecture, SPARC
+
 @section SPARC Registers
+@cindex registers, SPARC
+
 @section SPARC Instruction Formats
+@cindex instruction format, SPARC
+
 @section SPARC Instructions
+@cindex instruction set, SPARC
+
+@comment *********************************************************************
 
 @node x86 Code Generation
 @chapter x86 Code Generation
 @cindex x86
+
 @section x86 Overview
+@cindex architecture, x86
+@cindex x86-32
+@cindex x86-64
+
 @section x86 Registers
+@cindex registers, x86
+
+@subsection General-purpose registers
+
 @section x86 Instruction Formats
+@cindex instruction format, x86
+@findex x86_insn_t
+
 @section x86 Instructions
+@cindex instruction set, x86
+
+@subsection NOP
+@findex x86_emit_nop
+
+@comment *********************************************************************
 
 @node Concept Index
 @unnumbered Concept Index
 @printindex cp
 
-@node Function Index
-@unnumbered Function Index
+@comment *********************************************************************
+
+@node Function and Type Index
+@unnumbered Function and Type Index
 @printindex fn
+
+@comment *********************************************************************
 
 @bye
