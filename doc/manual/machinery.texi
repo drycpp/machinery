@@ -1,7 +1,9 @@
 \input texinfo   @c -*-texinfo-*-
 @comment %**start of header
 @setfilename machinery.info
-@settitle Machinery Manual
+@finalout
+@include version.texi
+@settitle Machinery Manual @value{VERSION}
 @documentencoding UTF-8
 @comment %**end of header
 
@@ -18,7 +20,7 @@ this manual for any purpose, commercial or non-commercial, and by any means.
 
 @titlepage
 @title Machinery
-@subtitle for version 0.0.0, April 2011
+@subtitle for version @value{VERSION}, @value{UPDATED-MONTH}
 @author by Arto Bendiken (@email{arto@@bendiken.net})
 @page
 @vskip 0pt plus 1filll
