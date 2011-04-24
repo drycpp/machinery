@@ -53,6 +53,8 @@ typedef int64_t x86_imm64_t;
 /* x86 instruction formats */
 typedef union {
   x86_opcode_t opcode;
+  x86_opcode_t opcode2;
+  x86_opcode_t opcode3;
 } x86_insn_t;
 
 /* x86 instruction emitters (general-purpose instructions) */
@@ -117,13 +119,38 @@ extern ssize_t x86_emit_stosq(x86_insn_t* insn);
 extern ssize_t x86_emit_xlatb(x86_insn_t* insn);
 
 /* x86 instruction emitters (system instructions) */
+extern ssize_t x86_emit_clgi(x86_insn_t* insn);
 extern ssize_t x86_emit_cli(x86_insn_t* insn);
+extern ssize_t x86_emit_clts(x86_insn_t* insn);
 extern ssize_t x86_emit_hlt(x86_insn_t* insn);
 extern ssize_t x86_emit_int3(x86_insn_t* insn);
+extern ssize_t x86_emit_invd(x86_insn_t* insn);
+extern ssize_t x86_emit_invlpga(x86_insn_t* insn);
 extern ssize_t x86_emit_iret(x86_insn_t* insn);
 extern ssize_t x86_emit_iretd(x86_insn_t* insn);
 extern ssize_t x86_emit_iretq(x86_insn_t* insn);
+extern ssize_t x86_emit_monitor(x86_insn_t* insn);
+extern ssize_t x86_emit_mwait(x86_insn_t* insn);
+extern ssize_t x86_emit_rdmsr(x86_insn_t* insn);
+extern ssize_t x86_emit_rdpmc(x86_insn_t* insn);
+extern ssize_t x86_emit_rdtsc(x86_insn_t* insn);
+extern ssize_t x86_emit_rdtscp(x86_insn_t* insn);
+extern ssize_t x86_emit_rsm(x86_insn_t* insn);
+extern ssize_t x86_emit_skinit(x86_insn_t* insn);
 extern ssize_t x86_emit_sti(x86_insn_t* insn);
+extern ssize_t x86_emit_stgi(x86_insn_t* insn);
+extern ssize_t x86_emit_swapgs(x86_insn_t* insn);
+extern ssize_t x86_emit_syscall(x86_insn_t* insn);
+extern ssize_t x86_emit_sysenter(x86_insn_t* insn);
+extern ssize_t x86_emit_sysexit(x86_insn_t* insn);
+extern ssize_t x86_emit_sysret(x86_insn_t* insn);
+extern ssize_t x86_emit_ud2(x86_insn_t* insn);
+extern ssize_t x86_emit_vmload(x86_insn_t* insn);
+extern ssize_t x86_emit_vmmcall(x86_insn_t* insn);
+extern ssize_t x86_emit_vmrun(x86_insn_t* insn);
+extern ssize_t x86_emit_vmsave(x86_insn_t* insn);
+extern ssize_t x86_emit_wbinvd(x86_insn_t* insn);
+extern ssize_t x86_emit_wrmsr(x86_insn_t* insn);
 
 #ifdef __cplusplus
 }

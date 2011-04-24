@@ -15,6 +15,29 @@ x86_encode_1b_insn(x86_insn_t* insn, const x86_opcode_t opcode) {
   return 1;
 }
 
+static ssize_t
+x86_encode_2b_insn(x86_insn_t* insn, const x86_opcode_t opcode, const x86_opcode_t opcode2) {
+  if (insn == NULL)
+    return -(errno = EINVAL); // invalid argument
+
+  insn->opcode  = opcode;
+  insn->opcode2 = opcode2;
+
+  return 2;
+}
+
+static ssize_t
+x86_encode_3b_insn(x86_insn_t* insn, const x86_opcode_t opcode, const x86_opcode_t opcode2, const x86_opcode_t opcode3) {
+  if (insn == NULL)
+    return -(errno = EINVAL); // invalid argument
+
+  insn->opcode  = opcode;
+  insn->opcode2 = opcode2;
+  insn->opcode3 = opcode3;
+
+  return 3;
+}
+
 /* General-purpose instructions */
 
 ssize_t
@@ -315,8 +338,18 @@ x86_emit_xlatb(x86_insn_t* insn) {
 /* System instructions */
 
 ssize_t
+x86_emit_clgi(x86_insn_t* insn) {
+  return x86_encode_3b_insn(insn, 0x0F, 0x01, 0xDD);
+}
+
+ssize_t
 x86_emit_cli(x86_insn_t* insn) {
   return x86_encode_1b_insn(insn, 0xFA);
+}
+
+ssize_t
+x86_emit_clts(x86_insn_t* insn) {
+  return x86_encode_2b_insn(insn, 0x0F, 0x06);
 }
 
 ssize_t
@@ -327,6 +360,16 @@ x86_emit_hlt(x86_insn_t* insn) {
 ssize_t
 x86_emit_int3(x86_insn_t* insn) {
   return x86_encode_1b_insn(insn, 0xCC);
+}
+
+ssize_t
+x86_emit_invd(x86_insn_t* insn) {
+  return x86_encode_2b_insn(insn, 0x0F, 0x08);
+}
+
+ssize_t
+x86_emit_invlpga(x86_insn_t* insn) {
+  return x86_encode_3b_insn(insn, 0x0F, 0x01, 0xDF);
 }
 
 ssize_t
@@ -345,6 +388,111 @@ x86_emit_iretq(x86_insn_t* insn) {
 }
 
 ssize_t
+x86_emit_monitor(x86_insn_t* insn) {
+  return x86_encode_3b_insn(insn, 0x0F, 0x01, 0xC8);
+}
+
+ssize_t
+x86_emit_mwait(x86_insn_t* insn) {
+  return x86_encode_3b_insn(insn, 0x0F, 0x01, 0xC9);
+}
+
+ssize_t
+x86_emit_rdmsr(x86_insn_t* insn) {
+  return x86_encode_2b_insn(insn, 0x0F, 0x32);
+}
+
+ssize_t
+x86_emit_rdpmc(x86_insn_t* insn) {
+  return x86_encode_2b_insn(insn, 0x0F, 0x33);
+}
+
+ssize_t
+x86_emit_rdtsc(x86_insn_t* insn) {
+  return x86_encode_2b_insn(insn, 0x0F, 0x31);
+}
+
+ssize_t
+x86_emit_rdtscp(x86_insn_t* insn) {
+  return x86_encode_3b_insn(insn, 0x0F, 0x01, 0xF9);
+}
+
+ssize_t
+x86_emit_rsm(x86_insn_t* insn) {
+  return x86_encode_2b_insn(insn, 0x0F, 0xAA);
+}
+
+ssize_t
+x86_emit_skinit(x86_insn_t* insn) {
+  return x86_encode_3b_insn(insn, 0x0F, 0x01, 0xDE);
+}
+
+ssize_t
 x86_emit_sti(x86_insn_t* insn) {
   return x86_encode_1b_insn(insn, 0xFB);
+}
+
+ssize_t
+x86_emit_stgi(x86_insn_t* insn) {
+  return x86_encode_3b_insn(insn, 0x0F, 0x01, 0xDC);
+}
+
+ssize_t
+x86_emit_swapgs(x86_insn_t* insn) {
+  return x86_encode_3b_insn(insn, 0x0F, 0x01, 0xF8);
+}
+
+ssize_t
+x86_emit_syscall(x86_insn_t* insn) {
+  return x86_encode_2b_insn(insn, 0x0F, 0x05);
+}
+
+ssize_t
+x86_emit_sysenter(x86_insn_t* insn) {
+  return x86_encode_2b_insn(insn, 0x0F, 0x34);
+}
+
+ssize_t
+x86_emit_sysexit(x86_insn_t* insn) {
+  return x86_encode_2b_insn(insn, 0x0F, 0x35);
+}
+
+ssize_t
+x86_emit_sysret(x86_insn_t* insn) {
+  return x86_encode_2b_insn(insn, 0x0F, 0x07);
+}
+
+ssize_t
+x86_emit_ud2(x86_insn_t* insn) {
+  return x86_encode_2b_insn(insn, 0x0F, 0x0B);
+}
+
+ssize_t
+x86_emit_vmload(x86_insn_t* insn) {
+  return x86_encode_3b_insn(insn, 0x0F, 0x01, 0xDA);
+}
+
+ssize_t
+x86_emit_vmmcall(x86_insn_t* insn) {
+  return x86_encode_3b_insn(insn, 0x0F, 0x01, 0xD9);
+}
+
+ssize_t
+x86_emit_vmrun(x86_insn_t* insn) {
+  return x86_encode_3b_insn(insn, 0x0F, 0x01, 0xD8);
+}
+
+ssize_t
+x86_emit_vmsave(x86_insn_t* insn) {
+  return x86_encode_3b_insn(insn, 0x0F, 0x01, 0xDB);
+}
+
+ssize_t
+x86_emit_wbinvd(x86_insn_t* insn) {
+  return x86_encode_2b_insn(insn, 0x0F, 0x09);
+}
+
+ssize_t
+x86_emit_wrmsr(x86_insn_t* insn) {
+  return x86_encode_2b_insn(insn, 0x0F, 0x30);
 }
