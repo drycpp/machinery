@@ -1,0 +1,101 @@
+\input texinfo   @c -*-texinfo-*-
+@comment %**start of header
+@setfilename machinery.info
+@settitle Machinery Manual
+@documentencoding UTF-8
+@comment %**end of header
+
+@dircategory Software libraries
+@direntry
+* Machinery: (machinery).       A code-generation library.
+@end direntry
+
+@copying
+This manual is in the public domain.
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute
+this manual for any purpose, commercial or non-commercial, and by any means.
+@end copying
+
+@titlepage
+@title Machinery
+@subtitle for version 0.0.0, April 2011
+@author by Arto Bendiken (@email{arto@@bendiken.net})
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+@ifnottex
+@node Top
+@top Machinery Manual
+@end ifnottex
+
+@menu
+* Overview of Machinery::
+* ARM Code Generation::
+* MIPS Code Generation::
+* PowerPC Code Generation::
+* SPARC Code Generation::
+* x86 Code Generation::
+* Concept Index::
+* Function Index::
+@end menu
+
+@node Overview of Machinery
+@chapter Overview of Machinery
+
+Machinery is a portable C library for cross-architecture code generation.
+It is designed to be useful for writing compilers, assemblers, linkers,
+disassemblers, emulators, and other low-level toolchain machinery.
+
+@node ARM Code Generation
+@chapter ARM Code Generation
+@cindex ARM
+@section ARM Overview
+@section ARM Registers
+@section ARM Instruction Formats
+@section ARM Instructions
+
+@node MIPS Code Generation
+@chapter MIPS Code Generation
+@cindex MIPS
+@section MIPS Overview
+@section MIPS Registers
+@section MIPS Instruction Formats
+@section MIPS Instructions
+
+@node PowerPC Code Generation
+@chapter PowerPC Code Generation
+@cindex PowerPC
+@section PowerPC Overview
+@section PowerPC Registers
+@section PowerPC Instruction Formats
+@section PowerPC Instructions
+
+@node SPARC Code Generation
+@chapter SPARC Code Generation
+@cindex SPARC
+@section SPARC Overview
+@section SPARC Registers
+@section SPARC Instruction Formats
+@section SPARC Instructions
+
+@node x86 Code Generation
+@chapter x86 Code Generation
+@cindex x86
+@section x86 Overview
+@section x86 Registers
+@section x86 Instruction Formats
+@section x86 Instructions
+
+@node Concept Index
+@unnumbered Concept Index
+@printindex cp
+
+@node Function Index
+@unnumbered Function Index
+@printindex fn
+
+@bye
