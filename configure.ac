@@ -9,5 +9,5 @@ AC_PROG_CC
 AC_CANONICAL_HOST
 AC_CHECK_HEADERS([execinfo.h])
 AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_FILES([Makefile src/Makefile doc/Makefile doc/man/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile doc/Makefile doc/man/Makefile doc/manual/Makefile])
 AC_OUTPUT
