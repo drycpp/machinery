@@ -89,7 +89,8 @@ disassemblers, emulators, and other low-level toolchain machinery.
 @cindex MIPS32
 @cindex MIPS64
 
-MIPS is a RISC instruction set architecture first introduced in 1985.
+@acronym{MIPS, Microprocessor without Interlocked Pipeline Stages} is a RISC
+instruction set architecture first introduced in 1985.
 
 @section MIPS Registers
 @cindex registers, MIPS
@@ -156,103 +157,85 @@ each described in the following subsections.
 @section MIPS Instructions
 @cindex instruction set, MIPS
 
-@subsection NOP
-@findex mips_emit_nop
+@subsection General-purpose instructions
+
+@unnumberedsubsubsec NOP
 @deftypefn {Function} ssize_t mips_emit_nop (mips_insn_t* @var{insn})
 @end deftypefn
 
-@subsection SSNOP
-@findex mips_emit_ssnop
+@unnumberedsubsubsec SSNOP
 @deftypefn {Function} ssize_t mips_emit_ssnop (mips_insn_t* @var{insn})
 @end deftypefn
 
-@subsection SYNC
-@findex mips_emit_sync
+@unnumberedsubsubsec SYNC
 @deftypefn {Function} ssize_t mips_emit_sync (mips_insn_t* @var{insn})
 @end deftypefn
 
-@subsection ADD
-@findex mips_emit_add
+@unnumberedsubsubsec ADD
 @deftypefn {Function} ssize_t mips_emit_add (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
 @end deftypefn
 
-@subsection ADDU
-@findex mips_emit_addu
+@unnumberedsubsubsec ADDU
 @deftypefn {Function} ssize_t mips_emit_addu (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
 @end deftypefn
 
-@subsection ADDI
-@findex mips_emit_addi
+@unnumberedsubsubsec ADDI
 @deftypefn {Function} ssize_t mips_emit_addi (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_imm_t @var{imm})
 @end deftypefn
 
-@subsection ADDIU
-@findex mips_emit_addiu
+@unnumberedsubsubsec ADDIU
 @deftypefn {Function} ssize_t mips_emit_addiu (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_imm_t @var{imm})
 @end deftypefn
 
-@subsection SUB
-@findex mips_emit_sub
+@unnumberedsubsubsec SUB
 @deftypefn {Function} ssize_t mips_emit_sub (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
 @end deftypefn
 
-@subsection SUBU
-@findex mips_emit_subu
+@unnumberedsubsubsec SUBU
 @deftypefn {Function} ssize_t mips_emit_subu (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
 @end deftypefn
 
-@subsection MULT
-@findex mips_emit_mult
+@unnumberedsubsubsec MULT
 @deftypefn {Function} ssize_t mips_emit_mult (mips_insn_t* @var{insn}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
 @end deftypefn
 
-@subsection MULTU
-@findex mips_emit_multu
+@unnumberedsubsubsec MULTU
 @deftypefn {Function} ssize_t mips_emit_multu (mips_insn_t* @var{insn}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
 @end deftypefn
 
-@subsection MUL
-@findex mips_emit_mul
+@unnumberedsubsubsec MUL
 @deftypefn {Function} ssize_t mips_emit_mul (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
 @end deftypefn
 
-@subsection DIV
-@findex mips_emit_div
+@unnumberedsubsubsec DIV
 @deftypefn {Function} ssize_t mips_emit_div (mips_insn_t* @var{insn}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
 @end deftypefn
 
-@subsection DIVU
-@findex mips_emit_divu
+@unnumberedsubsubsec DIVU
 @deftypefn {Function} ssize_t mips_emit_divu (mips_insn_t* @var{insn}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
 @end deftypefn
 
-@subsection AND
-@findex mips_emit_and
+@unnumberedsubsubsec AND
 @deftypefn {Function} ssize_t mips_emit_and (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
 @end deftypefn
 
-@subsection OR
-@findex mips_emit_or
+@unnumberedsubsubsec OR
 @deftypefn {Function} ssize_t mips_emit_or (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
 @end deftypefn
 
-@subsection XOR
-@findex mips_emit_xor
+@unnumberedsubsubsec XOR
 @deftypefn {Function} ssize_t mips_emit_xor (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
 @end deftypefn
 
-@subsection NOR
-@findex mips_emit_nor
+@unnumberedsubsubsec NOR
 @deftypefn {Function} ssize_t mips_emit_nor (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_reg_t @var{rt})
 @end deftypefn
 
-@subsection J
-@findex mips_emit_j
+@unnumberedsubsubsec J
 @deftypefn {Function} ssize_t mips_emit_j (mips_insn_t* @var{insn}, mips_addr_t @var{target})
 @end deftypefn
 
-@subsection JAL
-@findex mips_emit_jal
+@unnumberedsubsubsec JAL
 @deftypefn {Function} ssize_t mips_emit_jal (mips_insn_t* @var{insn}, mips_addr_t @var{target})
 @end deftypefn
 
@@ -303,20 +286,390 @@ each described in the following subsections.
 @cindex x86-32
 @cindex x86-64
 
+TODO
+
 @section x86 Registers
 @cindex registers, x86
 
 @subsection General-purpose registers
 
+TODO
+
 @section x86 Instruction Formats
 @cindex instruction format, x86
 @findex x86_insn_t
 
+TODO
+
 @section x86 Instructions
 @cindex instruction set, x86
 
-@subsection NOP
-@findex x86_emit_nop
+@subsection General-purpose instructions
+
+@unnumberedsubsubsec AAA
+@sc{ASCII Adjust After Addition}
+@deftypefn {Function} ssize_t x86_emit_aaa (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec AAS
+@sc{ASCII Adjust After Subtraction}
+@deftypefn {Function} ssize_t x86_emit_aas (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec CBW/CWDE/CDQE
+@sc{Convert to Sign-Extended}
+@deftypefn {Function} ssize_t x86_emit_cbw (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_cwde (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_cdqe (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec CWD/CDQ/CQO
+@sc{Convert to Sign-Extended}
+@deftypefn {Function} ssize_t x86_emit_cwd (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_cdq (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_cqo (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec CLC
+@sc{Clear Carry Flag}
+@deftypefn {Function} ssize_t x86_emit_clc (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec CLD
+@sc{Clear Direction Flag}
+@deftypefn {Function} ssize_t x86_emit_cld (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec CMC
+@sc{Complement Carry Flag}
+@deftypefn {Function} ssize_t x86_emit_cmc (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec CMPSB/CMPSW/CMPSD/CMPSQ
+@sc{Compare Strings}
+@deftypefn {Function} ssize_t x86_emit_cmpsb (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_cmpsw (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_cmpsd (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_cmpsq (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec DAA
+@sc{Decimal Adjust after Addition}
+@deftypefn {Function} ssize_t x86_emit_daa (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec DAS
+@sc{Decimal Adjust after Subtraction}
+@deftypefn {Function} ssize_t x86_emit_das (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec INSB/INSW/INSD
+@sc{Input String}
+@deftypefn {Function} ssize_t x86_emit_insb (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_insw (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_insd (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec INTO
+@sc{Interrupt to Overflow Vector}
+@deftypefn {Function} ssize_t x86_emit_into (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec LAHF
+@sc{Load Status Flags into AH Register}
+@deftypefn {Function} ssize_t x86_emit_lahf (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec LEAVE
+@sc{Delete Procedure Stack Frame}
+@deftypefn {Function} ssize_t x86_emit_leave (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec LODSB/LODSW/LODSD/LODSQ
+@sc{Load String}
+@deftypefn {Function} ssize_t x86_emit_lodsb (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_lodsw (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_lodsd (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_lodsq (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec MOVSB/MOVSW/MOVSD/MOVSQ
+@sc{Move String}
+@deftypefn {Function} ssize_t x86_emit_movsb (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_movsw (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_movsd (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_movsq (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec NOP
+@sc{No Operation}
+@deftypefn {Function} ssize_t x86_emit_nop (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec OUTSB/OUTSW/OUTSD
+@sc{Output String}
+@deftypefn {Function} ssize_t x86_emit_outsb (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_outsw (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_outsd (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec POPA/POPAD
+@sc{POP All GPRs}
+@deftypefn {Function} ssize_t x86_emit_popa (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_popad (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec POPF/POPFD/POPFQ
+@sc{POP to rFLAGS}
+@deftypefn {Function} ssize_t x86_emit_popf (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_popfd (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_popfq (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec PUSHA/PUSHAD
+@sc{Push All GPRs onto Stack}
+@deftypefn {Function} ssize_t x86_emit_pusha (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_pushad (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec PUSHF/PUSHFD/PUSHFQ
+@sc{Push rFLAGS onto Stack}
+@deftypefn {Function} ssize_t x86_emit_pushf (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_pushfd (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_pushfq (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec RET
+@sc{Near Return from Called Procedure}
+@deftypefn {Function} ssize_t x86_emit_ret (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec RETF
+@sc{Far Return from Called Procedure}
+@deftypefn {Function} ssize_t x86_emit_retf (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec SAHF
+@sc{Store AH into Flags}
+@deftypefn {Function} ssize_t x86_emit_sahf (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec SCASB/SCASW/SCASD/SCASQ
+@sc{Scan String}
+@deftypefn {Function} ssize_t x86_emit_scasb (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_scasw (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_scasd (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_scasq (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec STC
+@sc{Set Carry Flag}
+@deftypefn {Function} ssize_t x86_emit_stc (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec STD
+@sc{Set Direction Flag}
+@deftypefn {Function} ssize_t x86_emit_std (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec STOSB/STOSW/STOSD/STOSQ
+@sc{Store String}
+@deftypefn {Function} ssize_t x86_emit_stosb (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_stosw (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_stosd (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_stosq (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec XLAT/XLATB
+@sc{Translate Table Index}
+@deftypefn {Function} ssize_t x86_emit_xlatb (x86_insn_t* @var{insn})
+@end deftypefn
+
+@page
+@subsection System instructions
+
+@unnumberedsubsubsec CLGI
+@sc{Clear Global Interrupt Flag}
+@deftypefn {Function} ssize_t x86_emit_clgi (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec CLI
+@sc{Clear Interrupt Flag}
+@deftypefn {Function} ssize_t x86_emit_cli (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec CLTS
+@sc{Clear Task-Switched Flag in CR0}
+@deftypefn {Function} ssize_t x86_emit_clts (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec HLT
+@sc{Halt}
+@deftypefn {Function} ssize_t x86_emit_hlt (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec INT3
+@sc{Interrupt to Debug Vector}
+@deftypefn {Function} ssize_t x86_emit_int3 (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec INVD
+@sc{Invalidate Caches}
+@deftypefn {Function} ssize_t x86_emit_invd (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec INVLPGA
+@sc{Invalidate TLB Entry in a Specified ASID}
+@deftypefn {Function} ssize_t x86_emit_invlpga (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec IRET/IRETD/IRETQ
+@sc{Return from Interrupt}
+@deftypefn {Function} ssize_t x86_emit_iret (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_iretd (x86_insn_t* @var{insn})
+@end deftypefn
+@deftypefn {Function} ssize_t x86_emit_iretq (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec MONITOR
+@sc{Setup Monitor Address}
+@deftypefn {Function} ssize_t x86_emit_monitor (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec MWAIT
+@sc{Monitor Wait}
+@deftypefn {Function} ssize_t x86_emit_mwait (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec RDMSR
+@sc{Read Model-Specific Register}
+@deftypefn {Function} ssize_t x86_emit_rdmsr (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec RDPMC
+@sc{Read Performance-Monitoring Counter}
+@deftypefn {Function} ssize_t x86_emit_rdpmc (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec RDTSC
+@sc{Read Time-Stamp Counter}
+@deftypefn {Function} ssize_t x86_emit_rdtsc (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec RDTSCP
+@sc{Read Time-Stamp Counter and Processor ID}
+@deftypefn {Function} ssize_t x86_emit_rdtscp (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec RSM
+@sc{Resume from System Management Mode}
+@deftypefn {Function} ssize_t x86_emit_rsm (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec SKINIT
+@sc{Secure Init and Jump with Attestation}
+@deftypefn {Function} ssize_t x86_emit_skinit (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec STI
+@sc{Set Interrupt Flag}
+@deftypefn {Function} ssize_t x86_emit_sti (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec STGI
+@sc{Set Global Interrupt Flag}
+@deftypefn {Function} ssize_t x86_emit_stgi (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec SWAPGS
+@sc{Swap GS Register with KernelGSbase MSR}
+@deftypefn {Function} ssize_t x86_emit_swapgs (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec SYSCALL
+@sc{Fast System Call}
+@deftypefn {Function} ssize_t x86_emit_syscall (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec SYSENTER
+@sc{System Call}
+@deftypefn {Function} ssize_t x86_emit_sysenter (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec SYSEXIT
+@sc{System Return}
+@deftypefn {Function} ssize_t x86_emit_sysexit (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec SYSRET
+@sc{Fast System Return}
+@deftypefn {Function} ssize_t x86_emit_sysret (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec UD2
+@sc{Undefined Operation}
+@deftypefn {Function} ssize_t x86_emit_ud2 (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec VMLOAD
+@sc{Load State from VMCB}
+@deftypefn {Function} ssize_t x86_emit_vmload (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec VMMCALL
+@sc{Call VMM}
+@deftypefn {Function} ssize_t x86_emit_vmmcall (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec VMRUN
+@sc{Run Virtual Machine}
+@deftypefn {Function} ssize_t x86_emit_vmrun (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec VMSAVE
+@sc{Save State to VMCB}
+@deftypefn {Function} ssize_t x86_emit_vmsave (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec WBINVD
+@sc{Writeback and Invalidate Caches}
+@deftypefn {Function} ssize_t x86_emit_wbinvd (x86_insn_t* @var{insn})
+@end deftypefn
+
+@unnumberedsubsubsec WRMSR
+@sc{Write to Model-Specific Register}
+@deftypefn {Function} ssize_t x86_emit_wrmsr (x86_insn_t* @var{insn})
+@end deftypefn
 
 @comment *********************************************************************
 
