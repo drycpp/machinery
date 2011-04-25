@@ -86,19 +86,30 @@ disassemblers, emulators, and other low-level toolchain machinery.
 
 @section MIPS Overview
 @cindex architecture, MIPS
-@cindex MIPS32
-@cindex MIPS64
+@cindex MIPS-32
+@cindex MIPS-64
 
 @acronym{MIPS, Microprocessor without Interlocked Pipeline Stages} is a RISC
-instruction set architecture first introduced in 1985.
+instruction set architecture first introduced in 1985. Simple and elegant.
+
+MIPS is big-endian.
+
+@subsection Alignment restrictions
+
+On MIPS, addresses must be word-aligned (4 bytes on MIPS-32).
 
 @section MIPS Registers
 @cindex registers, MIPS
 @findex mips_reg_t
 
-MIPS provides 32 general-purpose registers and 32 floating-point registers.
+MIPS provides 32 general-purpose registers and 32 floating-point registers,
+each 32 bits (on MIPS-32) or 64 bits (on MIPS-64) wide.
 
 @subsection General-purpose registers
+
+The register @code{$zero} is hardwired to always output the value zero, and
+anything written to it is discarded.
+
 @multitable @columnfractions .25 .15 .10
 @headitem Constant @tab Mnemonic @tab Number
 @item @code{MIPS_REG_ZERO} @tab @code{$zero} @tab 0
@@ -148,18 +159,55 @@ each described in the following subsections.
 @subsection R-format
 @findex mips_insn_r_t
 
+@table @code
+@item op
+The opcode.
+@item rs
+The first source register operand.
+@item rt
+The second source register operand.
+@item rd
+The destination register operand.
+@item shamt
+The shift amount.
+@item funct
+The function code.
+@end table
+
 @subsection I-format
 @findex mips_insn_i_t
+
+@table @code
+@item op
+The opcode.
+@item rs
+@item rt
+@item imm
+A constant or address.
+@end table
 
 @subsection J-format
 @findex mips_insn_j_t
 
+@table @code
+@item op
+The opcode.
+@item addr
+@end table
+
 @section MIPS Instructions
 @cindex instruction set, MIPS
+
+Arithmetic instructions perform only one operation and take three operands:
+two source registers and the destination register.
+In MIPS, data must be in registers to perform arithmetic; to use any
+memory-resident data, it must first be loaded into registers using a data
+transfer instruction.
 
 @subsection General-purpose instructions
 
 @unnumberedsubsubsec NOP
+@sc{No Operation}
 @deftypefn {Function} ssize_t mips_emit_nop (mips_insn_t* @var{insn})
 @end deftypefn
 
@@ -180,6 +228,8 @@ each described in the following subsections.
 @end deftypefn
 
 @unnumberedsubsubsec ADDI
+Note that since the constant can be negative, there is no need for a
+@code{SUBI} instruction.
 @deftypefn {Function} ssize_t mips_emit_addi (mips_insn_t* @var{insn}, mips_reg_t @var{rd}, mips_reg_t @var{rs}, mips_imm_t @var{imm})
 @end deftypefn
 
