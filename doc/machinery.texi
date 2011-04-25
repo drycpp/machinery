@@ -36,10 +36,10 @@ this manual for any purpose, commercial or non-commercial, and by any means.
 
 @menu
 * Overview of Machinery::
-* ARM Code Generation::
+@comment * ARM Code Generation::
 * MIPS Code Generation::
-* PowerPC Code Generation::
-* SPARC Code Generation::
+@comment * PowerPC Code Generation::
+@comment * SPARC Code Generation::
 * x86 Code Generation::
 * Concept Index::
 * Function and Type Index::
@@ -61,6 +61,7 @@ disassemblers, emulators, and other low-level toolchain machinery.
 @findex errno
 
 @comment *********************************************************************
+@ignore
 
 @node ARM Code Generation
 @chapter ARM Code Generation
@@ -78,6 +79,7 @@ disassemblers, emulators, and other low-level toolchain machinery.
 @section ARM Instructions
 @cindex instruction set, ARM
 
+@end ignore
 @comment *********************************************************************
 
 @node MIPS Code Generation
@@ -302,6 +304,7 @@ Note that since the constant can be negative, there is no need for a
 @end deftypefn
 
 @comment *********************************************************************
+@ignore
 
 @node PowerPC Code Generation
 @chapter PowerPC Code Generation
@@ -319,7 +322,9 @@ Note that since the constant can be negative, there is no need for a
 @section PowerPC Instructions
 @cindex instruction set, PowerPC
 
+@end ignore
 @comment *********************************************************************
+@ignore
 
 @node SPARC Code Generation
 @chapter SPARC Code Generation
@@ -337,6 +342,7 @@ Note that since the constant can be negative, there is no need for a
 @section SPARC Instructions
 @cindex instruction set, SPARC
 
+@end ignore
 @comment *********************************************************************
 
 @node x86 Code Generation
