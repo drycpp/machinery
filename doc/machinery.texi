@@ -146,13 +146,13 @@ divided into three distinct instruction formats: R, I, and J. These are
 each described in the following subsections.
 
 @subsection R-format
-@findex mips_r_insn_t
+@findex mips_insn_r_t
 
 @subsection I-format
-@findex mips_i_insn_t
+@findex mips_insn_i_t
 
 @subsection J-format
-@findex mips_j_insn_t
+@findex mips_insn_j_t
 
 @section MIPS Instructions
 @cindex instruction set, MIPS

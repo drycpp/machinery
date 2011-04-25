@@ -63,7 +63,7 @@ typedef struct {
   int rd       : 5;   /* register destination operand */
   int shamt    : 5;   /* shift amount */
   int funct    : 6;   /* function code */
-} mips_r_insn_t;
+} mips_insn_r_t;
 
 /* MIPS I-format instruction */
 typedef struct {
@@ -71,19 +71,19 @@ typedef struct {
   int rs       : 5;
   int rt       : 5;
   int imm      : 16;  /* constant or address */
-} mips_i_insn_t;
+} mips_insn_i_t;
 
 /* MIPS J-format instruction */
 typedef struct {
   int op       : 6;   /* opcode */
   int addr     : 26;  /* address */
-} mips_j_insn_t;
+} mips_insn_j_t;
 
 /* MIPS instruction */
 typedef union {
-  mips_r_insn_t r;
-  mips_i_insn_t i;
-  mips_j_insn_t j;
+  mips_insn_r_t r;
+  mips_insn_i_t i;
+  mips_insn_j_t j;
 } mips_insn_t;
 
 /* MIPS instruction encoders */
