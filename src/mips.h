@@ -19,7 +19,7 @@ typedef int8_t  mips_funct_t;
 typedef int16_t mips_imm_t;
 typedef int32_t mips_addr_t;
 
-/* MIPS registers */
+/* MIPS general-purpose registers */
 typedef enum {
   MIPS_REG_ZERO = 0,  /* zero value */
   MIPS_REG_AT   = 1,  /* assembly temporary */
@@ -54,6 +54,42 @@ typedef enum {
   MIPS_REG_FP   = 30, /* frame pointer */
   MIPS_REG_RA   = 31, /* return address */
 } mips_reg_t;
+
+/* MIPS floating-point registers */
+typedef enum {
+  MIPS_REG_F0   = 0,
+  MIPS_REG_F1,
+  MIPS_REG_F2,
+  MIPS_REG_F3,
+  MIPS_REG_F4,
+  MIPS_REG_F5,
+  MIPS_REG_F6,
+  MIPS_REG_F7,
+  MIPS_REG_F8,
+  MIPS_REG_F9,
+  MIPS_REG_F10,
+  MIPS_REG_F11,
+  MIPS_REG_F12,
+  MIPS_REG_F13,
+  MIPS_REG_F14,
+  MIPS_REG_F15,
+  MIPS_REG_F16,
+  MIPS_REG_F17,
+  MIPS_REG_F18,
+  MIPS_REG_F19,
+  MIPS_REG_F20,
+  MIPS_REG_F21,
+  MIPS_REG_F22,
+  MIPS_REG_F23,
+  MIPS_REG_F24,
+  MIPS_REG_F25,
+  MIPS_REG_F26,
+  MIPS_REG_F27,
+  MIPS_REG_F28,
+  MIPS_REG_F29,
+  MIPS_REG_F30,
+  MIPS_REG_F31,
+} mips_reg_f_t;
 
 /* MIPS R-format instruction */
 typedef struct {

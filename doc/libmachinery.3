@@ -27,7 +27,7 @@ supported.
 .
 .TP
 .B enum mips_reg_t
-MIPS register number (0..31).
+MIPS general-purpose register number (0..31).
 .br
   \fIConstant                Mnemonic        Number\fP
   \fBMIPS_REG_ZERO\fP           $zero           0
@@ -62,6 +62,44 @@ MIPS register number (0..31).
   \fBMIPS_REG_SP\fP             $sp             29
   \fBMIPS_REG_FP\fP             $fp             30
   \fBMIPS_REG_RA\fP             $ra             31
+.
+.TP
+.B enum mips_reg_f_t
+MIPS floating-point register number (0..31).
+.br
+  \fIConstant                Mnemonic        Number\fP
+  \fBMIPS_REG_F0\fP             $f0             0
+  \fBMIPS_REG_F1\fP             $f1             1
+  \fBMIPS_REG_F2\fP             $f2             2
+  \fBMIPS_REG_F3\fP             $f3             3
+  \fBMIPS_REG_F4\fP             $f4             4
+  \fBMIPS_REG_F5\fP             $f5             5
+  \fBMIPS_REG_F6\fP             $f6             6
+  \fBMIPS_REG_F7\fP             $f7             7
+  \fBMIPS_REG_F8\fP             $f8             8
+  \fBMIPS_REG_F9\fP             $f9             9
+  \fBMIPS_REG_F10\fP            $f10            10
+  \fBMIPS_REG_F11\fP            $f11            11
+  \fBMIPS_REG_F12\fP            $f12            12
+  \fBMIPS_REG_F13\fP            $f13            13
+  \fBMIPS_REG_F14\fP            $f14            14
+  \fBMIPS_REG_F15\fP            $f15            15
+  \fBMIPS_REG_F16\fP            $f16            16
+  \fBMIPS_REG_F17\fP            $f17            17
+  \fBMIPS_REG_F18\fP            $f18            18
+  \fBMIPS_REG_F19\fP            $f19            19
+  \fBMIPS_REG_F20\fP            $f20            20
+  \fBMIPS_REG_F21\fP            $f21            21
+  \fBMIPS_REG_F22\fP            $f22            22
+  \fBMIPS_REG_F23\fP            $f23            23
+  \fBMIPS_REG_F24\fP            $f24            24
+  \fBMIPS_REG_F25\fP            $f25            25
+  \fBMIPS_REG_F26\fP            $f26            26
+  \fBMIPS_REG_F27\fP            $f27            27
+  \fBMIPS_REG_F28\fP            $f28            28
+  \fBMIPS_REG_F29\fP            $f29            29
+  \fBMIPS_REG_F30\fP            $f30            30
+  \fBMIPS_REG_F31\fP            $f31            31
 .
 .TP
 .B struct mips_insn_r_t

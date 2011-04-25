@@ -102,12 +102,12 @@ On MIPS, addresses must be word-aligned (4 bytes on MIPS-32).
 
 @section MIPS Registers
 @cindex registers, MIPS
-@findex mips_reg_t
 
 MIPS provides 32 general-purpose registers and 32 floating-point registers,
 each 32 bits (on MIPS-32) or 64 bits (on MIPS-64) wide.
 
 @subsection General-purpose registers
+@findex mips_reg_t
 
 The register @code{$zero} is hardwired to always output the value zero, and
 anything written to it is discarded.
@@ -149,6 +149,47 @@ anything written to it is discarded.
 @end multitable
 
 @subsection Floating-point registers
+@findex mips_reg_f_t
+
+MIPS has 32 floating-point registers, referred to as @code{$f0}
+through @code{$f31}. These are 64-bit registers capable of holding a
+double-precision value.
+
+@multitable @columnfractions .25 .15 .10
+@headitem Constant @tab Mnemonic @tab Number
+@item @code{MIPS_REG_F0}   @tab @code{$f0}  @tab 0
+@item @code{MIPS_REG_F1}   @tab @code{$f1}  @tab 1
+@item @code{MIPS_REG_F2}   @tab @code{$f2}  @tab 2
+@item @code{MIPS_REG_F3}   @tab @code{$f3}  @tab 3
+@item @code{MIPS_REG_F4}   @tab @code{$f4}  @tab 4
+@item @code{MIPS_REG_F5}   @tab @code{$f5}  @tab 5
+@item @code{MIPS_REG_F6}   @tab @code{$f6}  @tab 6
+@item @code{MIPS_REG_F7}   @tab @code{$f7}  @tab 7
+@item @code{MIPS_REG_F8}   @tab @code{$f8}  @tab 8
+@item @code{MIPS_REG_F9}   @tab @code{$f9}  @tab 9
+@item @code{MIPS_REG_F10}  @tab @code{$f10} @tab 10
+@item @code{MIPS_REG_F11}  @tab @code{$f11} @tab 11
+@item @code{MIPS_REG_F12}  @tab @code{$f12} @tab 12
+@item @code{MIPS_REG_F13}  @tab @code{$f13} @tab 13
+@item @code{MIPS_REG_F14}  @tab @code{$f14} @tab 14
+@item @code{MIPS_REG_F15}  @tab @code{$f15} @tab 15
+@item @code{MIPS_REG_F16}  @tab @code{$f16} @tab 16
+@item @code{MIPS_REG_F17}  @tab @code{$f17} @tab 17
+@item @code{MIPS_REG_F18}  @tab @code{$f18} @tab 18
+@item @code{MIPS_REG_F19}  @tab @code{$f19} @tab 19
+@item @code{MIPS_REG_F20}  @tab @code{$f20} @tab 20
+@item @code{MIPS_REG_F21}  @tab @code{$f21} @tab 21
+@item @code{MIPS_REG_F22}  @tab @code{$f22} @tab 22
+@item @code{MIPS_REG_F23}  @tab @code{$f23} @tab 23
+@item @code{MIPS_REG_F24}  @tab @code{$f24} @tab 24
+@item @code{MIPS_REG_F25}  @tab @code{$f25} @tab 25
+@item @code{MIPS_REG_F26}  @tab @code{$f26} @tab 26
+@item @code{MIPS_REG_F27}  @tab @code{$f27} @tab 27
+@item @code{MIPS_REG_F28}  @tab @code{$f28} @tab 28
+@item @code{MIPS_REG_F29}  @tab @code{$f29} @tab 29
+@item @code{MIPS_REG_F30}  @tab @code{$f30} @tab 30
+@item @code{MIPS_REG_F31}  @tab @code{$f31} @tab 31
+@end multitable
 
 @section MIPS Instruction Formats
 @cindex instruction format, MIPS
@@ -302,6 +343,8 @@ Note that since the constant can be negative, there is no need for a
 @unnumberedsubsubsec JAL
 @deftypefn {Function} ssize_t mips_emit_jal (mips_insn_t* @var{insn}, mips_addr_t @var{target})
 @end deftypefn
+
+@subsection Floating-point instructions
 
 @comment *********************************************************************
 @ignore
