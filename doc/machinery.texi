@@ -159,6 +159,10 @@ each described in the following subsections.
 @subsection R-format
 @findex mips_insn_r_t
 
+@iftex
+@image{figures/mips_insn_r,6in}
+@end iftex
+
 @table @code
 @item op
 The opcode.
@@ -177,6 +181,10 @@ The function code.
 @subsection I-format
 @findex mips_insn_i_t
 
+@iftex
+@image{figures/mips_insn_i,6in}
+@end iftex
+
 @table @code
 @item op
 The opcode.
@@ -188,6 +196,10 @@ A constant or address.
 
 @subsection J-format
 @findex mips_insn_j_t
+
+@iftex
+@image{figures/mips_insn_j,6in}
+@end iftex
 
 @table @code
 @item op
