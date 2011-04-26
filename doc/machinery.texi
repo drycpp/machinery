@@ -191,6 +191,9 @@ double-precision value.
 @item @code{MIPS_REG_F31}  @tab @code{$f31} @tab 31
 @end multitable
 
+@section MIPS Addressing Modes
+@cindex addressing mode, MIPS
+
 @section MIPS Instruction Formats
 @cindex instruction format, MIPS
 @findex mips_insn_t
@@ -198,6 +201,8 @@ double-precision value.
 MIPS uses 32-bit fixed-length instructions, and all instructions can be
 divided into three distinct instruction formats: R, I, and J. These are
 each described in the following subsections.
+
+All three instruction formats have a 6-bit opcode as their first field.
 
 @subsection R-format
 @findex mips_insn_r_t
@@ -403,6 +408,26 @@ TODO
 @cindex registers, x86
 
 @subsection General-purpose registers
+@findex x86_reg8_t
+@findex x86_reg16_t
+@findex x86_reg32_t
+@findex x86_reg64_t
+
+TODO
+
+x86-64 adds eight GPRs (R8-R15), widens all GPRs to 64 bits, and adds eight
+128-bit XMM registers (XMM8-XMM15).
+
+@subsection Floating-point registers
+
+TODO
+
+@subsection SIMD registerss
+
+TODO
+
+@section x86 Addressing Modes
+@cindex addressing mode, x86
 
 TODO
 
@@ -414,6 +439,8 @@ TODO
 
 @section x86 Instructions
 @cindex instruction set, x86
+
+The x86 uses variable-length instructions from 1 byte to 15 bytes long.
 
 @subsection General-purpose instructions
 
@@ -624,6 +651,10 @@ TODO
 @sc{Translate Table Index}
 @deftypefn {Function} ssize_t x86_emit_xlatb (x86_insn_t* @var{insn})
 @end deftypefn
+
+@page
+@subsection Floating-point instructions
+@subsection SIMD instructions
 
 @page
 @subsection System instructions
