@@ -1,6 +1,11 @@
 DRY Machinery
 =============
 
+.. image:: https://travis-ci.org/dryproject/machinery.png?branch=master
+   :target: https://travis-ci.org/dryproject/machinery
+   :align: right
+   :alt: Travis CI build status
+
 Toolchain machinery for compilers, code generators, assemblers, linkers, and
 emulators.
 
