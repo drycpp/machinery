@@ -1,6 +1,3 @@
-.deps/
-.libs/
-*.a
-*.o
-*.la
-*.lo
+config.h
+config.h.in
+config.h.in~

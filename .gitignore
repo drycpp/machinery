@@ -2,6 +2,7 @@
 .tmp/
 pkg/
 tmp/
+*~
 
 # GNU Autotools
 etc/aclocal/
@@ -9,9 +10,6 @@ Makefile
 Makefile.in
 aclocal.m4
 autom4te.cache/
-config.h
-config.h.in
-config.h.in~
 config.log
 config.status
 configure

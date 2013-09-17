@@ -1,18 +1,18 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef _MACHINERY_PPC_H
-#define _MACHINERY_PPC_H
+#ifndef MACHINERY_EXTERN_H
+#define MACHINERY_EXTERN_H
+
+/**
+ * @file
+ */
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdlib.h>
-
 #ifdef __cplusplus
-}
+} /* extern "C" */
 #endif
 
-#endif /* _MACHINERY_PPC_H */
+#endif /* MACHINERY_EXTERN_H */

@@ -1,0 +1,43 @@
+/* This is free and unencumbered software released into the public domain. */
+
+#ifndef MACHINERY_VERSION_H
+#define MACHINERY_VERSION_H
+
+/**
+ * @file
+ */
+
+#define MACHINERY_VERSION_STRING "@PACKAGE_VERSION@"
+#define MACHINERY_VERSION_MAJOR  @PACKAGE_VERSION_MAJOR@
+#define MACHINERY_VERSION_MINOR  @PACKAGE_VERSION_MINOR@
+#define MACHINERY_VERSION_PATCH  @PACKAGE_VERSION_PATCH@
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * The libmachinery version as a NUL-terminated string.
+ */
+extern const char* const machinery_version_string;
+
+/**
+ * The libmachinery major version.
+ */
+extern const short machinery_version_major;
+
+/**
+ * The libmachinery minor version.
+ */
+extern const short machinery_version_minor;
+
+/**
+ * The libmachinery patch level.
+ */
+extern const short machinery_version_patch;
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
+
+#endif /* MACHINERY_VERSION_H */
