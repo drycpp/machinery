@@ -66,7 +66,7 @@ AS_IF([test "x$enable_unicode" == "xno"],
   [AC_DEFINE([DISABLE_UNICODE], 1, [Define to disable Unicode string support.])])
 
 dnl Check for libraries:
-dnl AX_BOOST_BASE([1.48], [AX_BOOST_UNIT_TEST_FRAMEWORK])
+AX_BOOST_BASE([1.48], [AX_BOOST_UNIT_TEST_FRAMEWORK])
 
 dnl Check for header files:
 AC_LANG_PUSH([C])
