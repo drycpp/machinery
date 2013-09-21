@@ -13,6 +13,7 @@
 namespace machinery {
   namespace arch {
     class x86_emitter;
+    using x86_opcode = std::uint8_t; /**< x86 opcode byte */
   }
 }
 
@@ -60,6 +61,42 @@ public:
    * Move assignment operator.
    */
   x86_emitter& operator=(x86_emitter&& other) noexcept = default;
+
+  /**
+   * Emits a 1-byte instruction.
+   *
+   * @throws std::bad_alloc if out of memory
+   */
+  inline x86_emitter& emit(const x86_opcode opcode) {
+    _buffer.push_back(opcode);
+    return *this;
+  }
+
+  /**
+   * Emits a 2-byte instruction.
+   *
+   * @throws std::bad_alloc if out of memory
+   */
+  inline x86_emitter& emit(const x86_opcode opcode,
+                           const x86_opcode opcode2) {
+    _buffer.push_back(opcode);
+    _buffer.push_back(opcode2);
+    return *this;
+  }
+
+  /**
+   * Emits a 3-byte instruction.
+   *
+   * @throws std::bad_alloc if out of memory
+   */
+  inline x86_emitter& emit(const x86_opcode opcode,
+                           const x86_opcode opcode2,
+                           const x86_opcode opcode3) {
+    _buffer.push_back(opcode);
+    _buffer.push_back(opcode2);
+    _buffer.push_back(opcode3);
+    return *this;
+  }
 };
 
 #endif /* MACHINERY_ARCH_X86_EMITTER_H */
