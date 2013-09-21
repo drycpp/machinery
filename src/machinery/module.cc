@@ -5,3 +5,12 @@
 #endif
 
 #include "module.h"
+
+static const char* const module_names[] = {
+#ifndef DISABLE_ARM
+  "arm",
+#endif
+#ifndef DISABLE_X86
+  "x86",
+#endif
+};

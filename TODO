@@ -1,0 +1,4 @@
+Build System
+------------
+
+- configure.ac: ./configure --enable-archs=arm,x86

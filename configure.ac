@@ -64,6 +64,25 @@ AC_ARG_ENABLE([unicode],
   [AS_HELP_STRING([--disable-unicode], [omit support for Unicode strings])])
 AS_IF([test "x$enable_unicode" == "xno"],
   [AC_DEFINE([DISABLE_UNICODE], 1, [Define to disable Unicode string support.])])
+# --enable-*/--disable-*
+AC_DEFUN([AX_ARG_DISABLE_MODULE], [dnl
+  m4_define([MODULE_ID], m4_translit([$1], [-a-z], [_A-Z]))
+  AC_ARG_ENABLE([$1],
+    [AS_HELP_STRING([--enable-$1], [include support for $2])], [], [enable_$1=no])
+  AS_IF([test "x$enable_$1" == "xno"],
+    [AC_DEFINE([DISABLE_]MODULE_ID, 1, [Define to disable $2.])])
+  AM_CONDITIONAL([DISABLE_]MODULE_ID, [test "x$enable_$1" == "xno"])
+])
+AC_DEFUN([AX_ARG_ENABLE_MODULE], [dnl
+  m4_define([MODULE_ID], m4_translit([$1], [-a-z], [_A-Z]))
+  AC_ARG_ENABLE([$1],
+    [AS_HELP_STRING([--disable-$1], [omit support for $2])], [], [enable_$1=yes])
+  AS_IF([test "x$enable_$1" == "xno"],
+    [AC_DEFINE([DISABLE_]MODULE_ID, 1, [Define to disable $2.])])
+  AM_CONDITIONAL([DISABLE_]MODULE_ID, [test "x$enable_$1" == "xno"])
+])
+AX_ARG_DISABLE_MODULE([arm], [the ARMv8 architecture])      # --enable-arm/--disable-arm
+AX_ARG_ENABLE_MODULE([x86], [the x86/x86-64 architectures]) # --enable-x86/--disable-x86
 
 dnl Check for libraries:
 AX_BOOST_BASE([1.48], [AX_BOOST_UNIT_TEST_FRAMEWORK])

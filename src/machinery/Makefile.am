@@ -14,3 +14,13 @@ base_pkginclude_HEADERS = \
   feature.h               \
   module.h                \
   version.h
+
+nobase_pkginclude_HEADERS =
+
+if !DISABLE_ARM
+  nobase_pkginclude_HEADERS += arch/arm.h
+endif
+
+if !DISABLE_X86
+  nobase_pkginclude_HEADERS += arch/x86.h
+endif
