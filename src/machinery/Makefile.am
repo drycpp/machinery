@@ -23,4 +23,5 @@ endif
 
 if !DISABLE_X86
   nobase_pkginclude_HEADERS += arch/x86.h arch/x86-64.h
+  libmachinery_la_SOURCES   += arch/x86/register.cc
 endif

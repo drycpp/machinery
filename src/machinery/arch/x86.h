@@ -7,4 +7,6 @@
  * @file
  */
 
+#include "x86/register.h"
+
 #endif /* MACHINERY_ARCH_X86_H */
