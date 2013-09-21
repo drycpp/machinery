@@ -22,5 +22,5 @@ if !DISABLE_ARM
 endif
 
 if !DISABLE_X86
-  nobase_pkginclude_HEADERS += arch/x86.h
+  nobase_pkginclude_HEADERS += arch/x86.h arch/x86-64.h
 endif
