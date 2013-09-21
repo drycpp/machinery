@@ -11,7 +11,8 @@
 
 namespace machinery {
   namespace arch {
-    using x86_reg = std::uint8_t;
+    using x86_opcode = std::uint8_t; /**< x86 opcode byte */
+    using x86_reg    = std::uint8_t;
     enum class x86_reg8  : x86_reg;
     enum class x86_reg16 : x86_reg;
     enum class x86_reg32 : x86_reg;
