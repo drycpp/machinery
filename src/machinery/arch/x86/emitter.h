@@ -9,6 +9,7 @@
  * x86 machine code emission.
  */
 
+#include <cstddef> /* for std::size_t */
 #include <cstdint> /* for std::uint8_t */
 #include <vector>  /* for std::vector */
 
@@ -26,6 +27,7 @@ namespace machinery {
  */
 class machinery::arch::x86_emitter {
   std::vector<std::uint8_t>& _buffer;
+  std::size_t _buffer_start;
 
 public:
   /**
@@ -39,7 +41,8 @@ public:
    * @param buffer the output buffer
    */
   x86_emitter(std::vector<std::uint8_t>& buffer) noexcept
-    : _buffer(buffer) {}
+    : _buffer(buffer),
+      _buffer_start(buffer.size()) {}
 
   /**
    * Copy constructor.
@@ -65,6 +68,18 @@ public:
    * Move assignment operator.
    */
   x86_emitter& operator=(x86_emitter&& other) noexcept = default;
+
+  /**
+   * Returns the current buffer offset as a byte count.
+   *
+   * This indicates how many bytes have been written into the buffer by this
+   * emitter instance.
+   *
+   * @return a zero-based byte offset
+   */
+  std::size_t offset() const noexcept {
+    return _buffer.size() - _buffer_start;
+  }
 
   /**
    * Emits a one-byte instruction.
