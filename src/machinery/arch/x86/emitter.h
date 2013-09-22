@@ -17,6 +17,11 @@ namespace machinery {
   namespace arch {
     class x86_emitter;
     using x86_opcode = std::uint8_t; /**< x86 opcode byte */
+    using x86_reg    = std::uint8_t;
+    enum class x86_reg8  : x86_reg;
+    enum class x86_reg16 : x86_reg;
+    enum class x86_reg32 : x86_reg;
+    enum class x86_reg64 : x86_reg;
   }
 }
 
@@ -443,6 +448,54 @@ public:
    */
   x86_emitter& emit_movsq() {
     return emit(0xA5);
+  }
+
+  /**
+   * Emits a ?-byte `MUL reg8` instruction.
+   *
+   * @param reg8 an 8-bit register operand
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   * @todo Implement this method.
+   */
+  x86_emitter& emit_mul(const x86_reg8 reg8) {
+    return (void)reg8, *this; // TODO
+  }
+
+  /**
+   * Emits a ?-byte `MUL reg16` instruction.
+   *
+   * @param reg16 a 16-bit register operand
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   * @todo Implement this method.
+   */
+  x86_emitter& emit_mul(const x86_reg16 reg16) {
+    return (void)reg16, *this; // TODO
+  }
+
+  /**
+   * Emits a ?-byte `MUL reg32` instruction.
+   *
+   * @param reg32 a 32-bit register operand
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   * @todo Implement this method.
+   */
+  x86_emitter& emit_mul(const x86_reg32 reg32) {
+    return (void)reg32, *this; // TODO
+  }
+
+  /**
+   * Emits a ?-byte `MUL reg32` instruction.
+   *
+   * @param reg64 a 64-bit register operand
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   * @todo Implement this method.
+   */
+  x86_emitter& emit_mul(const x86_reg64 reg64) {
+    return (void)reg64, *this; // TODO
   }
 
   /**
