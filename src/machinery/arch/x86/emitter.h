@@ -110,6 +110,15 @@ public:
   }
 
   /**
+   * @name General-Purpose Instructions
+   *
+   * These instructions operate on the general-purpose (GP) registers and
+   * can be used at all privilege levels.
+   */
+
+  /**@{*/
+
+  /**
    * Emits a one-byte `AAA` instruction.
    *
    * @return `*this`
@@ -698,6 +707,397 @@ public:
   x86_emitter& emit_xlatb() {
     return emit(0xD7);
   }
+
+  /**@}*/
+
+  /**
+   * @name System Instructions
+   *
+   * These instructions manipulate the processor operating mode, access
+   * processor resources, handle program and system errors, and manage
+   * system memory. Many of these instructions require privilege level 0 to
+   * execute.
+   */
+
+  /**@{*/
+
+  /**
+   * Emits a three-byte `CLGI` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_clgi() {
+    return emit(0x0F, 0x01, 0xDD);
+  }
+
+  /**
+   * Emits a one-byte `CLI` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_cli() {
+    return emit(0xFA);
+  }
+
+  /**
+   * Emits a two-byte `CLTS` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_clts() {
+    return emit(0x0F, 0x06);
+  }
+
+  /**
+   * Emits a one-byte `HLT` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_hlt() {
+    return emit(0xF4);
+  }
+
+  /**
+   * Emits a one-byte `INT3` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_int3() {
+    return emit(0xCC);
+  }
+
+  /**
+   * Emits a two-byte `INVD` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_invd() {
+    return emit(0x0F, 0x08);
+  }
+
+  /**
+   * Emits a three-byte `INVLPGA` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_invlpga() {
+    return emit(0x0F, 0x01, 0xDF);
+  }
+
+  /**
+   * Emits a one-byte `IRET` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_iret() {
+    return emit(0xCF);
+  }
+
+  /**
+   * Emits a one-byte `IRETD` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_iretd() {
+    return emit(0xCF);
+  }
+
+  /**
+   * Emits a one-byte `IRETQ` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_iretq() {
+    return emit(0xCF);
+  }
+
+  /**
+   * Emits a three-byte `MONITOR` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_monitor() {
+    return emit(0x0F, 0x01, 0xC8);
+  }
+
+  /**
+   * Emits a three-byte `MWAIT` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_mwait() {
+    return emit(0x0F, 0x01, 0xC9);
+  }
+
+  /**
+   * Emits a two-byte `RDMSR` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_rdmsr() {
+    return emit(0x0F, 0x32);
+  }
+
+  /**
+   * Emits a two-byte `RDPMC` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_rdpmc() {
+    return emit(0x0F, 0x33);
+  }
+
+  /**
+   * Emits a two-byte `RDTSC` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_rdtsc() {
+    return emit(0x0F, 0x31);
+  }
+
+  /**
+   * Emits a three-byte `RDTSCP` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_rdtscp() {
+    return emit(0x0F, 0x01, 0xF9);
+  }
+
+  /**
+   * Emits a two-byte `RSM` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_rsm() {
+    return emit(0x0F, 0xAA);
+  }
+
+  /**
+   * Emits a three-byte `SKINIT` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_skinit() {
+    return emit(0x0F, 0x01, 0xDE);
+  }
+
+  /**
+   * Emits a one-byte `STI` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_sti() {
+    return emit(0xFB);
+  }
+
+  /**
+   * Emits a three-byte `STGI` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_stgi() {
+    return emit(0x0F, 0x01, 0xDC);
+  }
+
+  /**
+   * Emits a three-byte `SWAPGS` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_swapgs() {
+    return emit(0x0F, 0x01, 0xF8);
+  }
+
+  /**
+   * Emits a two-byte `SYSCALL` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_syscall() {
+    return emit(0x0F, 0x05);
+  }
+
+  /**
+   * Emits a two-byte `SYSENTER` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_sysenter() {
+    return emit(0x0F, 0x34);
+  }
+
+  /**
+   * Emits a two-byte `SYSEXIT` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_sysexit() {
+    return emit(0x0F, 0x35);
+  }
+
+  /**
+   * Emits a two-byte `SYSRET` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_sysret() {
+    return emit(0x0F, 0x07);
+  }
+
+  /**
+   * Emits a two-byte `UD2` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_ud2() {
+    return emit(0x0F, 0x0B);
+  }
+
+  /**
+   * Emits a three-byte `VMLOAD` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_vmload() {
+    return emit(0x0F, 0x01, 0xDA);
+  }
+
+  /**
+   * Emits a three-byte `VMMCALL` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_vmmcall() {
+    return emit(0x0F, 0x01, 0xD9);
+  }
+
+  /**
+   * Emits a three-byte `VMRUN` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_vmrun() {
+    return emit(0x0F, 0x01, 0xD8);
+  }
+
+  /**
+   * Emits a three-byte `VMSAVE` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_vmsave() {
+    return emit(0x0F, 0x01, 0xDB);
+  }
+
+  /**
+   * Emits a two-byte `WBINVD` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_wbinvd() {
+    return emit(0x0F, 0x09);
+  }
+
+  /**
+   * Emits a two-byte `WRMSR` instruction.
+   *
+   * @note This is a system instruction.
+   * @return `*this`
+   * @throws std::bad_alloc if out of memory
+   */
+  x86_emitter& emit_wrmsr() {
+    return emit(0x0F, 0x30);
+  }
+
+  /**@}*/
+
+  /**
+   * @name x87 Instructions
+   */
+
+  /**@{*/
+
+  /**@}*/
+
+  /**
+   * @name MMX Instructions
+   */
+
+  /**@{*/
+
+  /**@}*/
+
+  /**
+   * @name SSE Instructions
+   */
+
+  /**@{*/
+
+  /**@}*/
 };
 
 #endif /* MACHINERY_ARCH_X86_EMITTER_H */
