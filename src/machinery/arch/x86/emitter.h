@@ -9,6 +9,8 @@
  * x86 machine code emission.
  */
 
+#include "encoding.h"
+
 #include <cstddef> /* for std::size_t */
 #include <cstdint> /* for std::uint8_t */
 #include <vector>  /* for std::vector */
@@ -16,16 +18,6 @@
 namespace machinery {
   namespace arch {
     class x86_emitter;
-    using x86_imm8   = std::uint8_t;
-    using x86_imm16  = std::uint16_t;
-    using x86_imm32  = std::uint32_t;
-    using x86_imm64  = std::uint64_t;
-    using x86_opcode = std::uint8_t;
-    using x86_reg    = std::uint8_t;
-    enum class x86_reg8  : x86_reg;
-    enum class x86_reg16 : x86_reg;
-    enum class x86_reg32 : x86_reg;
-    enum class x86_reg64 : x86_reg;
   }
 }
 

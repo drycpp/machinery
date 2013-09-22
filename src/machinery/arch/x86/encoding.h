@@ -13,17 +13,10 @@
 
 namespace machinery {
   namespace arch {
-    /** 8-bit immediate value */
-    using x86_imm8 = std::uint8_t;
-
-    /** 16-bit immediate value */
-    using x86_imm16 = std::uint16_t;
-
-    /** 32-bit immediate value */
-    using x86_imm32 = std::uint32_t;
-
-    /** 64-bit immediate value */
-    using x86_imm64 = std::uint64_t;
+    union x86_imm8;
+    union x86_imm16;
+    union x86_imm32;
+    union x86_imm64;
 
     /** x86 opcode byte */
     using x86_opcode = std::uint8_t;
@@ -35,6 +28,37 @@ namespace machinery {
     enum class x86_reg64 : x86_reg;
   }
 }
+
+/**
+ * 8-bit immediate value.
+ */
+union machinery::arch::x86_imm8 final {
+  std::uint8_t u8;
+};
+
+/**
+ * 16-bit immediate value.
+ */
+union machinery::arch::x86_imm16 final {
+  std::uint16_t u16;
+  std::uint8_t u8[2];
+};
+
+/**
+ * 32-bit immediate value.
+ */
+union machinery::arch::x86_imm32 final {
+  std::uint32_t u32;
+  std::uint8_t u8[4];
+};
+
+/**
+ * 64-bit immediate value.
+ */
+union machinery::arch::x86_imm64 final {
+  std::uint64_t u64;
+  std::uint8_t u8[8];
+};
 
 /**
  * x86 general-purpose registers (8-bit)
@@ -62,7 +86,7 @@ enum class machinery::arch::x86_reg16 : machinery::arch::x86_reg {
   BP,      /* 0b101 */
   SI,      /* 0b110 */
   DI,      /* 0b111 */
-} x86_reg16_t;
+};
 
 /**
  * x86 general-purpose registers (32-bit)
