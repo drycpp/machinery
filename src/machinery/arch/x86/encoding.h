@@ -1,12 +1,12 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#ifndef MACHINERY_ARCH_X86_REGISTER_H
-#define MACHINERY_ARCH_X86_REGISTER_H
+#ifndef MACHINERY_ARCH_X86_ENCODING_H
+#define MACHINERY_ARCH_X86_ENCODING_H
 
 /**
  * @file
  *
- * x86 register structures.
+ * x86 instruction encoding.
  */
 
 #include <cstdint> /* for std::uint8_t */
@@ -86,4 +86,4 @@ enum class machinery::arch::x86_reg64 : machinery::arch::x86_reg {
   R15,
 };
 
-#endif /* MACHINERY_ARCH_X86_REGISTER_H */
+#endif /* MACHINERY_ARCH_X86_ENCODING_H */

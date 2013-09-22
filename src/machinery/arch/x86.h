@@ -15,6 +15,6 @@
  */
 
 #include "x86/emitter.h"
-#include "x86/register.h"
+#include "x86/encoding.h"
 
 #endif /* MACHINERY_ARCH_X86_H */

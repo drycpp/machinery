@@ -4,6 +4,6 @@
 #include <config.h>
 #endif
 
-#include "register.h"
+#include "encoding.h"
 
 using namespace machinery::arch;
