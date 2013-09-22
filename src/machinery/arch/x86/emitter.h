@@ -499,7 +499,7 @@ public:
    */
   x86_emitter& emit_mov(const x86_reg32 reg,
                         const x86_imm32 imm) {
-    return emit(0xB8 + static_cast<std::uint8_t>(reg)).emit(imm);
+    return emit(0x66, 0xB8 + static_cast<std::uint8_t>(reg)).emit(imm);
   }
 
   /**
@@ -512,7 +512,7 @@ public:
   x86_emitter& emit_mov(const x86_reg64 reg,
                         const x86_imm64 imm) {
     //assert(reg < x86_reg64::R8); // FIXME
-    return emit(0xB8 + static_cast<std::uint8_t>(reg)).emit(imm);
+    return emit(0xB8 + static_cast<std::uint8_t>(reg)).emit(imm); // FIXME
   }
 
   /**
