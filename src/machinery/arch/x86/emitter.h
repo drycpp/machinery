@@ -5,6 +5,8 @@
 
 /**
  * @file
+ *
+ * x86 machine code emission.
  */
 
 #include <cstdint> /* for std::uint8_t */

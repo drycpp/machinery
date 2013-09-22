@@ -5,6 +5,8 @@
 
 /**
  * @file
+ *
+ * C function interface.
  */
 
 #ifdef __cplusplus

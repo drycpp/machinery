@@ -5,6 +5,10 @@
 
 /**
  * @file
+ *
+ * ARMv8 architecture support.
+ *
+ * @see https://en.wikipedia.org/wiki/ARM_architecture
  */
 
 #endif /* MACHINERY_ARCH_ARM_H */

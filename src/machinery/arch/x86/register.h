@@ -5,6 +5,8 @@
 
 /**
  * @file
+ *
+ * x86 register structures.
  */
 
 #include <cstdint> /* for std::uint8_t */

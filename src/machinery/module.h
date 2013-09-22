@@ -5,6 +5,8 @@
 
 /**
  * @file
+ *
+ * Library module metadata.
  */
 
 #endif /* MACHINERY_MODULE_H */
