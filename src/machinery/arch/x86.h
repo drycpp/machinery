@@ -17,4 +17,22 @@
 #include "x86/emitter.h"
 #include "x86/encoding.h"
 
+namespace machinery {
+  namespace arch {
+    namespace x86 {
+      using emitter = x86_emitter;
+      using imm8    = x86_imm8;
+      using imm16   = x86_imm16;
+      using imm32   = x86_imm32;
+      using imm64   = x86_imm64;
+      using opcode  = x86_opcode;
+      using reg     = x86_reg;
+      using reg8    = x86_reg8;
+      using reg16   = x86_reg16;
+      using reg32   = x86_reg32;
+      using reg64   = x86_reg64;
+    }
+  }
+}
+
 #endif /* MACHINERY_ARCH_X86_H */
