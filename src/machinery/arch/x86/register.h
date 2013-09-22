@@ -26,64 +26,64 @@ namespace machinery {
  * x86 general-purpose registers (8-bit)
  */
 enum class machinery::arch::x86_reg8 : machinery::arch::x86_reg {
-  X86_REG_AL = 0,  /* 0b000 */
-  X86_REG_CL,      /* 0b001 */
-  X86_REG_DL,      /* 0b010 */
-  X86_REG_BL,      /* 0b011 */
-  X86_REG_AH,      /* 0b100 */
-  X86_REG_CH,      /* 0b101 */
-  X86_REG_DH,      /* 0b110 */
-  X86_REG_BH,      /* 0b111 */
+  AL = 0,  /* 0b000 */
+  CL,      /* 0b001 */
+  DL,      /* 0b010 */
+  BL,      /* 0b011 */
+  AH,      /* 0b100 */
+  CH,      /* 0b101 */
+  DH,      /* 0b110 */
+  BH,      /* 0b111 */
 };
 
 /**
  * x86 general-purpose registers (16-bit)
  */
 enum class machinery::arch::x86_reg16 : machinery::arch::x86_reg {
-  X86_REG_AX = 0,  /* 0b000 */
-  X86_REG_CX,      /* 0b001 */
-  X86_REG_DX,      /* 0b010 */
-  X86_REG_BX,      /* 0b011 */
-  X86_REG_SP,      /* 0b100 */
-  X86_REG_BP,      /* 0b101 */
-  X86_REG_SI,      /* 0b110 */
-  X86_REG_DI,      /* 0b111 */
+  AX = 0,  /* 0b000 */
+  CX,      /* 0b001 */
+  DX,      /* 0b010 */
+  BX,      /* 0b011 */
+  SP,      /* 0b100 */
+  BP,      /* 0b101 */
+  SI,      /* 0b110 */
+  DI,      /* 0b111 */
 } x86_reg16_t;
 
 /**
  * x86 general-purpose registers (32-bit)
  */
 enum class machinery::arch::x86_reg32 : machinery::arch::x86_reg {
-  X86_REG_EAX = 0, /* 0b000 */
-  X86_REG_ECX,     /* 0b001 */
-  X86_REG_EDX,     /* 0b010 */
-  X86_REG_EBX,     /* 0b011 */
-  X86_REG_ESP,     /* 0b100 */
-  X86_REG_EBP,     /* 0b101 */
-  X86_REG_ESI,     /* 0b110 */
-  X86_REG_EDI,     /* 0b111 */
+  EAX = 0, /* 0b000 */
+  ECX,     /* 0b001 */
+  EDX,     /* 0b010 */
+  EBX,     /* 0b011 */
+  ESP,     /* 0b100 */
+  EBP,     /* 0b101 */
+  ESI,     /* 0b110 */
+  EDI,     /* 0b111 */
 };
 
 /**
  * x86 general-purpose registers (64-bit)
  */
 enum class machinery::arch::x86_reg64 : machinery::arch::x86_reg {
-  X86_REG_RAX = 0, /* 0b000 */
-  X86_REG_RCX,     /* 0b001 */
-  X86_REG_RDX,     /* 0b010 */
-  X86_REG_RBX,     /* 0b011 */
-  X86_REG_RSP,     /* 0b100 */
-  X86_REG_RBP,     /* 0b101 */
-  X86_REG_RSI,     /* 0b110 */
-  X86_REG_RDI,     /* 0b111 */
-  X86_REG_R8,
-  X86_REG_R9,
-  X86_REG_R10,
-  X86_REG_R11,
-  X86_REG_R12,
-  X86_REG_R13,
-  X86_REG_R14,
-  X86_REG_R15,
+  RAX = 0, /* 0b000 */
+  RCX,     /* 0b001 */
+  RDX,     /* 0b010 */
+  RBX,     /* 0b011 */
+  RSP,     /* 0b100 */
+  RBP,     /* 0b101 */
+  RSI,     /* 0b110 */
+  RDI,     /* 0b111 */
+  R8,
+  R9,
+  R10,
+  R11,
+  R12,
+  R13,
+  R14,
+  R15,
 };
 
 #endif /* MACHINERY_ARCH_X86_REGISTER_H */
