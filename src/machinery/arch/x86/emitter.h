@@ -212,6 +212,36 @@ public:
   }
 
   /**
+   * Emits a two-byte `ADD AL, imm8` instruction.
+   *
+   * @param imm the 8-bit immediate value operand
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_add(const x86_imm8 imm) {
+    return emit(0x04).emit(imm);
+  }
+
+  /**
+   * Emits a three-byte `ADD AX, imm16` instruction.
+   *
+   * @param imm the 16-bit immediate value operand
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_add(const x86_imm16 imm) {
+    return emit(0x05).emit(imm);
+  }
+
+  /**
+   * Emits a six-byte `ADD EAX, imm32` instruction.
+   *
+   * @param imm the 32-bit immediate value operand
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_add(const x86_imm32 imm) {
+    return emit(0x66, 0x05).emit(imm);
+  }
+
+  /**
    * Emits a one-byte `CBW` instruction.
    *
    * @copydetails emit_general_purpose_instruction
@@ -441,7 +471,6 @@ public:
    *
    * @param reg the 8-bit target register operand
    * @param imm the 8-bit immediate value operand
-   * @todo Implement this method.
    * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_mov(const x86_reg8 reg,
@@ -454,7 +483,6 @@ public:
    *
    * @param reg the 16-bit target register operand
    * @param imm the 16-bit immediate value operand
-   * @todo Implement this method.
    * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_mov(const x86_reg16 reg,
@@ -467,7 +495,6 @@ public:
    *
    * @param reg the 32-bit target register operand
    * @param imm the 32-bit immediate value operand
-   * @todo Implement this method.
    * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_mov(const x86_reg32 reg,
@@ -480,7 +507,6 @@ public:
    *
    * @param reg the 64-bit target register operand
    * @param imm the 64-bit immediate value operand
-   * @todo Implement this method.
    * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_mov(const x86_reg64 reg,
