@@ -437,6 +437,59 @@ public:
   }
 
   /**
+   * Emits a two-byte `MOV reg8, imm8` instruction.
+   *
+   * @param reg the 8-bit target register operand
+   * @param imm the 8-bit immediate value operand
+   * @todo Implement this method.
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_mov(const x86_reg8 reg,
+                        const x86_imm8 imm) {
+    return emit(0xB0 + static_cast<std::uint8_t>(reg)).emit(imm);
+  }
+
+  /**
+   * Emits a three-byte `MOV reg16, imm16` instruction.
+   *
+   * @param reg the 16-bit target register operand
+   * @param imm the 16-bit immediate value operand
+   * @todo Implement this method.
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_mov(const x86_reg16 reg,
+                        const x86_imm16 imm) {
+    return emit(0xB8 + static_cast<std::uint8_t>(reg)).emit(imm);
+  }
+
+  /**
+   * Emits a five-byte `MOV reg32, imm32` instruction.
+   *
+   * @param reg the 32-bit target register operand
+   * @param imm the 32-bit immediate value operand
+   * @todo Implement this method.
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_mov(const x86_reg32 reg,
+                        const x86_imm32 imm) {
+    return emit(0xB8 + static_cast<std::uint8_t>(reg)).emit(imm);
+  }
+
+  /**
+   * Emits a nine or ten-byte `MOV reg64, imm64` instruction.
+   *
+   * @param reg the 64-bit target register operand
+   * @param imm the 64-bit immediate value operand
+   * @todo Implement this method.
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_mov(const x86_reg64 reg,
+                        const x86_imm64 imm) {
+    //assert(reg < x86_reg64::R8); // FIXME
+    return emit(0xB8 + static_cast<std::uint8_t>(reg)).emit(imm);
+  }
+
+  /**
    * Emits a one-byte `MOVSB` instruction.
    *
    * @copydetails emit_general_purpose_instruction
@@ -464,58 +517,6 @@ public:
   }
 
   /**
-   * Emits a ?-byte `MOV reg8, imm8` instruction.
-   *
-   * @param reg8 the 8-bit target register operand
-   * @param imm8 the 8-bit immediate value operand
-   * @todo Implement this method.
-   * @copydetails emit_general_purpose_instruction
-   */
-  x86_emitter& emit_mov(const x86_reg8 reg8,
-                        const x86_imm8 imm8) {
-    return (void)reg8, (void)imm8, *this; // TODO
-  }
-
-  /**
-   * Emits a ?-byte `MOV reg16, imm16` instruction.
-   *
-   * @param reg16 the 16-bit target register operand
-   * @param imm16 the 16-bit immediate value operand
-   * @todo Implement this method.
-   * @copydetails emit_general_purpose_instruction
-   */
-  x86_emitter& emit_mov(const x86_reg16 reg16,
-                        const x86_imm16 imm16) {
-    return (void)reg16, (void)imm16, *this; // TODO
-  }
-
-  /**
-   * Emits a ?-byte `MOV reg32, imm32` instruction.
-   *
-   * @param reg32 the 32-bit target register operand
-   * @param imm32 the 32-bit immediate value operand
-   * @todo Implement this method.
-   * @copydetails emit_general_purpose_instruction
-   */
-  x86_emitter& emit_mov(const x86_reg32 reg32,
-                        const x86_imm32 imm32) {
-    return (void)reg32, (void)imm32, *this; // TODO
-  }
-
-  /**
-   * Emits a ?-byte `MOV reg64, imm64` instruction.
-   *
-   * @param reg64 the 64-bit target register operand
-   * @param imm64 the 64-bit immediate value operand
-   * @todo Implement this method.
-   * @copydetails emit_general_purpose_instruction
-   */
-  x86_emitter& emit_mov(const x86_reg64 reg64,
-                        const x86_imm64 imm64) {
-    return (void)reg64, (void)imm64, *this; // TODO
-  }
-
-  /**
    * Emits a one-byte `MOVSQ` instruction.
    *
    * @copydetails emit_general_purpose_instruction
@@ -531,41 +532,41 @@ public:
    * @todo Implement this method.
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_mul(const x86_reg8 reg8) {
-    return (void)reg8, *this; // TODO
+  x86_emitter& emit_mul(const x86_reg8 reg) {
+    return (void)reg, *this; // TODO
   }
 
   /**
    * Emits a ?-byte `MUL reg16` instruction.
    *
-   * @param reg16 a 16-bit register operand
+   * @param reg a 16-bit register operand
    * @todo Implement this method.
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_mul(const x86_reg16 reg16) {
-    return (void)reg16, *this; // TODO
+  x86_emitter& emit_mul(const x86_reg16 reg) {
+    return (void)reg, *this; // TODO
   }
 
   /**
    * Emits a ?-byte `MUL reg32` instruction.
    *
-   * @param reg32 a 32-bit register operand
+   * @param reg a 32-bit register operand
    * @todo Implement this method.
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_mul(const x86_reg32 reg32) {
-    return (void)reg32, *this; // TODO
+  x86_emitter& emit_mul(const x86_reg32 reg) {
+    return (void)reg, *this; // TODO
   }
 
   /**
    * Emits a ?-byte `MUL reg32` instruction.
    *
-   * @param reg64 a 64-bit register operand
+   * @param reg a 64-bit register operand
    * @todo Implement this method.
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_mul(const x86_reg64 reg64) {
-    return (void)reg64, *this; // TODO
+  x86_emitter& emit_mul(const x86_reg64 reg) {
+    return (void)reg, *this; // TODO
   }
 
   /**
