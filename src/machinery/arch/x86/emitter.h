@@ -141,10 +141,16 @@ public:
   /**@{*/
 
   /**
-   * Emits a one-byte `AAA` instruction.
+   * @class emit_general_purpose_instruction
    *
    * @return `*this`
    * @throws std::bad_alloc if out of memory
+   */
+
+  /**
+   * Emits a one-byte `AAA` instruction.
+   *
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_aaa() {
     return emit(0x37);
@@ -153,8 +159,7 @@ public:
   /**
    * Emits a one-byte `AAS` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_aas() {
     return emit(0x3F);
@@ -163,8 +168,7 @@ public:
   /**
    * Emits a one-byte `CBW` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_cbw() {
     return emit(0x98);
@@ -173,8 +177,7 @@ public:
   /**
    * Emits a one-byte `CWDE` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_cwde() {
     return emit(0x98);
@@ -183,8 +186,7 @@ public:
   /**
    * Emits a one-byte `CDQE` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_cdqe() {
     return emit(0x98);
@@ -193,8 +195,7 @@ public:
   /**
    * Emits a one-byte `CWD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_cwd() {
     return emit(0x99);
@@ -203,8 +204,7 @@ public:
   /**
    * Emits a one-byte `CDQ` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_cdq() {
     return emit(0x99);
@@ -213,8 +213,7 @@ public:
   /**
    * Emits a one-byte `CQO` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_cqo() {
     return emit(0x99);
@@ -223,8 +222,7 @@ public:
   /**
    * Emits a one-byte `CLC` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_clc() {
     return emit(0xF8);
@@ -233,8 +231,7 @@ public:
   /**
    * Emits a one-byte `CLD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_cld() {
     return emit(0xFC);
@@ -243,8 +240,7 @@ public:
   /**
    * Emits a one-byte `CMC` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_cmc() {
     return emit(0xF5);
@@ -253,8 +249,7 @@ public:
   /**
    * Emits a one-byte `CMPSB` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_cmpsb() {
     return emit(0xA6);
@@ -263,8 +258,7 @@ public:
   /**
    * Emits a one-byte `CMPSW` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_cmpsw() {
     return emit(0xA7);
@@ -273,8 +267,7 @@ public:
   /**
    * Emits a one-byte `CMPSD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_cmpsd() {
     return emit(0xA7);
@@ -283,8 +276,7 @@ public:
   /**
    * Emits a one-byte `CMPSQ` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_cmpsq() {
     return emit(0xA7);
@@ -293,8 +285,7 @@ public:
   /**
    * Emits a one-byte `DAA` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_daa() {
     return emit(0x27);
@@ -303,8 +294,7 @@ public:
   /**
    * Emits a one-byte `DAS` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_das() {
     return emit(0x2F);
@@ -313,8 +303,7 @@ public:
   /**
    * Emits a one-byte `INSB` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_insb() {
     return emit(0x6C);
@@ -323,8 +312,7 @@ public:
   /**
    * Emits a one-byte `INSW` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_insw() {
     return emit(0x6D);
@@ -333,8 +321,7 @@ public:
   /**
    * Emits a one-byte `INSD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_insd() {
     return emit(0x6D);
@@ -343,8 +330,7 @@ public:
   /**
    * Emits a one-byte `INTO` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_into() {
     return emit(0xCE);
@@ -353,8 +339,7 @@ public:
   /**
    * Emits a one-byte `LAHF` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_lahf() {
     return emit(0x9F);
@@ -363,8 +348,7 @@ public:
   /**
    * Emits a one-byte `LEAVE` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_leave() {
     return emit(0xC9);
@@ -373,8 +357,7 @@ public:
   /**
    * Emits a one-byte `LODSB` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_lodsb() {
     return emit(0xAC);
@@ -383,8 +366,7 @@ public:
   /**
    * Emits a one-byte `LODSW` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_lodsw() {
     return emit(0xAD);
@@ -393,8 +375,7 @@ public:
   /**
    * Emits a one-byte `LODSD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_lodsd() {
     return emit(0xAD);
@@ -403,8 +384,7 @@ public:
   /**
    * Emits a one-byte `LODSQ` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_lodsq() {
     return emit(0xAD);
@@ -413,8 +393,7 @@ public:
   /**
    * Emits a one-byte `MOVSB` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_movsb() {
     return emit(0xA4);
@@ -423,8 +402,7 @@ public:
   /**
    * Emits a one-byte `MOVSW` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_movsw() {
     return emit(0xA5);
@@ -433,8 +411,7 @@ public:
   /**
    * Emits a one-byte `MOVSD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_movsd() {
     return emit(0xA5);
@@ -443,8 +420,7 @@ public:
   /**
    * Emits a one-byte `MOVSQ` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_movsq() {
     return emit(0xA5);
@@ -454,9 +430,8 @@ public:
    * Emits a ?-byte `MUL reg8` instruction.
    *
    * @param reg8 an 8-bit register operand
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
    * @todo Implement this method.
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_mul(const x86_reg8 reg8) {
     return (void)reg8, *this; // TODO
@@ -466,9 +441,8 @@ public:
    * Emits a ?-byte `MUL reg16` instruction.
    *
    * @param reg16 a 16-bit register operand
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
    * @todo Implement this method.
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_mul(const x86_reg16 reg16) {
     return (void)reg16, *this; // TODO
@@ -478,9 +452,8 @@ public:
    * Emits a ?-byte `MUL reg32` instruction.
    *
    * @param reg32 a 32-bit register operand
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
    * @todo Implement this method.
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_mul(const x86_reg32 reg32) {
     return (void)reg32, *this; // TODO
@@ -490,9 +463,8 @@ public:
    * Emits a ?-byte `MUL reg32` instruction.
    *
    * @param reg64 a 64-bit register operand
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
    * @todo Implement this method.
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_mul(const x86_reg64 reg64) {
     return (void)reg64, *this; // TODO
@@ -501,8 +473,7 @@ public:
   /**
    * Emits a one-byte `NOP` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_nop() {
     return emit(0x90);
@@ -511,8 +482,7 @@ public:
   /**
    * Emits a one-byte `OUTSB` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_outsb() {
     return emit(0x6E);
@@ -521,8 +491,7 @@ public:
   /**
    * Emits a one-byte `OUTSW` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_outsw() {
     return emit(0x6F);
@@ -531,8 +500,7 @@ public:
   /**
    * Emits a one-byte `OUTSD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_outsd() {
     return emit(0x6F);
@@ -541,8 +509,7 @@ public:
   /**
    * Emits a one-byte `POPA` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_popa() {
     return emit(0x61);
@@ -551,8 +518,7 @@ public:
   /**
    * Emits a one-byte `POPAD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_popad() {
     return emit(0x61);
@@ -561,8 +527,7 @@ public:
   /**
    * Emits a one-byte `POPF` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_popf() {
     return emit(0x9D);
@@ -571,8 +536,7 @@ public:
   /**
    * Emits a one-byte `POPFD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_popfd() {
     return emit(0x9D);
@@ -581,8 +545,7 @@ public:
   /**
    * Emits a one-byte `POPFQ` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_popfq() {
     return emit(0x9D);
@@ -591,8 +554,7 @@ public:
   /**
    * Emits a one-byte `PUSHA` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_pusha() {
     return emit(0x60);
@@ -601,8 +563,7 @@ public:
   /**
    * Emits a one-byte `PUSHAD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_pushad() {
     return emit(0x60);
@@ -611,8 +572,7 @@ public:
   /**
    * Emits a one-byte `PUSHF` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_pushf() {
     return emit(0x9C);
@@ -621,8 +581,7 @@ public:
   /**
    * Emits a one-byte `PUSHFD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_pushfd() {
     return emit(0x9C);
@@ -631,8 +590,7 @@ public:
   /**
    * Emits a one-byte `PUSHFQ` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_pushfq() {
     return emit(0x9C);
@@ -641,8 +599,7 @@ public:
   /**
    * Emits a one-byte `RET` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_ret() {
     return emit(0xC3);
@@ -651,8 +608,7 @@ public:
   /**
    * Emits a one-byte `RETF` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_retf() {
     return emit(0xCB);
@@ -661,8 +617,7 @@ public:
   /**
    * Emits a one-byte `SAHF` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_sahf() {
     return emit(0x9E);
@@ -671,8 +626,7 @@ public:
   /**
    * Emits a one-byte `SCASB` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_scasb() {
     return emit(0xAE);
@@ -681,8 +635,7 @@ public:
   /**
    * Emits a one-byte `SCASW` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_scasw() {
     return emit(0xAF);
@@ -691,8 +644,7 @@ public:
   /**
    * Emits a one-byte `SCASD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_scasd() {
     return emit(0xAF);
@@ -701,8 +653,7 @@ public:
   /**
    * Emits a one-byte `SCASQ` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_scasq() {
     return emit(0xAF);
@@ -711,8 +662,7 @@ public:
   /**
    * Emits a one-byte `STC` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_stc() {
     return emit(0xF9);
@@ -721,8 +671,7 @@ public:
   /**
    * Emits a one-byte `STD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_std() {
     return emit(0xFD);
@@ -731,8 +680,7 @@ public:
   /**
    * Emits a one-byte `STOSB` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_stosb() {
     return emit(0xAA);
@@ -741,8 +689,7 @@ public:
   /**
    * Emits a one-byte `STOSW` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_stosw() {
     return emit(0xAB);
@@ -751,8 +698,7 @@ public:
   /**
    * Emits a one-byte `STOSD` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_stosd() {
     return emit(0xAB);
@@ -761,8 +707,7 @@ public:
   /**
    * Emits a one-byte `STOSQ` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_stosq() {
     return emit(0xAB);
@@ -771,8 +716,7 @@ public:
   /**
    * Emits a one-byte `XLATB` instruction.
    *
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_xlatb() {
     return emit(0xD7);
@@ -792,11 +736,17 @@ public:
   /**@{*/
 
   /**
-   * Emits a three-byte `CLGI` instruction.
+   * @class emit_system_instruction
    *
-   * @note This is a system instruction.
    * @return `*this`
    * @throws std::bad_alloc if out of memory
+   * @note This is a system instruction.
+   */
+
+  /**
+   * Emits a three-byte `CLGI` instruction.
+   *
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_clgi() {
     return emit(0x0F, 0x01, 0xDD);
@@ -805,9 +755,7 @@ public:
   /**
    * Emits a one-byte `CLI` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_cli() {
     return emit(0xFA);
@@ -816,9 +764,7 @@ public:
   /**
    * Emits a two-byte `CLTS` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_clts() {
     return emit(0x0F, 0x06);
@@ -827,9 +773,7 @@ public:
   /**
    * Emits a one-byte `HLT` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_hlt() {
     return emit(0xF4);
@@ -838,9 +782,7 @@ public:
   /**
    * Emits a one-byte `INT3` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_int3() {
     return emit(0xCC);
@@ -849,9 +791,7 @@ public:
   /**
    * Emits a two-byte `INVD` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_invd() {
     return emit(0x0F, 0x08);
@@ -860,9 +800,7 @@ public:
   /**
    * Emits a three-byte `INVLPGA` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_invlpga() {
     return emit(0x0F, 0x01, 0xDF);
@@ -871,9 +809,7 @@ public:
   /**
    * Emits a one-byte `IRET` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_iret() {
     return emit(0xCF);
@@ -882,9 +818,7 @@ public:
   /**
    * Emits a one-byte `IRETD` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_iretd() {
     return emit(0xCF);
@@ -893,9 +827,7 @@ public:
   /**
    * Emits a one-byte `IRETQ` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_iretq() {
     return emit(0xCF);
@@ -904,9 +836,7 @@ public:
   /**
    * Emits a three-byte `MONITOR` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_monitor() {
     return emit(0x0F, 0x01, 0xC8);
@@ -915,9 +845,7 @@ public:
   /**
    * Emits a three-byte `MWAIT` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_mwait() {
     return emit(0x0F, 0x01, 0xC9);
@@ -926,9 +854,7 @@ public:
   /**
    * Emits a two-byte `RDMSR` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_rdmsr() {
     return emit(0x0F, 0x32);
@@ -937,9 +863,7 @@ public:
   /**
    * Emits a two-byte `RDPMC` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_rdpmc() {
     return emit(0x0F, 0x33);
@@ -948,9 +872,7 @@ public:
   /**
    * Emits a two-byte `RDTSC` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_rdtsc() {
     return emit(0x0F, 0x31);
@@ -959,9 +881,7 @@ public:
   /**
    * Emits a three-byte `RDTSCP` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_rdtscp() {
     return emit(0x0F, 0x01, 0xF9);
@@ -970,9 +890,7 @@ public:
   /**
    * Emits a two-byte `RSM` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_rsm() {
     return emit(0x0F, 0xAA);
@@ -981,9 +899,7 @@ public:
   /**
    * Emits a three-byte `SKINIT` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_skinit() {
     return emit(0x0F, 0x01, 0xDE);
@@ -992,9 +908,7 @@ public:
   /**
    * Emits a one-byte `STI` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_sti() {
     return emit(0xFB);
@@ -1003,9 +917,7 @@ public:
   /**
    * Emits a three-byte `STGI` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_stgi() {
     return emit(0x0F, 0x01, 0xDC);
@@ -1014,9 +926,7 @@ public:
   /**
    * Emits a three-byte `SWAPGS` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_swapgs() {
     return emit(0x0F, 0x01, 0xF8);
@@ -1025,9 +935,7 @@ public:
   /**
    * Emits a two-byte `SYSCALL` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_syscall() {
     return emit(0x0F, 0x05);
@@ -1036,9 +944,7 @@ public:
   /**
    * Emits a two-byte `SYSENTER` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_sysenter() {
     return emit(0x0F, 0x34);
@@ -1047,9 +953,7 @@ public:
   /**
    * Emits a two-byte `SYSEXIT` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_sysexit() {
     return emit(0x0F, 0x35);
@@ -1058,9 +962,7 @@ public:
   /**
    * Emits a two-byte `SYSRET` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_sysret() {
     return emit(0x0F, 0x07);
@@ -1069,9 +971,7 @@ public:
   /**
    * Emits a two-byte `UD2` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_ud2() {
     return emit(0x0F, 0x0B);
@@ -1080,9 +980,7 @@ public:
   /**
    * Emits a three-byte `VMLOAD` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_vmload() {
     return emit(0x0F, 0x01, 0xDA);
@@ -1091,9 +989,7 @@ public:
   /**
    * Emits a three-byte `VMMCALL` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_vmmcall() {
     return emit(0x0F, 0x01, 0xD9);
@@ -1102,9 +998,7 @@ public:
   /**
    * Emits a three-byte `VMRUN` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_vmrun() {
     return emit(0x0F, 0x01, 0xD8);
@@ -1113,9 +1007,7 @@ public:
   /**
    * Emits a three-byte `VMSAVE` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_vmsave() {
     return emit(0x0F, 0x01, 0xDB);
@@ -1124,9 +1016,7 @@ public:
   /**
    * Emits a two-byte `WBINVD` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_wbinvd() {
     return emit(0x0F, 0x09);
@@ -1135,9 +1025,7 @@ public:
   /**
    * Emits a two-byte `WRMSR` instruction.
    *
-   * @note This is a system instruction.
-   * @return `*this`
-   * @throws std::bad_alloc if out of memory
+   * @copydetails emit_system_instruction
    */
   x86_emitter& emit_wrmsr() {
     return emit(0x0F, 0x30);
