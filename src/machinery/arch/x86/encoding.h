@@ -34,6 +34,14 @@ namespace machinery {
  */
 union machinery::arch::x86_imm8 final {
   std::uint8_t u8;
+
+  /**
+   * Constructor.
+   *
+   * @param value the immediate value
+   */
+  explicit x86_imm8(const std::uint8_t value) noexcept
+    : u8(value) {}
 };
 
 /**
@@ -42,6 +50,14 @@ union machinery::arch::x86_imm8 final {
 union machinery::arch::x86_imm16 final {
   std::uint16_t u16;
   std::uint8_t u8[2];
+
+  /**
+   * Constructor.
+   *
+   * @param value the immediate value
+   */
+  explicit x86_imm16(const std::uint16_t value) noexcept
+    : u16(value) {}
 };
 
 /**
@@ -50,6 +66,14 @@ union machinery::arch::x86_imm16 final {
 union machinery::arch::x86_imm32 final {
   std::uint32_t u32;
   std::uint8_t u8[4];
+
+  /**
+   * Constructor.
+   *
+   * @param value the immediate value
+   */
+  explicit x86_imm32(const std::uint32_t value) noexcept
+    : u32(value) {}
 };
 
 /**
@@ -58,6 +82,14 @@ union machinery::arch::x86_imm32 final {
 union machinery::arch::x86_imm64 final {
   std::uint64_t u64;
   std::uint8_t u8[8];
+
+  /**
+   * Constructor.
+   *
+   * @param value the immediate value
+   */
+  explicit x86_imm64(const std::uint64_t value) noexcept
+    : u64(value) {}
 };
 
 /**
