@@ -21,7 +21,7 @@ static const std::size_t mmap_size = sysconf(_SC_PAGESIZE);
 
 executable_buffer::executable_buffer()
   : _data(nullptr),
-    _size(mmap_size),
+    _size(0),
     _capacity(mmap_size) {
 
   void* const addr = ::mmap(nullptr, _capacity, mmap_prot, mmap_flags, -1, 0);
