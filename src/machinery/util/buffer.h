@@ -9,23 +9,63 @@
  * Buffer utilities.
  */
 
-#include <cstddef> /* for std::size_t */
-#include <cstdint> /* for std::uint8_t */
-#include <vector>  /* for std::vector */
-#include <initializer_list>
+#include <cstddef>          /* for std::size_t */
+#include <cstdint>          /* for std::uint8_t */
+#include <initializer_list> /* for std::initializer_list */
+#include <stdexcept>        /* for std::logic_error */
+#include <vector>           /* for std::vector */
 
 namespace machinery {
   namespace util {
     class buffer;
     class appendable_buffer;
     class executable_buffer;
+    class persistent_buffer;
   }
 }
 
 /**
  * Base class for buffers.
  */
-class machinery::util::buffer {};
+class machinery::util::buffer {
+protected:
+  /**
+   * Default constructor.
+   */
+  buffer() noexcept = default;
+
+public:
+  /**
+   * Returns the current byte capacity of this buffer.
+   */
+  std::size_t capacity() const noexcept;
+
+  /**
+   * Returns the current byte size of this buffer.
+   */
+  std::size_t size() const noexcept;
+
+  /**
+   * Returns a pointer to the byte data in this buffer.
+   */
+  const std::uint8_t* data() const noexcept {
+    throw std::logic_error("no data pointer available for this buffer type");
+  }
+
+  /**
+   * Appends the given byte to the end of this buffer.
+   *
+   * @throws std::bad_alloc if out of memory
+   */
+  buffer& append(const std::uint8_t byte);
+
+  /**
+   * Appends the given bytes to the end of this buffer.
+   *
+   * @throws std::bad_alloc if out of memory
+   */
+  buffer& append(const std::initializer_list<std::uint8_t> bytes);
+};
 
 /**
  * A buffer for code generation.
@@ -205,6 +245,72 @@ protected:
    * @throws std::system_error in case of another error
    */
   void grow();
+};
+
+/**
+ * A buffer for code generation into a file stream.
+ *
+ * @note Instances of this class are movable, but not copyable.
+ */
+class machinery::util::persistent_buffer : public machinery::util::buffer {
+  /**
+   * Default constructor.
+   *
+   * @throws std::system_error in case of error
+   */
+  persistent_buffer();
+
+public:
+  /**
+   * Copy constructor.
+   */
+  persistent_buffer(const persistent_buffer& other) = delete;
+
+  /**
+   * Move constructor.
+   */
+  persistent_buffer(persistent_buffer&& other) noexcept = default;
+
+  /**
+   * Destructor.
+   */
+  ~persistent_buffer() noexcept;
+
+  /**
+   * Copy assignment operator.
+   */
+  persistent_buffer& operator=(const persistent_buffer& other) = delete;
+
+  /**
+   * Move assignment operator.
+   */
+  persistent_buffer& operator=(persistent_buffer&& other) noexcept = default;
+
+  /**
+   * Returns the current byte capacity of this buffer.
+   */
+  std::size_t capacity() const noexcept {
+    return size();
+  }
+
+  /**
+   * Returns the current byte size of this buffer.
+   */
+  std::size_t size() const noexcept;
+
+  /**
+   * Appends the given byte to the end of this buffer.
+   *
+   * @throws std::system_error in case of error
+   */
+  persistent_buffer& append(const std::uint8_t byte);
+
+  /**
+   * Appends the given bytes to the end of this buffer.
+   *
+   * @throws std::system_error in case of error
+   */
+  persistent_buffer& append(const std::initializer_list<std::uint8_t> bytes);
 };
 
 #endif /* MACHINERY_UTIL_BUFFER_H */

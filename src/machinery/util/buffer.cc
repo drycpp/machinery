@@ -57,3 +57,31 @@ executable_buffer::grow() {
 #endif
   throw std::system_error(ENOSYS, std::system_category());
 }
+
+persistent_buffer::persistent_buffer() {
+  // TODO
+}
+
+persistent_buffer::~persistent_buffer() noexcept {
+  // TODO
+}
+
+std::size_t
+persistent_buffer::size() const noexcept {
+  // TODO
+  return 0;
+}
+
+persistent_buffer&
+persistent_buffer::append(const std::uint8_t byte) {
+  // TODO
+  return (void)byte, *this;
+}
+
+persistent_buffer&
+persistent_buffer::append(const std::initializer_list<std::uint8_t> bytes) {
+  for (const auto byte : bytes) {
+    append(byte);
+  }
+  return *this;
+}
