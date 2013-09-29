@@ -677,6 +677,33 @@ public:
   }
 
   /**
+   * Emits a one-byte `PUSH reg16` instruction.
+   *
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_push(const x86_reg16 reg) {
+    return emit(0x50 + static_cast<std::uint8_t>(reg));
+  }
+
+  /**
+   * Emits a one-byte `PUSH reg32` instruction.
+   *
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_push(const x86_reg32 reg) {
+    return emit(0x50 + static_cast<std::uint8_t>(reg));
+  }
+
+  /**
+   * Emits a one-byte `PUSH reg64` instruction.
+   *
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_push(const x86_reg64 reg) {
+    return emit(0x50 + static_cast<std::uint8_t>(reg));
+  }
+
+  /**
    * Emits a one-byte `PUSHA` instruction.
    *
    * @copydetails emit_general_purpose_instruction
