@@ -4,7 +4,8 @@ libmachinery_la_SOURCES = \
   extern.cc               \
   feature.cc              \
   module.cc               \
-  version.cc
+  version.cc              \
+  util/buffer.cc
 
 pkgincludedir = $(includedir)/machinery
 base_pkgincludedir = $(pkgincludedir)
@@ -13,7 +14,8 @@ base_pkginclude_HEADERS = \
   extern.h                \
   feature.h               \
   module.h                \
-  version.h
+  version.h               \
+  util/buffer.h
 
 nobase_pkginclude_HEADERS =
 
