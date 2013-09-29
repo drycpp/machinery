@@ -2,15 +2,17 @@
 
 #include <machinery.h>
 #include <machinery/arch/x86.h>
+#include <machinery/util/buffer.h>
 
 #include <cstdio>  /* for std::fwrite() */
 #include <cstdlib> /* for std::atoi() */
 
 using namespace machinery::arch::x86;
+using namespace machinery::util;
 
 int
 main(int argc, char* argv[]) {
-  std::vector<std::uint8_t> buffer;
+  appendable_buffer buffer;
   emitter code(buffer);
 
   /* Clear the EAX register: */

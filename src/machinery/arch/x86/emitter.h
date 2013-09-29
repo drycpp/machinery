@@ -9,11 +9,11 @@
  * x86 machine code emission.
  */
 
+#include "../../util/buffer.h"
 #include "encoding.h"
 
 #include <cstddef> /* for std::size_t */
 #include <cstdint> /* for std::uint8_t */
-#include <vector>  /* for std::vector */
 
 namespace machinery {
   namespace arch {
@@ -27,7 +27,9 @@ namespace machinery {
  * @note Instances of this class are movable, but not copyable.
  */
 class machinery::arch::x86_emitter {
-  std::vector<std::uint8_t>& _buffer;
+  using buffer = machinery::util::appendable_buffer;
+
+  buffer& _buffer;
   std::size_t _buffer_start;
 
 public:
@@ -41,7 +43,7 @@ public:
    *
    * @param buffer the output buffer
    */
-  x86_emitter(std::vector<std::uint8_t>& buffer) noexcept
+  x86_emitter(buffer& buffer) noexcept
     : _buffer(buffer),
       _buffer_start(buffer.size()) {}
 
@@ -90,7 +92,7 @@ public:
    * @throws std::bad_alloc if out of memory
    */
   inline x86_emitter& emit(const x86_opcode opcode) {
-    _buffer.emplace_back(opcode);
+    _buffer.append(opcode);
     return *this;
   }
 
@@ -104,7 +106,7 @@ public:
    */
   inline x86_emitter& emit(const x86_opcode opcode,
                            const x86_opcode opcode2) {
-    _buffer.insert(_buffer.end(), {opcode, opcode2});
+    _buffer.append({opcode, opcode2});
     return *this;
   }
 
@@ -120,7 +122,7 @@ public:
   inline x86_emitter& emit(const x86_opcode opcode,
                            const x86_opcode opcode2,
                            const x86_opcode opcode3) {
-    _buffer.insert(_buffer.end(), {opcode, opcode2, opcode3});
+    _buffer.append({opcode, opcode2, opcode3});
     return *this;
   }
 
@@ -138,7 +140,7 @@ public:
    * @copydetails emit_immediate_value
    */
   inline x86_emitter& emit(const x86_imm8 imm) {
-    _buffer.emplace_back(imm.u8);
+    _buffer.append(imm.u8);
     return *this;
   }
 
@@ -148,7 +150,7 @@ public:
    * @copydetails emit_immediate_value
    */
   inline x86_emitter& emit(const x86_imm16 imm) {
-    _buffer.insert(_buffer.end(), {imm.u8[0], imm.u8[1]});
+    _buffer.append({imm.u8[0], imm.u8[1]});
     return *this;
   }
 
@@ -158,7 +160,7 @@ public:
    * @copydetails emit_immediate_value
    */
   inline x86_emitter& emit(const x86_imm32 imm) {
-    _buffer.insert(_buffer.end(), {
+    _buffer.append({
       imm.u8[0], imm.u8[1], imm.u8[2], imm.u8[3]
     });
     return *this;
@@ -170,7 +172,7 @@ public:
    * @copydetails emit_immediate_value
    */
   inline x86_emitter& emit(const x86_imm64 imm) {
-    _buffer.insert(_buffer.end(), {
+    _buffer.append({
       imm.u8[0], imm.u8[1], imm.u8[2], imm.u8[3],
       imm.u8[4], imm.u8[5], imm.u8[6], imm.u8[7]
     });
