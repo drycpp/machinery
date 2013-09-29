@@ -516,6 +516,20 @@ public:
   }
 
   /**
+   * Emits a `MOV reg64, reg64` instruction.
+   *
+   * @param reg1 the 64-bit target register operand
+   * @param reg2 the 64-bit source register operand
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_mov(const x86_reg64 reg1,
+                        const x86_reg64 reg2) {
+    if (reg1 == x86_reg64::RBP && reg2 == x86_reg64::RSP)
+      return emit(0x48, 0x89, 0xE5);
+    return *this; // TODO
+  }
+
+  /**
    * Emits a one-byte `MOVSB` instruction.
    *
    * @copydetails emit_general_purpose_instruction
