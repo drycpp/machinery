@@ -37,7 +37,7 @@ public:
   /**
    * Default constructor.
    */
-  appendable_buffer() noexcept = default;
+  appendable_buffer() = default;
 
   /**
    * Copy constructor.
@@ -63,6 +63,13 @@ public:
    * Move assignment operator.
    */
   appendable_buffer& operator=(appendable_buffer&& other) noexcept = default;
+
+  /**
+   * Returns the current byte capacity of this buffer.
+   */
+  std::size_t capacity() const noexcept {
+    return _bytes.capacity();
+  }
 
   /**
    * Returns the current byte size of this buffer.
@@ -97,6 +104,107 @@ public:
     _bytes.insert(_bytes.end(), bytes);
     return *this;
   }
+};
+
+/**
+ * A buffer for code generation and execution.
+ *
+ * @note Instances of this class are movable, but not copyable.
+ */
+class machinery::util::executable_buffer : public machinery::util::buffer {
+  std::uint8_t* _data {nullptr};
+  std::size_t _size {0};
+  std::size_t _capacity {0};
+
+public:
+  /**
+   * Default constructor.
+   *
+   * @throws std::system_error in case of error
+   */
+  executable_buffer();
+
+  /**
+   * Copy constructor.
+   */
+  executable_buffer(const executable_buffer& other) = delete;
+
+  /**
+   * Move constructor.
+   */
+  executable_buffer(executable_buffer&& other) noexcept = default;
+
+  /**
+   * Destructor.
+   */
+  ~executable_buffer() noexcept;
+
+  /**
+   * Copy assignment operator.
+   */
+  executable_buffer& operator=(const executable_buffer& other) = delete;
+
+  /**
+   * Move assignment operator.
+   */
+  executable_buffer& operator=(executable_buffer&& other) noexcept = default;
+
+  /**
+   * Returns the current byte capacity of this buffer.
+   */
+  std::size_t capacity() const noexcept {
+    return _capacity;
+  }
+
+  /**
+   * Returns the current byte size of this buffer.
+   */
+  std::size_t size() const noexcept {
+    return _size;
+  }
+
+  /**
+   * Returns a pointer to the byte data in this buffer.
+   */
+  const std::uint8_t* data() const noexcept {
+    return _data;
+  }
+
+  /**
+   * Appends the given byte to the end of this buffer.
+   *
+   * @post Invalidates any pointers previously returned by `data()`.
+   * @throws std::bad_alloc if out of memory
+   */
+  executable_buffer& append(const std::uint8_t byte) {
+    if (_size == _capacity) {
+      grow();
+    }
+    _data[_size++] = byte;
+    return *this;
+  }
+
+  /**
+   * Appends the given bytes to the end of this buffer.
+   *
+   * @post Invalidates any pointers previously returned by `data()`.
+   * @throws std::bad_alloc if out of memory
+   */
+  executable_buffer& append(const std::initializer_list<std::uint8_t> bytes) {
+    for (const auto byte : bytes) {
+      append(byte);
+    }
+    return *this;
+  }
+
+protected:
+  /**
+   * Grows the size of this buffer.
+   *
+   * @throws std::bad_alloc if out of memory
+   * @throws std::system_error in case of another error
+   */
+  void grow();
 };
 
 #endif /* MACHINERY_UTIL_BUFFER_H */
