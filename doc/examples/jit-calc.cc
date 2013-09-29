@@ -7,13 +7,14 @@
 #include <cstdio>  /* for std::fwrite() */
 #include <cstdlib> /* for std::atoi() */
 
+using namespace machinery::arch;
 using namespace machinery::arch::x86;
 using namespace machinery::util;
 
 int
 main(int argc, char* argv[]) {
-  appendable_buffer buffer;
-  emitter code(buffer);
+  executable_buffer buffer;
+  x86_emitter<decltype(buffer)> code(buffer);
 
   /* Clear the EAX register: */
   code.emit_mov(reg32::EAX, imm32{0});
@@ -31,6 +32,7 @@ main(int argc, char* argv[]) {
   code.emit_ret();
 
 #if 1
+  //std::printf("buffer.data()=%p buffer.size()=%zu\n", buffer.data(), buffer.size());
   std::fwrite(buffer.data(), buffer.size(), 1, stdout);
 #endif
 
