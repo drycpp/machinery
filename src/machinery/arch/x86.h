@@ -20,7 +20,7 @@
 namespace machinery {
   namespace arch {
     namespace x86 {
-      using emitter = x86_emitter;
+      using emitter = x86_emitter<class Buffer>; // FIXME
       using imm8    = x86_imm8;
       using imm16   = x86_imm16;
       using imm32   = x86_imm32;

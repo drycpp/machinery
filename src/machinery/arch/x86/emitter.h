@@ -9,7 +9,6 @@
  * x86 machine code emission.
  */
 
-#include "../../util/buffer.h"
 #include "encoding.h"
 
 #include <cstddef> /* for std::size_t */
@@ -17,7 +16,7 @@
 
 namespace machinery {
   namespace arch {
-    class x86_emitter;
+    template<class Buffer> class x86_emitter;
   }
 }
 
@@ -26,10 +25,9 @@ namespace machinery {
  *
  * @note Instances of this class are movable, but not copyable.
  */
+template <class Buffer>
 class machinery::arch::x86_emitter {
-  using buffer = machinery::util::appendable_buffer;
-
-  buffer& _buffer;
+  Buffer& _buffer;
   std::size_t _buffer_start;
 
 public:
@@ -43,7 +41,7 @@ public:
    *
    * @param buffer the output buffer
    */
-  x86_emitter(buffer& buffer) noexcept
+  x86_emitter(Buffer& buffer) noexcept
     : _buffer(buffer),
       _buffer_start(buffer.size()) {}
 
