@@ -8,7 +8,8 @@
 
 #include <cassert>      /* for assert() */
 #include <cerrno>       /* for errno */
-#include <stdexcept>    /* for std::bad_alloc */
+#include <cstdio>       /* for std::fputc(), std::ftell() */
+#include <stdexcept>    /* for std::bad_alloc, std::invalid_argument */
 #include <sys/mman.h>   /* for mmap(), munmap(), mremap() */
 #include <system_error> /* for std::system_error */
 #include <unistd.h>     /* for sysconf() */
@@ -58,30 +59,39 @@ executable_buffer::grow() {
   throw std::system_error(ENOSYS, std::system_category());
 }
 
-persistent_buffer::persistent_buffer() {
-  // TODO
+persistent_buffer::persistent_buffer(FILE* const stream)
+  : _stream(stream),
+    _begin_offset(0) {
+  if (!stream) {
+    throw std::invalid_argument("stream cannot be nullptr");
+  }
+  _begin_offset = offset();
 }
 
 persistent_buffer::~persistent_buffer() noexcept {
-  // TODO
+  if (_stream) {
+    _stream = nullptr;
+  }
 }
 
 std::size_t
-persistent_buffer::size() const noexcept {
-  // TODO
-  return 0;
+persistent_buffer::size() const {
+  return offset() - _begin_offset;
+}
+
+std::size_t
+persistent_buffer::offset() const {
+  long offset;
+  if ((offset = std::ftell(_stream)) == -1) {
+    throw std::system_error(errno, std::system_category());
+  }
+  return static_cast<std::size_t>(offset);
 }
 
 persistent_buffer&
 persistent_buffer::append(const std::uint8_t byte) {
-  // TODO
-  return (void)byte, *this;
-}
-
-persistent_buffer&
-persistent_buffer::append(const std::initializer_list<std::uint8_t> bytes) {
-  for (const auto byte : bytes) {
-    append(byte);
+  if (std::fputc(static_cast<int>(byte), _stream) == EOF) {
+    throw std::system_error(errno, std::system_category());
   }
   return *this;
 }

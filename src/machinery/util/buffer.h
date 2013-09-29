@@ -11,6 +11,7 @@
 
 #include <cstddef>          /* for std::size_t */
 #include <cstdint>          /* for std::uint8_t */
+#include <cstdio>           /* for FILE */
 #include <initializer_list> /* for std::initializer_list */
 #include <stdexcept>        /* for std::logic_error */
 #include <vector>           /* for std::vector */
@@ -38,17 +39,17 @@ public:
   /**
    * Returns the current byte capacity of this buffer.
    */
-  std::size_t capacity() const noexcept;
+  std::size_t capacity() const;
 
   /**
    * Returns the current byte size of this buffer.
    */
-  std::size_t size() const noexcept;
+  std::size_t size() const;
 
   /**
    * Returns a pointer to the byte data in this buffer.
    */
-  const std::uint8_t* data() const noexcept {
+  const std::uint8_t* data() const {
     throw std::logic_error("no data pointer available for this buffer type");
   }
 
@@ -253,14 +254,23 @@ protected:
  * @note Instances of this class are movable, but not copyable.
  */
 class machinery::util::persistent_buffer : public machinery::util::buffer {
+  FILE* _stream;
+  std::size_t _begin_offset;
+
+public:
+  /**
+   * Default constructor.
+   */
+  persistent_buffer() noexcept = delete;
+
   /**
    * Default constructor.
    *
+   * @throws std::invalid_argument if `stream` is `nullptr`
    * @throws std::system_error in case of error
    */
-  persistent_buffer();
+  persistent_buffer(FILE* stream);
 
-public:
   /**
    * Copy constructor.
    */
@@ -288,15 +298,26 @@ public:
 
   /**
    * Returns the current byte capacity of this buffer.
+   *
+   * @throws std::system_error in case of error
    */
-  std::size_t capacity() const noexcept {
+  std::size_t capacity() const {
     return size();
   }
 
   /**
    * Returns the current byte size of this buffer.
+   *
+   * @throws std::system_error in case of error
    */
-  std::size_t size() const noexcept;
+  std::size_t size() const;
+
+  /**
+   * Returns the current file offset.
+   *
+   * @throws std::system_error in case of error
+   */
+  std::size_t offset() const;
 
   /**
    * Appends the given byte to the end of this buffer.
@@ -310,7 +331,12 @@ public:
    *
    * @throws std::system_error in case of error
    */
-  persistent_buffer& append(const std::initializer_list<std::uint8_t> bytes);
+  persistent_buffer& append(const std::initializer_list<std::uint8_t> bytes) {
+    for (const auto byte : bytes) {
+      append(byte);
+    }
+    return *this;
+  }
 };
 
 #endif /* MACHINERY_UTIL_BUFFER_H */
