@@ -100,64 +100,64 @@ union machinery::arch::x86_imm64 final {
  * x86 general-purpose registers (8-bit)
  */
 enum class machinery::arch::x86_reg8 : machinery::arch::x86_reg {
-  AL = 0,  /* 0b000 */
-  CL,      /* 0b001 */
-  DL,      /* 0b010 */
-  BL,      /* 0b011 */
-  AH,      /* 0b100 */
-  CH,      /* 0b101 */
-  DH,      /* 0b110 */
-  BH,      /* 0b111 */
+  al = 0,   /* 0b000 */
+  cl = 1,   /* 0b001 */
+  dl = 2,   /* 0b010 */
+  bl = 3,   /* 0b011 */
+  ah = 4,   /* 0b100 */
+  ch = 5,   /* 0b101 */
+  dh = 6,   /* 0b110 */
+  bh = 7,   /* 0b111 */
 };
 
 /**
  * x86 general-purpose registers (16-bit)
  */
 enum class machinery::arch::x86_reg16 : machinery::arch::x86_reg {
-  AX = 0,  /* 0b000 */
-  CX,      /* 0b001 */
-  DX,      /* 0b010 */
-  BX,      /* 0b011 */
-  SP,      /* 0b100 */
-  BP,      /* 0b101 */
-  SI,      /* 0b110 */
-  DI,      /* 0b111 */
+  ax = 0,   /* 0b000 */
+  cx = 1,   /* 0b001 */
+  dx = 2,   /* 0b010 */
+  bx = 3,   /* 0b011 */
+  sp = 4,   /* 0b100 */
+  bp = 5,   /* 0b101 */
+  si = 6,   /* 0b110 */
+  di = 7,   /* 0b111 */
 };
 
 /**
  * x86 general-purpose registers (32-bit)
  */
 enum class machinery::arch::x86_reg32 : machinery::arch::x86_reg {
-  EAX = 0, /* 0b000 */
-  ECX,     /* 0b001 */
-  EDX,     /* 0b010 */
-  EBX,     /* 0b011 */
-  ESP,     /* 0b100 */
-  EBP,     /* 0b101 */
-  ESI,     /* 0b110 */
-  EDI,     /* 0b111 */
+  eax = 0,  /* 0b000 */
+  ecx = 1,  /* 0b001 */
+  edx = 2,  /* 0b010 */
+  ebx = 3,  /* 0b011 */
+  esp = 4,  /* 0b100 */
+  ebp = 5,  /* 0b101 */
+  esi = 6,  /* 0b110 */
+  edi = 7,  /* 0b111 */
 };
 
 /**
  * x86 general-purpose registers (64-bit)
  */
 enum class machinery::arch::x86_reg64 : machinery::arch::x86_reg {
-  RAX = 0, /* 0b000 */
-  RCX,     /* 0b001 */
-  RDX,     /* 0b010 */
-  RBX,     /* 0b011 */
-  RSP,     /* 0b100 */
-  RBP,     /* 0b101 */
-  RSI,     /* 0b110 */
-  RDI,     /* 0b111 */
-  R8,
-  R9,
-  R10,
-  R11,
-  R12,
-  R13,
-  R14,
-  R15,
+  rax = 0,  /* 0b000 */
+  rcx = 1,  /* 0b001 */
+  rdx = 2,  /* 0b010 */
+  rbx = 3,  /* 0b011 */
+  rsp = 4,  /* 0b100 */
+  rbp = 5,  /* 0b101 */
+  rsi = 6,  /* 0b110 */
+  rdi = 7,  /* 0b111 */
+  r8  = 8,
+  r9  = 9,
+  r10 = 10,
+  r11 = 11,
+  r12 = 12,
+  r13 = 13,
+  r14 = 14,
+  r15 = 15,
 };
 
 #endif /* MACHINERY_ARCH_X86_ENCODING_H */

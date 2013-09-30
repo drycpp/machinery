@@ -523,7 +523,7 @@ public:
    */
   x86_emitter& emit_mov(const x86_reg64 reg,
                         const x86_imm64 imm) {
-    //assert(reg < x86_reg64::R8); // FIXME
+    //assert(reg < x86_reg64::r8); // FIXME
     return emit(0x48, 0xB8 + static_cast<std::uint8_t>(reg)).emit(imm); // FIXME
   }
 
@@ -536,7 +536,7 @@ public:
    */
   x86_emitter& emit_mov(const x86_reg64 reg1,
                         const x86_reg64 reg2) {
-    if (reg1 == x86_reg64::RBP && reg2 == x86_reg64::RSP)
+    if (reg1 == x86_reg64::rbp && reg2 == x86_reg64::rsp)
       return emit(0x48, 0x89, 0xE5);
     throw std::runtime_error("not implemented yet"); // TODO
   }
