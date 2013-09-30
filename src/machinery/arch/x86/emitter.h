@@ -479,7 +479,7 @@ public:
   }
 
   /**
-   * Emits a three-byte `MOV reg16, imm16` instruction.
+   * Emits a four-byte `MOV reg16, imm16` instruction.
    *
    * @param reg the 16-bit target register operand
    * @param imm the 16-bit immediate value operand
@@ -487,7 +487,7 @@ public:
    */
   x86_emitter& emit_mov(const x86_reg16 reg,
                         const x86_imm16 imm) {
-    return emit(0xB8 + static_cast<std::uint8_t>(reg)).emit(imm);
+    return emit(0x66, 0xB8 + static_cast<std::uint8_t>(reg)).emit(imm);
   }
 
   /**
@@ -499,11 +499,11 @@ public:
    */
   x86_emitter& emit_mov(const x86_reg32 reg,
                         const x86_imm32 imm) {
-    return emit(0x66, 0xB8 + static_cast<std::uint8_t>(reg)).emit(imm);
+    return emit(0xB8 + static_cast<std::uint8_t>(reg)).emit(imm);
   }
 
   /**
-   * Emits a nine or ten-byte `MOV reg64, imm64` instruction.
+   * Emits a ten-byte `MOV reg64, imm64` instruction.
    *
    * @param reg the 64-bit target register operand
    * @param imm the 64-bit immediate value operand
@@ -512,7 +512,7 @@ public:
   x86_emitter& emit_mov(const x86_reg64 reg,
                         const x86_imm64 imm) {
     //assert(reg < x86_reg64::R8); // FIXME
-    return emit(0xB8 + static_cast<std::uint8_t>(reg)).emit(imm); // FIXME
+    return emit(0x48, 0xB8 + static_cast<std::uint8_t>(reg)).emit(imm); // FIXME
   }
 
   /**
