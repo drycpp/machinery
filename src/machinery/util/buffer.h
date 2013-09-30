@@ -238,6 +238,31 @@ public:
     return *this;
   }
 
+  /**
+   * Executes the code in this buffer.
+   *
+   * @pre  The generated code must include a return instruction.
+   * @post Processor registers may be clobbered.
+   */
+  void execute() const {
+    reinterpret_cast<void (*)()>(_data)();
+  }
+
+  /**
+   * Executes the code in this buffer, returning a value of type `T`.
+   *
+   * @return a value of type `T`
+   * @pre  The generated code must include a return instruction.
+   * @post Processor registers may be clobbered.
+   * @note How to return a value from the generated code is entirely
+   *       dependent on particulars of the architecture and calling
+   *       convention. Please refer to your platform documentation.
+   */
+  template <typename T>
+  T execute() const {
+    return reinterpret_cast<T (*)()>(_data)();
+  }
+
 protected:
   /**
    * Grows the size of this buffer.
