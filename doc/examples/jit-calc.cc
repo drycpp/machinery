@@ -31,7 +31,7 @@ main(int argc, char* argv[]) {
     const int arg = std::atoi(argv[i]);
 
     /* Add the integer argument to RAX: */
-    code.emit_add(imm32{arg});
+    code.emit_add(imm32{static_cast<std::uint32_t>(arg)});
   }
 
   /* Function epilog: */
