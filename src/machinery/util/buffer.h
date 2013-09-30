@@ -145,6 +145,16 @@ public:
     _bytes.insert(_bytes.end(), bytes);
     return *this;
   }
+
+  /**
+   * Clears the contents of this buffer.
+   *
+   * @post `size()` is zero
+   */
+  appendable_buffer& clear() {
+    _bytes.clear();
+    return *this;
+  }
 };
 
 /**
