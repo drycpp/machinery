@@ -166,9 +166,25 @@ public:
   executable_buffer();
 
   /**
-   * Copy constructor.
+   * Constructor.
+   *
+   * @throws std::system_error in case of error
    */
-  executable_buffer(const executable_buffer& other) = delete;
+  executable_buffer(std::size_t capacity);
+
+  /**
+   * Copy constructor.
+   *
+   * @throws std::system_error in case of error
+   */
+  executable_buffer(const appendable_buffer& buffer);
+
+  /**
+   * Copy constructor.
+   *
+   * @throws std::system_error in case of error
+   */
+  executable_buffer(const executable_buffer& other);
 
   /**
    * Move constructor.
