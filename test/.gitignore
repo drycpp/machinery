@@ -1,0 +1,12 @@
+.deps/
+.libs/
+.dirstamp
+*.a
+*.o
+*.la
+*.lo
+*.log
+*.trs
+check_arch_arm
+check_arch_x86
+check_util_buffer
