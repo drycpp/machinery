@@ -4,7 +4,7 @@
 #include <machinery/arch/x86.h>
 #include <machinery/util/buffer.h>
 
-#include <cstdio>  /* for std::fwrite() */
+#include <cstdio>  /* for stdout, std::printf() */
 #include <cstdlib> /* for std::atoi() */
 
 using namespace machinery::arch;
@@ -13,30 +13,36 @@ using namespace machinery::util;
 
 int
 main(int argc, char* argv[]) {
-  executable_buffer buffer;
+  //persistent_buffer buffer(stdout);
+  appendable_buffer buffer;
   x86_emitter<decltype(buffer)> code(buffer);
 
-  /* Clear the EAX register: */
-  code.emit_mov(reg32::EAX, imm32{0});
+  /* Function prolog: */
+  code.emit_push(reg64::rbp);
+  code.emit_mov(reg64::rbp, reg64::rsp);
+
+  /* Clear the RAX register: */
+  code.emit_mov(reg64::rax, imm64{0});
+  //code.emit_xor(reg64::rax, reg64::rax); // TODO
 
   /* For each command-line argument: */
   for (int i = 1; i < argc; i++) {
     /* Convert the argument to an integer: */
     const int arg = std::atoi(argv[i]);
 
-    /* Add the integer argument to EAX: */
+    /* Add the integer argument to RAX: */
     code.emit_add(imm32{arg});
   }
 
-  /* Return to the caller: */
+  /* Function epilog: */
+  code.emit_pop(reg64::rbp);
   code.emit_ret();
 
 #if 1
-  //std::printf("buffer.data()=%p buffer.size()=%zu\n", buffer.data(), buffer.size());
-  std::fwrite(buffer.data(), buffer.size(), 1, stdout);
+  /* Execute the code buffer and print out the result: */
+  executable_buffer exec(buffer);
+  std::printf("%d\n", exec.execute<std::int32_t>());
 #endif
-
-  // TODO: execute the code buffer and print out the result.
 
   return 0;
 }
