@@ -222,23 +222,34 @@ public:
   }
 
   /**
-   * Emits a three-byte `ADD AX, imm16` instruction.
+   * Emits a four-byte `ADD AX, imm16` instruction.
    *
    * @param imm the 16-bit immediate value operand
    * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_add(const x86_imm16 imm) {
-    return emit(0x05).emit(imm);
+    return emit(0x66, 0x05).emit(imm);
   }
 
   /**
-   * Emits a six-byte `ADD EAX, imm32` instruction.
+   * Emits a five-byte `ADD EAX, imm32` instruction.
    *
    * @param imm the 32-bit immediate value operand
    * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_add(const x86_imm32 imm) {
-    return emit(0x66, 0x05).emit(imm);
+    return emit(0x05).emit(imm);
+  }
+
+  /**
+   * Emits a six-byte `ADD RAX, imm64` instruction.
+   *
+   * @param imm the 64-bit immediate value operand
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_add(const x86_imm64 imm) {
+    // TODO: synthesize ops if imm > INT32_MAX?
+    return emit(0x48, 0x05).emit(static_cast<x86_imm32>(imm.s64));
   }
 
   /**

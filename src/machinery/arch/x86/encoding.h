@@ -33,6 +33,7 @@ namespace machinery {
  * 8-bit immediate value.
  */
 union machinery::arch::x86_imm8 final {
+  std::int8_t s8;
   std::uint8_t u8;
 
   /**
@@ -48,6 +49,7 @@ union machinery::arch::x86_imm8 final {
  * 16-bit immediate value.
  */
 union machinery::arch::x86_imm16 final {
+  std::int16_t s16;
   std::uint16_t u16;
   std::uint8_t u8[2];
 
@@ -64,6 +66,7 @@ union machinery::arch::x86_imm16 final {
  * 32-bit immediate value.
  */
 union machinery::arch::x86_imm32 final {
+  std::int32_t s32;
   std::uint32_t u32;
   std::uint8_t u8[4];
 
@@ -80,6 +83,7 @@ union machinery::arch::x86_imm32 final {
  * 64-bit immediate value.
  */
 union machinery::arch::x86_imm64 final {
+  std::int64_t s64;
   std::uint64_t u64;
   std::uint8_t u8[8];
 
