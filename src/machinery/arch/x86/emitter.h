@@ -11,8 +11,9 @@
 
 #include "encoding.h"
 
-#include <cstddef> /* for std::size_t */
-#include <cstdint> /* for std::uint8_t */
+#include <cstddef>   /* for std::size_t */
+#include <cstdint>   /* for std::uint8_t */
+#include <stdexcept> /* for std::runtime_error */
 
 namespace machinery {
   namespace arch {
@@ -537,7 +538,7 @@ public:
                         const x86_reg64 reg2) {
     if (reg1 == x86_reg64::RBP && reg2 == x86_reg64::RSP)
       return emit(0x48, 0x89, 0xE5);
-    return *this; // TODO
+    throw std::runtime_error("not implemented yet"); // TODO
   }
 
   /**
@@ -584,6 +585,7 @@ public:
    * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_mul(const x86_reg8 reg) {
+    throw std::runtime_error("not implemented yet"); // TODO
     return (void)reg, *this; // TODO
   }
 
@@ -595,6 +597,7 @@ public:
    * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_mul(const x86_reg16 reg) {
+    throw std::runtime_error("not implemented yet"); // TODO
     return (void)reg, *this; // TODO
   }
 
@@ -606,6 +609,7 @@ public:
    * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_mul(const x86_reg32 reg) {
+    throw std::runtime_error("not implemented yet"); // TODO
     return (void)reg, *this; // TODO
   }
 
@@ -617,6 +621,7 @@ public:
    * @copydetails emit_general_purpose_instruction
    */
   x86_emitter& emit_mul(const x86_reg64 reg) {
+    throw std::runtime_error("not implemented yet"); // TODO
     return (void)reg, *this; // TODO
   }
 
@@ -930,6 +935,58 @@ public:
    */
   x86_emitter& emit_xlatb() {
     return emit(0xD7);
+  }
+
+  /**
+   * Emits a ?-byte `XOR reg8, reg8` instruction.
+   *
+   * @param reg1 an 8-bit register operand
+   * @param reg2 an 8-bit register operand
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_xor(const x86_reg8 reg1,
+                        const x86_reg8 reg2) {
+    throw std::runtime_error("not implemented yet"); // TODO
+    return (void)reg1, (void)reg2, *this;
+  }
+
+  /**
+   * Emits a ?-byte `XOR reg16, reg16` instruction.
+   *
+   * @param reg1 a 16-bit register operand
+   * @param reg2 a 16-bit register operand
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_xor(const x86_reg16 reg1,
+                        const x86_reg16 reg2) {
+    throw std::runtime_error("not implemented yet"); // TODO
+    return (void)reg1, (void)reg2, *this;
+  }
+
+  /**
+   * Emits a ?-byte `XOR reg32, reg32` instruction.
+   *
+   * @param reg1 a 32-bit register operand
+   * @param reg2 a 32-bit register operand
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_xor(const x86_reg32 reg1,
+                        const x86_reg32 reg2) {
+    throw std::runtime_error("not implemented yet"); // TODO
+    return (void)reg1, (void)reg2, *this;
+  }
+
+  /**
+   * Emits a ?-byte `XOR reg64, reg64` instruction.
+   *
+   * @param reg1 a 64-bit register operand
+   * @param reg2 a 64-bit register operand
+   * @copydetails emit_general_purpose_instruction
+   */
+  x86_emitter& emit_xor(const x86_reg64 reg1,
+                        const x86_reg64 reg2) {
+    throw std::runtime_error("not implemented yet"); // TODO
+    return (void)reg1, (void)reg2, *this;
   }
 
   /**@}*/
