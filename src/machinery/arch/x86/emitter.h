@@ -199,7 +199,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_aaa() {
+  x86_emitter& aaa() {
     return emit(0x37);
   }
 
@@ -208,7 +208,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_aas() {
+  x86_emitter& aas() {
     return emit(0x3F);
   }
 
@@ -218,7 +218,7 @@ public:
    * @param imm the 8-bit immediate value operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_add(const x86_imm8 imm) {
+  x86_emitter& add(const x86_imm8 imm) {
     return emit(0x04).emit(imm);
   }
 
@@ -228,7 +228,7 @@ public:
    * @param imm the 16-bit immediate value operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_add(const x86_imm16 imm) {
+  x86_emitter& add(const x86_imm16 imm) {
     return emit(0x66, 0x05).emit(imm);
   }
 
@@ -238,7 +238,7 @@ public:
    * @param imm the 32-bit immediate value operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_add(const x86_imm32 imm) {
+  x86_emitter& add(const x86_imm32 imm) {
     return emit(0x05).emit(imm);
   }
 
@@ -248,7 +248,7 @@ public:
    * @param imm the 64-bit immediate value operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_add(const x86_imm64 imm) {
+  x86_emitter& add(const x86_imm64 imm) {
     // TODO: synthesize ops if imm > INT32_MAX?
     return emit(0x48, 0x05).emit(static_cast<x86_imm32>(imm.s64));
   }
@@ -258,7 +258,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_cbw() {
+  x86_emitter& cbw() {
     return emit(0x98);
   }
 
@@ -267,7 +267,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_cwde() {
+  x86_emitter& cwde() {
     return emit(0x98);
   }
 
@@ -276,7 +276,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_cdqe() {
+  x86_emitter& cdqe() {
     return emit(0x98);
   }
 
@@ -285,7 +285,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_cwd() {
+  x86_emitter& cwd() {
     return emit(0x99);
   }
 
@@ -294,7 +294,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_cdq() {
+  x86_emitter& cdq() {
     return emit(0x99);
   }
 
@@ -303,7 +303,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_cqo() {
+  x86_emitter& cqo() {
     return emit(0x99);
   }
 
@@ -312,7 +312,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_clc() {
+  x86_emitter& clc() {
     return emit(0xF8);
   }
 
@@ -321,7 +321,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_cld() {
+  x86_emitter& cld() {
     return emit(0xFC);
   }
 
@@ -330,7 +330,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_cmc() {
+  x86_emitter& cmc() {
     return emit(0xF5);
   }
 
@@ -339,7 +339,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_cmpsb() {
+  x86_emitter& cmpsb() {
     return emit(0xA6);
   }
 
@@ -348,7 +348,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_cmpsw() {
+  x86_emitter& cmpsw() {
     return emit(0xA7);
   }
 
@@ -357,7 +357,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_cmpsd() {
+  x86_emitter& cmpsd() {
     return emit(0xA7);
   }
 
@@ -366,7 +366,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_cmpsq() {
+  x86_emitter& cmpsq() {
     return emit(0xA7);
   }
 
@@ -375,7 +375,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_daa() {
+  x86_emitter& daa() {
     return emit(0x27);
   }
 
@@ -384,7 +384,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_das() {
+  x86_emitter& das() {
     return emit(0x2F);
   }
 
@@ -393,7 +393,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_insb() {
+  x86_emitter& insb() {
     return emit(0x6C);
   }
 
@@ -402,7 +402,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_insw() {
+  x86_emitter& insw() {
     return emit(0x6D);
   }
 
@@ -411,7 +411,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_insd() {
+  x86_emitter& insd() {
     return emit(0x6D);
   }
 
@@ -420,7 +420,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_into() {
+  x86_emitter& into() {
     return emit(0xCE);
   }
 
@@ -429,7 +429,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_lahf() {
+  x86_emitter& lahf() {
     return emit(0x9F);
   }
 
@@ -438,7 +438,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_leave() {
+  x86_emitter& leave() {
     return emit(0xC9);
   }
 
@@ -447,7 +447,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_lodsb() {
+  x86_emitter& lodsb() {
     return emit(0xAC);
   }
 
@@ -456,7 +456,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_lodsw() {
+  x86_emitter& lodsw() {
     return emit(0xAD);
   }
 
@@ -465,7 +465,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_lodsd() {
+  x86_emitter& lodsd() {
     return emit(0xAD);
   }
 
@@ -474,7 +474,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_lodsq() {
+  x86_emitter& lodsq() {
     return emit(0xAD);
   }
 
@@ -485,8 +485,8 @@ public:
    * @param imm the 8-bit immediate value operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_mov(const x86_reg8 reg,
-                        const x86_imm8 imm) {
+  x86_emitter& mov(const x86_reg8 reg,
+                   const x86_imm8 imm) {
     return emit(0xB0 + static_cast<std::uint8_t>(reg)).emit(imm);
   }
 
@@ -497,8 +497,8 @@ public:
    * @param imm the 16-bit immediate value operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_mov(const x86_reg16 reg,
-                        const x86_imm16 imm) {
+  x86_emitter& mov(const x86_reg16 reg,
+                   const x86_imm16 imm) {
     return emit(0x66, 0xB8 + static_cast<std::uint8_t>(reg)).emit(imm);
   }
 
@@ -509,8 +509,8 @@ public:
    * @param imm the 32-bit immediate value operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_mov(const x86_reg32 reg,
-                        const x86_imm32 imm) {
+  x86_emitter& mov(const x86_reg32 reg,
+                   const x86_imm32 imm) {
     return emit(0xB8 + static_cast<std::uint8_t>(reg)).emit(imm);
   }
 
@@ -521,8 +521,8 @@ public:
    * @param imm the 64-bit immediate value operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_mov(const x86_reg64 reg,
-                        const x86_imm64 imm) {
+  x86_emitter& mov(const x86_reg64 reg,
+                   const x86_imm64 imm) {
     //assert(reg < x86_reg64::r8); // FIXME
     return emit(0x48, 0xB8 + static_cast<std::uint8_t>(reg)).emit(imm); // FIXME
   }
@@ -534,8 +534,8 @@ public:
    * @param reg2 the 64-bit source register operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_mov(const x86_reg64 reg1,
-                        const x86_reg64 reg2) {
+  x86_emitter& mov(const x86_reg64 reg1,
+                   const x86_reg64 reg2) {
     if (reg1 == x86_reg64::rbp && reg2 == x86_reg64::rsp)
       return emit(0x48, 0x89, 0xE5);
     throw std::runtime_error("not implemented yet"); // TODO
@@ -546,7 +546,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_movsb() {
+  x86_emitter& movsb() {
     return emit(0xA4);
   }
 
@@ -555,7 +555,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_movsw() {
+  x86_emitter& movsw() {
     return emit(0xA5);
   }
 
@@ -564,7 +564,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_movsd() {
+  x86_emitter& movsd() {
     return emit(0xA5);
   }
 
@@ -573,7 +573,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_movsq() {
+  x86_emitter& movsq() {
     return emit(0xA5);
   }
 
@@ -584,7 +584,7 @@ public:
    * @todo Implement this method.
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_mul(const x86_reg8 reg) {
+  x86_emitter& mul(const x86_reg8 reg) {
     throw std::runtime_error("not implemented yet"); // TODO
     return (void)reg, *this; // TODO
   }
@@ -596,7 +596,7 @@ public:
    * @todo Implement this method.
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_mul(const x86_reg16 reg) {
+  x86_emitter& mul(const x86_reg16 reg) {
     throw std::runtime_error("not implemented yet"); // TODO
     return (void)reg, *this; // TODO
   }
@@ -608,7 +608,7 @@ public:
    * @todo Implement this method.
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_mul(const x86_reg32 reg) {
+  x86_emitter& mul(const x86_reg32 reg) {
     throw std::runtime_error("not implemented yet"); // TODO
     return (void)reg, *this; // TODO
   }
@@ -620,7 +620,7 @@ public:
    * @todo Implement this method.
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_mul(const x86_reg64 reg) {
+  x86_emitter& mul(const x86_reg64 reg) {
     throw std::runtime_error("not implemented yet"); // TODO
     return (void)reg, *this; // TODO
   }
@@ -630,7 +630,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_nop() {
+  x86_emitter& nop() {
     return emit(0x90);
   }
 
@@ -639,7 +639,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_outsb() {
+  x86_emitter& outsb() {
     return emit(0x6E);
   }
 
@@ -648,7 +648,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_outsw() {
+  x86_emitter& outsw() {
     return emit(0x6F);
   }
 
@@ -657,7 +657,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_outsd() {
+  x86_emitter& outsd() {
     return emit(0x6F);
   }
 
@@ -667,7 +667,7 @@ public:
    * @param reg a 16-bit register operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_pop(const x86_reg16 reg) {
+  x86_emitter& pop(const x86_reg16 reg) {
     return emit(0x58 + static_cast<std::uint8_t>(reg));
   }
 
@@ -677,7 +677,7 @@ public:
    * @param reg a 32-bit register operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_pop(const x86_reg32 reg) {
+  x86_emitter& pop(const x86_reg32 reg) {
     return emit(0x58 + static_cast<std::uint8_t>(reg));
   }
 
@@ -687,7 +687,7 @@ public:
    * @param reg a 64-bit register operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_pop(const x86_reg64 reg) {
+  x86_emitter& pop(const x86_reg64 reg) {
     return emit(0x58 + static_cast<std::uint8_t>(reg));
   }
 
@@ -696,7 +696,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_popa() {
+  x86_emitter& popa() {
     return emit(0x61);
   }
 
@@ -705,7 +705,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_popad() {
+  x86_emitter& popad() {
     return emit(0x61);
   }
 
@@ -714,7 +714,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_popf() {
+  x86_emitter& popf() {
     return emit(0x9D);
   }
 
@@ -723,7 +723,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_popfd() {
+  x86_emitter& popfd() {
     return emit(0x9D);
   }
 
@@ -732,7 +732,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_popfq() {
+  x86_emitter& popfq() {
     return emit(0x9D);
   }
 
@@ -742,7 +742,7 @@ public:
    * @param reg a 16-bit register operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_push(const x86_reg16 reg) {
+  x86_emitter& push(const x86_reg16 reg) {
     return emit(0x50 + static_cast<std::uint8_t>(reg));
   }
 
@@ -752,7 +752,7 @@ public:
    * @param reg a 32-bit register operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_push(const x86_reg32 reg) {
+  x86_emitter& push(const x86_reg32 reg) {
     return emit(0x50 + static_cast<std::uint8_t>(reg));
   }
 
@@ -762,7 +762,7 @@ public:
    * @param reg a 64-bit register operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_push(const x86_reg64 reg) {
+  x86_emitter& push(const x86_reg64 reg) {
     return emit(0x50 + static_cast<std::uint8_t>(reg));
   }
 
@@ -771,7 +771,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_pusha() {
+  x86_emitter& pusha() {
     return emit(0x60);
   }
 
@@ -780,7 +780,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_pushad() {
+  x86_emitter& pushad() {
     return emit(0x60);
   }
 
@@ -789,7 +789,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_pushf() {
+  x86_emitter& pushf() {
     return emit(0x9C);
   }
 
@@ -798,7 +798,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_pushfd() {
+  x86_emitter& pushfd() {
     return emit(0x9C);
   }
 
@@ -807,7 +807,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_pushfq() {
+  x86_emitter& pushfq() {
     return emit(0x9C);
   }
 
@@ -816,7 +816,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_ret() {
+  x86_emitter& ret() {
     return emit(0xC3);
   }
 
@@ -825,7 +825,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_retf() {
+  x86_emitter& retf() {
     return emit(0xCB);
   }
 
@@ -834,7 +834,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_sahf() {
+  x86_emitter& sahf() {
     return emit(0x9E);
   }
 
@@ -843,7 +843,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_scasb() {
+  x86_emitter& scasb() {
     return emit(0xAE);
   }
 
@@ -852,7 +852,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_scasw() {
+  x86_emitter& scasw() {
     return emit(0xAF);
   }
 
@@ -861,7 +861,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_scasd() {
+  x86_emitter& scasd() {
     return emit(0xAF);
   }
 
@@ -870,7 +870,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_scasq() {
+  x86_emitter& scasq() {
     return emit(0xAF);
   }
 
@@ -879,7 +879,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_stc() {
+  x86_emitter& stc() {
     return emit(0xF9);
   }
 
@@ -888,7 +888,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_std() {
+  x86_emitter& std() {
     return emit(0xFD);
   }
 
@@ -897,7 +897,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_stosb() {
+  x86_emitter& stosb() {
     return emit(0xAA);
   }
 
@@ -906,7 +906,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_stosw() {
+  x86_emitter& stosw() {
     return emit(0xAB);
   }
 
@@ -915,7 +915,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_stosd() {
+  x86_emitter& stosd() {
     return emit(0xAB);
   }
 
@@ -924,7 +924,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_stosq() {
+  x86_emitter& stosq() {
     return emit(0xAB);
   }
 
@@ -933,7 +933,7 @@ public:
    *
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_xlatb() {
+  x86_emitter& xlatb() {
     return emit(0xD7);
   }
 
@@ -944,8 +944,8 @@ public:
    * @param reg2 an 8-bit register operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_xor(const x86_reg8 reg1,
-                        const x86_reg8 reg2) {
+  x86_emitter& xor_(const x86_reg8 reg1,
+                    const x86_reg8 reg2) {
     throw std::runtime_error("not implemented yet"); // TODO
     return (void)reg1, (void)reg2, *this;
   }
@@ -957,8 +957,8 @@ public:
    * @param reg2 a 16-bit register operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_xor(const x86_reg16 reg1,
-                        const x86_reg16 reg2) {
+  x86_emitter& xor_(const x86_reg16 reg1,
+                    const x86_reg16 reg2) {
     throw std::runtime_error("not implemented yet"); // TODO
     return (void)reg1, (void)reg2, *this;
   }
@@ -970,8 +970,8 @@ public:
    * @param reg2 a 32-bit register operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_xor(const x86_reg32 reg1,
-                        const x86_reg32 reg2) {
+  x86_emitter& xor_(const x86_reg32 reg1,
+                    const x86_reg32 reg2) {
     throw std::runtime_error("not implemented yet"); // TODO
     return (void)reg1, (void)reg2, *this;
   }
@@ -983,8 +983,8 @@ public:
    * @param reg2 a 64-bit register operand
    * @copydetails emit_general_purpose_instruction
    */
-  x86_emitter& emit_xor(const x86_reg64 reg1,
-                        const x86_reg64 reg2) {
+  x86_emitter& xor_(const x86_reg64 reg1,
+                    const x86_reg64 reg2) {
     throw std::runtime_error("not implemented yet"); // TODO
     return (void)reg1, (void)reg2, *this;
   }
@@ -1015,7 +1015,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_clgi() {
+  x86_emitter& clgi() {
     return emit(0x0F, 0x01, 0xDD);
   }
 
@@ -1024,7 +1024,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_cli() {
+  x86_emitter& cli() {
     return emit(0xFA);
   }
 
@@ -1033,7 +1033,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_clts() {
+  x86_emitter& clts() {
     return emit(0x0F, 0x06);
   }
 
@@ -1042,7 +1042,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_hlt() {
+  x86_emitter& hlt() {
     return emit(0xF4);
   }
 
@@ -1051,7 +1051,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_int3() {
+  x86_emitter& int3() {
     return emit(0xCC);
   }
 
@@ -1060,7 +1060,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_invd() {
+  x86_emitter& invd() {
     return emit(0x0F, 0x08);
   }
 
@@ -1069,7 +1069,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_invlpga() {
+  x86_emitter& invlpga() {
     return emit(0x0F, 0x01, 0xDF);
   }
 
@@ -1078,7 +1078,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_iret() {
+  x86_emitter& iret() {
     return emit(0xCF);
   }
 
@@ -1087,7 +1087,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_iretd() {
+  x86_emitter& iretd() {
     return emit(0xCF);
   }
 
@@ -1096,7 +1096,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_iretq() {
+  x86_emitter& iretq() {
     return emit(0xCF);
   }
 
@@ -1105,7 +1105,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_monitor() {
+  x86_emitter& monitor() {
     return emit(0x0F, 0x01, 0xC8);
   }
 
@@ -1114,7 +1114,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_mwait() {
+  x86_emitter& mwait() {
     return emit(0x0F, 0x01, 0xC9);
   }
 
@@ -1123,7 +1123,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_rdmsr() {
+  x86_emitter& rdmsr() {
     return emit(0x0F, 0x32);
   }
 
@@ -1132,7 +1132,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_rdpmc() {
+  x86_emitter& rdpmc() {
     return emit(0x0F, 0x33);
   }
 
@@ -1141,7 +1141,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_rdtsc() {
+  x86_emitter& rdtsc() {
     return emit(0x0F, 0x31);
   }
 
@@ -1150,7 +1150,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_rdtscp() {
+  x86_emitter& rdtscp() {
     return emit(0x0F, 0x01, 0xF9);
   }
 
@@ -1159,7 +1159,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_rsm() {
+  x86_emitter& rsm() {
     return emit(0x0F, 0xAA);
   }
 
@@ -1168,7 +1168,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_skinit() {
+  x86_emitter& skinit() {
     return emit(0x0F, 0x01, 0xDE);
   }
 
@@ -1177,7 +1177,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_sti() {
+  x86_emitter& sti() {
     return emit(0xFB);
   }
 
@@ -1186,7 +1186,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_stgi() {
+  x86_emitter& stgi() {
     return emit(0x0F, 0x01, 0xDC);
   }
 
@@ -1195,7 +1195,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_swapgs() {
+  x86_emitter& swapgs() {
     return emit(0x0F, 0x01, 0xF8);
   }
 
@@ -1204,7 +1204,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_syscall() {
+  x86_emitter& syscall() {
     return emit(0x0F, 0x05);
   }
 
@@ -1213,7 +1213,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_sysenter() {
+  x86_emitter& sysenter() {
     return emit(0x0F, 0x34);
   }
 
@@ -1222,7 +1222,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_sysexit() {
+  x86_emitter& sysexit() {
     return emit(0x0F, 0x35);
   }
 
@@ -1231,7 +1231,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_sysret() {
+  x86_emitter& sysret() {
     return emit(0x0F, 0x07);
   }
 
@@ -1240,7 +1240,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_ud2() {
+  x86_emitter& ud2() {
     return emit(0x0F, 0x0B);
   }
 
@@ -1249,7 +1249,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_vmload() {
+  x86_emitter& vmload() {
     return emit(0x0F, 0x01, 0xDA);
   }
 
@@ -1258,7 +1258,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_vmmcall() {
+  x86_emitter& vmmcall() {
     return emit(0x0F, 0x01, 0xD9);
   }
 
@@ -1267,7 +1267,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_vmrun() {
+  x86_emitter& vmrun() {
     return emit(0x0F, 0x01, 0xD8);
   }
 
@@ -1276,7 +1276,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_vmsave() {
+  x86_emitter& vmsave() {
     return emit(0x0F, 0x01, 0xDB);
   }
 
@@ -1285,7 +1285,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_wbinvd() {
+  x86_emitter& wbinvd() {
     return emit(0x0F, 0x09);
   }
 
@@ -1294,7 +1294,7 @@ public:
    *
    * @copydetails emit_system_instruction
    */
-  x86_emitter& emit_wrmsr() {
+  x86_emitter& wrmsr() {
     return emit(0x0F, 0x30);
   }
 
