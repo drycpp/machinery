@@ -1,4 +1,4 @@
 Build System
 ------------
 
-- configure.ac: ./configure --enable-archs=arm,x86
+- configure.ac: ./configure --enable-archs=arm,mips,ppc,sparc,x86
