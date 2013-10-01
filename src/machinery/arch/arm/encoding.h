@@ -14,6 +14,7 @@
 namespace machinery {
   namespace arch {
     enum class arm_cc : std::uint8_t;
+    union arm_imm7;
   }
 }
 
@@ -37,6 +38,23 @@ enum class machinery::arch::arm_cc : std::uint8_t {
   le = 13, /* 0b1101 */
   al = 14, /* 0b1110 */
   nv = 15, /* 0b1111 */
+};
+
+/**
+ * 7-bit unsigned immediate value, in the range 0..127.
+ */
+union machinery::arch::arm_imm7 final {
+  std::uint8_t u8;
+
+  /**
+   * Constructor.
+   *
+   * @param value the immediate value
+   */
+  explicit arm_imm7(const std::uint8_t value) noexcept
+    : u8(value) {
+    //assert(value <= 0x7F);
+  }
 };
 
 #endif /* MACHINERY_ARCH_ARM_ENCODING_H */
