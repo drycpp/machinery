@@ -6,7 +6,7 @@
 /**
  * @file
  *
- * Alias for `x86.h`.
+ * Alias for `<machinery/arch/x86.h>`.
  */
 
 #include "x86.h"

@@ -20,7 +20,14 @@ base_pkginclude_HEADERS = \
 nobase_pkginclude_HEADERS =
 
 if !DISABLE_ARM
-  nobase_pkginclude_HEADERS += arch/arm.h
+  nobase_pkginclude_HEADERS += \
+    arch/arm.h                 \
+    arch/arm/emitter.h         \
+    arch/arm/encoding.h        \
+    arch/armv8.h
+  libmachinery_la_SOURCES   += \
+    arch/arm/emitter.cc        \
+    arch/arm/encoding.cc
 endif
 
 if !DISABLE_X86
