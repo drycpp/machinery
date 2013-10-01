@@ -82,6 +82,82 @@ public:
   std::size_t offset() const noexcept {
     return _buffer.size() - _buffer_start;
   }
+
+  /**
+   * Emits a 32-bit instruction.
+   *
+   * @copydetails emit_instruction
+   */
+  inline arm_emitter& emit(const std::uint32_t insn) {
+    _buffer.append((insn >> 24) & 0xFF);
+    _buffer.append((insn >> 16) & 0xFF);
+    _buffer.append((insn >> 8)  & 0xFF);
+    _buffer.append((insn >> 0)  & 0xFF);
+    return *this;
+  }
+
+  /**
+   * Emits a `HINT` instruction.
+   *
+   * @copydetails emit_general_purpose_instruction
+   */
+  arm_emitter& hint(const arm_imm7 imm = 0) {
+    return emit(0xD503201F | (imm.u8 << 5));
+  }
+
+  /**
+   * Emits a `NOP` instruction.
+   *
+   * @copydetails emit_general_purpose_instruction
+   */
+  arm_emitter& nop() {
+    return hint(0);
+  }
+
+  /**
+   * Emits a `SEV` instruction.
+   *
+   * @copydetails emit_general_purpose_instruction
+   */
+  arm_emitter& sev() {
+    return hint(4);
+  }
+
+  /**
+   * Emits a `SEVL` instruction.
+   *
+   * @copydetails emit_general_purpose_instruction
+   */
+  arm_emitter& sevl() {
+    return hint(5);
+  }
+
+  /**
+   * Emits a `WFE` instruction.
+   *
+   * @copydetails emit_general_purpose_instruction
+   */
+  arm_emitter& wfe() {
+    return hint(2);
+  }
+
+  /**
+   * Emits a `WFI` instruction.
+   *
+   * @copydetails emit_general_purpose_instruction
+   */
+  arm_emitter& wfi() {
+    return hint(3);
+  }
+
+  /**
+   * Emits a `YIELD` instruction.
+   *
+   * @copydetails emit_general_purpose_instruction
+   */
+  arm_emitter& yield() {
+    return hint(1);
+  }
 };
 
 #endif /* MACHINERY_ARCH_ARM_EMITTER_H */

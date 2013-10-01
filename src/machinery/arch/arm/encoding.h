@@ -51,7 +51,7 @@ union machinery::arch::arm_imm7 final {
    *
    * @param value the immediate value
    */
-  explicit arm_imm7(const std::uint8_t value) noexcept
+  arm_imm7(const std::uint8_t value) noexcept
     : u8(value) {
     //assert(value <= 0x7F);
   }
