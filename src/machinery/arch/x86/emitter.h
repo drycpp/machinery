@@ -148,9 +148,11 @@ public:
    *
    * @copydetails emit_immediate_value
    */
-  inline x86_emitter& emit(const x86_imm16 imm) {
-    _buffer.append((imm.u16 >> 0) & 0xFF);
-    _buffer.append((imm.u16 >> 8) & 0xFF);
+  inline x86_emitter& emit(x86_imm16 imm) {
+    for (auto i = 0; i < 2; i++) {
+      _buffer.append(imm.u16 & 0xFF);
+      imm.u16 >>= 8;
+    }
     return *this;
   }
 
@@ -159,11 +161,11 @@ public:
    *
    * @copydetails emit_immediate_value
    */
-  inline x86_emitter& emit(const x86_imm32 imm) {
-    _buffer.append((imm.u32 >> 0)  & 0xFF);
-    _buffer.append((imm.u32 >> 8)  & 0xFF);
-    _buffer.append((imm.u32 >> 16) & 0xFF);
-    _buffer.append((imm.u32 >> 24) & 0xFF);
+  inline x86_emitter& emit(x86_imm32 imm) {
+    for (auto i = 0; i < 4; i++) {
+      _buffer.append(imm.u32 & 0xFF);
+      imm.u32 >>= 8;
+    }
     return *this;
   }
 
@@ -172,15 +174,11 @@ public:
    *
    * @copydetails emit_immediate_value
    */
-  inline x86_emitter& emit(const x86_imm64 imm) {
-    _buffer.append((imm.u64 >> 0)  & 0xFF);
-    _buffer.append((imm.u64 >> 8)  & 0xFF);
-    _buffer.append((imm.u64 >> 16) & 0xFF);
-    _buffer.append((imm.u64 >> 24) & 0xFF);
-    _buffer.append((imm.u64 >> 32) & 0xFF);
-    _buffer.append((imm.u64 >> 40) & 0xFF);
-    _buffer.append((imm.u64 >> 48) & 0xFF);
-    _buffer.append((imm.u64 >> 56) & 0xFF);
+  inline x86_emitter& emit(x86_imm64 imm) {
+    for (auto i = 0; i < 8; i++) {
+      _buffer.append(imm.u64 & 0xFF);
+      imm.u64 >>= 8;
+    }
     return *this;
   }
 
