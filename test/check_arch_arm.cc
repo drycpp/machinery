@@ -31,35 +31,35 @@ s(const arm_emitter<decltype(_buffer)>&) {
 }
 
 BOOST_AUTO_TEST_CASE(hint) {
-  BOOST_CHECK_EQUAL(s(emit().hint()), "D503201F");
-  BOOST_CHECK_EQUAL(s(emit().hint(0)), "D503201F");
-  BOOST_CHECK_EQUAL(s(emit().hint(1)), "D503203F");
-  BOOST_CHECK_EQUAL(s(emit().hint(2)), "D503205F");
-  BOOST_CHECK_EQUAL(s(emit().hint(3)), "D503207F");
-  BOOST_CHECK_EQUAL(s(emit().hint(4)), "D503209F");
-  BOOST_CHECK_EQUAL(s(emit().hint(5)), "D50320BF");
+  BOOST_CHECK_EQUAL(s(emit().hint()), "1F2003D5");
+  BOOST_CHECK_EQUAL(s(emit().hint(0)), "1F2003D5");
+  BOOST_CHECK_EQUAL(s(emit().hint(1)), "3F2003D5");
+  BOOST_CHECK_EQUAL(s(emit().hint(2)), "5F2003D5");
+  BOOST_CHECK_EQUAL(s(emit().hint(3)), "7F2003D5");
+  BOOST_CHECK_EQUAL(s(emit().hint(4)), "9F2003D5");
+  BOOST_CHECK_EQUAL(s(emit().hint(5)), "BF2003D5");
 }
 
 BOOST_AUTO_TEST_CASE(nop) {
-  BOOST_CHECK_EQUAL(s(emit().nop()), "D503201F");
+  BOOST_CHECK_EQUAL(s(emit().nop()), "1F2003D5");
 }
 
 BOOST_AUTO_TEST_CASE(sev) {
-  BOOST_CHECK_EQUAL(s(emit().sev()), "D503209F");
+  BOOST_CHECK_EQUAL(s(emit().sev()), "9F2003D5");
 }
 
 BOOST_AUTO_TEST_CASE(sevl) {
-  BOOST_CHECK_EQUAL(s(emit().sevl()), "D50320BF");
+  BOOST_CHECK_EQUAL(s(emit().sevl()), "BF2003D5");
 }
 
 BOOST_AUTO_TEST_CASE(wfe) {
-  BOOST_CHECK_EQUAL(s(emit().wfe()), "D503205F");
+  BOOST_CHECK_EQUAL(s(emit().wfe()), "5F2003D5");
 }
 
 BOOST_AUTO_TEST_CASE(wfi) {
-  BOOST_CHECK_EQUAL(s(emit().wfi()), "D503207F");
+  BOOST_CHECK_EQUAL(s(emit().wfi()), "7F2003D5");
 }
 
 BOOST_AUTO_TEST_CASE(yield) {
-  BOOST_CHECK_EQUAL(s(emit().yield()), "D503203F");
+  BOOST_CHECK_EQUAL(s(emit().yield()), "3F2003D5");
 }

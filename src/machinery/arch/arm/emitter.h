@@ -84,15 +84,15 @@ public:
   }
 
   /**
-   * Emits a 32-bit instruction.
+   * Emits a 32-bit instruction in little-endian byte order.
    *
    * @copydetails emit_instruction
    */
-  inline arm_emitter& emit(const std::uint32_t insn) {
-    _buffer.append((insn >> 24) & 0xFF);
-    _buffer.append((insn >> 16) & 0xFF);
-    _buffer.append((insn >> 8)  & 0xFF);
-    _buffer.append((insn >> 0)  & 0xFF);
+  inline arm_emitter& emit(std::uint32_t insn) {
+    for (auto i = 0; i < 4; i++) {
+      _buffer.append(insn & 0xFF);
+      insn >>= 8;
+    }
     return *this;
   }
 
