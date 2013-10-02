@@ -27,6 +27,7 @@ if !DISABLE_ARM
     arch/arm/encoding.h        \
     arch/armv8.h
   libmachinery_la_SOURCES   += \
+    arch/arm/compiler.cc       \
     arch/arm/emitter.cc        \
     arch/arm/encoding.cc
 endif
@@ -38,6 +39,7 @@ if !DISABLE_X86
     arch/x86/encoding.h        \
     arch/x86-64.h
   libmachinery_la_SOURCES   += \
+    arch/x86/compiler.cc       \
     arch/x86/emitter.cc        \
     arch/x86/encoding.cc
 endif

@@ -20,7 +20,7 @@ if !DISABLE_IR
 endif
 
 if !DISABLE_JIT
-  check_PROGRAMS += check_jit
+  check_PROGRAMS += check_jit_compiler
 endif
 
 TESTS = $(check_PROGRAMS)

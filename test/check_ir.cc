@@ -8,3 +8,7 @@
 #include <cstdio> /* for std::sprintf() */
 
 using namespace machinery::ir;
+
+BOOST_AUTO_TEST_CASE(ctor) {
+  // TODO
+}
