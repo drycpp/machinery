@@ -15,6 +15,7 @@ base_pkginclude_HEADERS = \
   feature.h               \
   module.h                \
   version.h               \
+  bits/word.h             \
   util/buffer.h
 
 nobase_pkginclude_HEADERS =
