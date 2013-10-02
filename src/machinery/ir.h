@@ -6,7 +6,7 @@
 /**
  * @file
  *
- * Target-agnostic intermediate representation (IR).
+ * Target-independent intermediate representation (IR).
  */
 
 namespace machinery {

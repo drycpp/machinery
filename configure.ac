@@ -83,8 +83,8 @@ AC_DEFUN([AX_ARG_ENABLE_MODULE], [dnl
 ])
 AX_ARG_DISABLE_MODULE([arm], [the ARMv8 AArch64 architecture]) # --enable-arm/--disable-arm
 AX_ARG_ENABLE_MODULE([x86], [the x86/x86-64 architectures])    # --enable-x86/--disable-x86
-AX_ARG_ENABLE_MODULE([ir],  [the target-agnostic IR])          # --enable-ir/--disable-ir
-AX_ARG_ENABLE_MODULE([jit], [the target-agnostic JIT])         # --enable-jit/--disable-jit
+AX_ARG_ENABLE_MODULE([ir],  [the target-independent IR])       # --enable-ir/--disable-ir
+AX_ARG_ENABLE_MODULE([jit], [the target-independent JIT])      # --enable-jit/--disable-jit
 
 dnl Check for libraries:
 AX_BOOST_BASE([1.48], [AX_BOOST_UNIT_TEST_FRAMEWORK])

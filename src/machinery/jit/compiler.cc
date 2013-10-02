@@ -4,4 +4,4 @@
 #include <config.h>
 #endif
 
-#include "jit.h"
+#include "compiler.h"

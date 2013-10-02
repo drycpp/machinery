@@ -48,6 +48,9 @@ if !DISABLE_IR
 endif
 
 if !DISABLE_JIT
-  base_pkginclude_HEADERS += jit.h
-  libmachinery_la_SOURCES += jit.cc
+  base_pkginclude_HEADERS +=   \
+    jit.h                      \
+    jit/compiler.h
+  libmachinery_la_SOURCES +=   \
+    jit/compiler.cc
 endif

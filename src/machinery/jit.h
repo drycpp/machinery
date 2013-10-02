@@ -6,11 +6,9 @@
 /**
  * @file
  *
- * Target-agnostic just-in-time (JIT) compilation support.
+ * Target-independent just-in-time (JIT) compilation support.
  */
 
-namespace machinery {
-  namespace jit {}
-}
+#include "jit/compiler.h"
 
 #endif /* MACHINERY_JIT_H */
