@@ -1,6 +1,5 @@
 /* This is free and unencumbered software released into the public domain. */
 
-#include <machinery.h>
 #include <machinery/arch/x86.h>
 #include <machinery/util/buffer.h>
 
@@ -26,12 +25,12 @@ main(int argc, char* argv[]) {
   //emit.xor_(reg64::rax, reg64::rax); // TODO
 
   /* For each command-line argument: */
-  for (int i = 1; i < argc; i++) {
+  for (auto i = 1; i < argc; i++) {
     /* Convert the argument to an integer: */
     const int arg = std::atoi(argv[i]);
 
     /* Add the integer argument to RAX: */
-    emit.add(imm32{static_cast<std::uint32_t>(arg)});
+    emit.add(imm32{arg});
   }
 
   /* Function epilog: */
@@ -44,5 +43,5 @@ main(int argc, char* argv[]) {
   std::printf("%d\n", exec.execute<std::int32_t>());
 #endif
 
-  return 0;
+  return EXIT_SUCCESS;
 }

@@ -12,11 +12,57 @@ emulators.
 Features
 --------
 
+* Currently targets the x86-64 and ARMv8 AArch64 architectures.
 * No runtime dependencies other than the system's C++ standard library.
 * No build prerequisites beyond the Autotools toolchain and a C++11 compiler.
 * Compatible with Clang and GCC, or any standard C++11 implementation.
 * 100% free and unencumbered `public domain <http://unlicense.org/>`_ software,
   usable in any context and for any purpose.
+
+Examples
+--------
+
+### x86-64 JIT calculator
+
+   #include <machinery/arch/x86.h>
+   #include <machinery/util/buffer.h>
+   
+   #include <cstdio>  /* for std::printf() */
+   #include <cstdlib> /* for std::atoi() */
+   
+   using namespace machinery::arch;
+   using namespace machinery::arch::x86;
+   using namespace machinery::util;
+   
+   int main(int argc, char* argv[]) {
+     executable_buffer code;
+     x86_emitter<executable_buffer> emit(code);
+   
+     /* Function prolog: */
+     emit.push(reg64::rbp);
+     emit.mov(reg64::rbp, reg64::rsp);
+   
+     /* Clear the RAX register: */
+     emit.mov(reg64::rax, imm64{0});
+   
+     /* For each command-line argument: */
+     for (auto i = 1; i < argc; i++) {
+       /* Convert the argument to an integer: */
+       const int arg = std::atoi(argv[i]);
+   
+       /* Add the integer argument to RAX: */
+       emit.add(imm32{arg});
+     }
+   
+     /* Function epilog: */
+     emit.pop(reg64::rbp);
+     emit.ret();
+   
+     /* Execute the code buffer and print out the result: */
+     std::printf("%d\n", code.execute<std::int32_t>());
+   
+     return EXIT_SUCCESS;
+   }
 
 Build Prerequisites
 -------------------
