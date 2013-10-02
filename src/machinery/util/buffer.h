@@ -88,7 +88,7 @@ public:
   /**
    * Move constructor.
    */
-  appendable_buffer(appendable_buffer&& other) noexcept = default;
+  appendable_buffer(appendable_buffer&& other) = default;
 
   /**
    * Destructor.
@@ -103,7 +103,7 @@ public:
   /**
    * Move assignment operator.
    */
-  appendable_buffer& operator=(appendable_buffer&& other) noexcept = default;
+  appendable_buffer& operator=(appendable_buffer&& other) = default;
 
   /**
    * Returns the current byte capacity of this buffer.
