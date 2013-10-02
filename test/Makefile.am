@@ -15,6 +15,14 @@ if !DISABLE_X86
   check_PROGRAMS += check_arch_x86
 endif
 
+if !DISABLE_IR
+  check_PROGRAMS += check_ir
+endif
+
+if !DISABLE_JIT
+  check_PROGRAMS += check_jit
+endif
+
 TESTS = $(check_PROGRAMS)
 
 AM_DEFAULT_SOURCE_EXT = .cc

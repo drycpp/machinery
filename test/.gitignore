@@ -9,4 +9,6 @@
 *.trs
 check_arch_arm
 check_arch_x86
+check_ir
+check_jit
 check_util_buffer

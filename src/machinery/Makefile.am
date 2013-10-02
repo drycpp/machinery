@@ -41,3 +41,13 @@ if !DISABLE_X86
     arch/x86/emitter.cc        \
     arch/x86/encoding.cc
 endif
+
+if !DISABLE_IR
+  base_pkginclude_HEADERS += ir.h
+  libmachinery_la_SOURCES += ir.cc
+endif
+
+if !DISABLE_JIT
+  base_pkginclude_HEADERS += jit.h
+  libmachinery_la_SOURCES += jit.cc
+endif
