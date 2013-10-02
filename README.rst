@@ -22,7 +22,10 @@ Features
 Examples
 --------
 
-### x86-64 JIT calculator
+x86-64 JIT calculator
+^^^^^^^^^^^^^^^^^^^^^
+
+::
 
    #include <machinery/arch/x86.h>
    #include <machinery/util/buffer.h>
