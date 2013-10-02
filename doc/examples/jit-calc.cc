@@ -30,7 +30,7 @@ main(int argc, char* argv[]) {
     const int arg = std::atoi(argv[i]);
 
     /* Add the integer argument to RAX: */
-    emit.add(imm32{arg});
+    emit.add(imm32(arg));
   }
 
   /* Function epilog: */

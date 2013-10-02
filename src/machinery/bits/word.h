@@ -32,14 +32,6 @@ union machinery::bits::word8 final {
   /**
    * Constructor.
    *
-   * @param value a signed integer
-   */
-  explicit word8(const std::int8_t value) noexcept
-    : s8(value) {}
-
-  /**
-   * Constructor.
-   *
    * @param value an unsigned integer
    */
   explicit word8(const std::uint8_t value) noexcept
@@ -54,14 +46,6 @@ union machinery::bits::word16 final {
   std::uint16_t u16;
   std::int8_t   s8[2];
   std::uint8_t  u8[2];
-
-  /**
-   * Constructor.
-   *
-   * @param value a signed integer
-   */
-  explicit word16(const std::int16_t value) noexcept
-    : s16(value) {}
 
   /**
    * Constructor.
@@ -84,14 +68,6 @@ union machinery::bits::word32 final {
   /**
    * Constructor.
    *
-   * @param value a signed integer
-   */
-  explicit word32(const std::int32_t value) noexcept
-    : s32(value) {}
-
-  /**
-   * Constructor.
-   *
    * @param value an unsigned integer
    */
   explicit word32(const std::uint32_t value) noexcept
@@ -106,14 +82,6 @@ union machinery::bits::word64 final {
   std::uint64_t u64;
   std::int8_t   s8[8];
   std::uint8_t  u8[8];
-
-  /**
-   * Constructor.
-   *
-   * @param value a signed integer
-   */
-  explicit word64(const std::int64_t value) noexcept
-    : s64(value) {}
 
   /**
    * Constructor.

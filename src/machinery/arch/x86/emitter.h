@@ -255,7 +255,7 @@ public:
   x86_emitter& add(const x86_imm64 imm) {
     // TODO: synthesize ops if imm > INT32_MAX?
     const std::int32_t narrowed = imm.s64;
-    return emit(0x48, 0x05).emit(x86_imm32{narrowed});
+    return emit(0x48, 0x05).emit(x86_imm32(narrowed));
   }
 
   /**
