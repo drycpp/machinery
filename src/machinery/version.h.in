@@ -5,6 +5,8 @@
 
 /**
  * @file
+ *
+ * Library version metadata for Machinery.
  */
 
 #define MACHINERY_VERSION_STRING "@PACKAGE_VERSION@"

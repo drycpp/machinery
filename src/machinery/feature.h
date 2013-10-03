@@ -6,7 +6,7 @@
 /**
  * @file
  *
- * Library feature metadata.
+ * Library feature metadata for Machinery.
  */
 
 #endif /* MACHINERY_FEATURE_H */

@@ -6,7 +6,7 @@
 /**
  * @file
  *
- * Library module metadata.
+ * Library module metadata for Machinery.
  */
 
 #endif /* MACHINERY_MODULE_H */

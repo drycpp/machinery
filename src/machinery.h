@@ -7,6 +7,8 @@
  * @file
  *
  * DRY Machinery.
+ *
+ * @see http://machinery.dryproject.org/
  */
 
 #include "machinery/extern.h"
