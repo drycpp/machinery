@@ -1,0 +1,8 @@
+(asdf:defsystem :machinery
+  :name "machinery"
+  :description "Foreign function interface to Machinery."
+  :version "@PACKAGE_VERSION@"
+  :author "Arto Bendiken <arto@bendiken.net>"
+  :depends-on (:cffi)
+  :serial t
+  :components ((:file "machinery")))

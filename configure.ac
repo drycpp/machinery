@@ -123,5 +123,5 @@ AC_CONFIG_FILES([Makefile src/Makefile src/machinery/Makefile test/Makefile])
 AC_SUBST([PACKAGE_VERSION_MAJOR], ["VERSION_MAJOR"])
 AC_SUBST([PACKAGE_VERSION_MINOR], ["VERSION_MINOR"])
 AC_SUBST([PACKAGE_VERSION_PATCH], ["VERSION_PATCH"])
-AC_CONFIG_FILES([src/machinery/version.h])
+AC_CONFIG_FILES([src/machinery/version.h ffi/lisp/machinery.asd])
 AC_OUTPUT
