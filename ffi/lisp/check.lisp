@@ -1,5 +1,10 @@
-(require 'machinery)
+(require 'asdf)
+(pushnew #p"./" asdf:*central-registry* :test #'equal)
 
+(require 'cffi)
+(pushnew #P"../../src/machinery/.libs/" cffi:*foreign-library-directories* :test #'equal)
+
+(require 'machinery)
 (machinery:load-library)
 
 (format t "~S~&" (list 'machinery:+version-string+ machinery:+version-string+))

@@ -14,8 +14,8 @@
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (define-foreign-library libmachinery
-    (:unix (:or "libmachinery.so.0" "libmachinery.so"))
     (:darwin (:or "libmachinery.0.dylib" "libmachinery.dylib"))
+    (:unix (:or "libmachinery.so.0" "libmachinery.so"))
     (t (:default "libmachinery"))))
 
 (defun load-library (&key path version debug features)
