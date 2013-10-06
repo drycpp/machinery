@@ -15,14 +15,19 @@ using namespace machinery::jit;
 std::unique_ptr<compiler>
 machinery::jit::compiler_for(const char* const target) {
   assert(target != nullptr);
+  (void)target;
 
-  if (std::strcmp(target, "x86-64") == 0) {
-    return compiler_for_x86_64();
-  }
-
+#ifndef DISABLE_ARM
   if (std::strcmp(target, "armv8-aarch64") == 0) {
     return compiler_for_armv8_aarch64();
   }
+#endif
+
+#ifndef DISABLE_X86
+  if (std::strcmp(target, "x86-64") == 0) {
+    return compiler_for_x86_64();
+  }
+#endif
 
   throw std::invalid_argument("unknown JIT compilation target");
 }
