@@ -11,6 +11,7 @@ namespace {
 
 class compiler final : public machinery::jit::compiler {
   using emitter = machinery::arch::x86_emitter<buffer>;
+  using reg64   = machinery::arch::x86_reg64;
 
   emitter _emitter;
 
@@ -27,7 +28,8 @@ public:
   virtual ~compiler() noexcept override {}
 
   virtual compiler& enter() override {
-    // TODO
+    _emitter.push(reg64::rbp);
+    _emitter.mov(reg64::rbp, reg64::rsp);
     return *this;
   }
 
@@ -37,12 +39,12 @@ public:
   }
 
   virtual compiler& leave() override {
-    // TODO
+    _emitter.pop(reg64::rbp);
     return *this;
   }
 
   virtual compiler& ret() override {
-    // TODO
+    _emitter.ret();
     return *this;
   }
 
