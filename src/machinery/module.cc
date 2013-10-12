@@ -16,6 +16,9 @@ static const char* const module_names[] = {
 #ifndef DISABLE_JIT
   "jit",
 #endif
+#ifndef DISABLE_MIPS
+  "mips",
+#endif
 #ifndef DISABLE_X86
   "x86",
 #endif

@@ -7,4 +7,4 @@ export CPPFLAGS=''
 export CFLAGS='-g -Os'
 export CXXFLAGS='-g -Os'
 export LDFLAGS=''
-./configure --enable-arm --enable-x86 $*
+./configure --enable-arm --enable-mips --enable-x86 $*

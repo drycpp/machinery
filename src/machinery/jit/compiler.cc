@@ -23,6 +23,12 @@ machinery::jit::compiler_for(const char* const target) {
   }
 #endif
 
+#ifndef DISABLE_MIPS
+  if (std::strcmp(target, "mips32") == 0) {
+    return compiler_for_mips32();
+  }
+#endif
+
 #ifndef DISABLE_X86
   if (std::strcmp(target, "x86-64") == 0) {
     return compiler_for_x86_64();

@@ -32,6 +32,18 @@ if !DISABLE_ARM
     arch/arm/encoding.cc
 endif
 
+if !DISABLE_MIPS
+  nobase_pkginclude_HEADERS += \
+    arch/mips.h                \
+    arch/mips32.h              \
+    arch/mips32/emitter.h      \
+    arch/mips32/encoding.h
+  libmachinery_la_SOURCES   += \
+    arch/mips32/compiler.cc    \
+    arch/mips32/emitter.cc     \
+    arch/mips32/encoding.cc
+endif
+
 if !DISABLE_X86
   nobase_pkginclude_HEADERS += \
     arch/x86.h                 \

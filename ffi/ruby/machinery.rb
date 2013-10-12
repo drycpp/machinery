@@ -48,7 +48,7 @@ if __FILE__ == $0
     puts "Machinery.has_feature?(:#{feature_name}): %s" % Machinery.has_feature?(feature_name)
   end
   puts
-  %w(arm x86 ir jit).each do |module_name|
+  %w(arm mips x86 ir jit).each do |module_name|
     puts "Machinery.has_module?(:#{module_name}) %s" % Machinery.has_module?(module_name)
   end
   puts

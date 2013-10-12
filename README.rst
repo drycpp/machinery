@@ -12,7 +12,7 @@ emulators.
 Features
 --------
 
-* Currently targets the x86-64 and ARMv8 AArch64 architectures.
+* Currently targets the x86-64, ARMv8 AArch64, and MIPS32 architectures.
 * No runtime dependencies other than the system's C++ standard library.
 * No build prerequisites beyond the Autotools toolchain and a C++11 compiler.
 * Compatible with Clang and GCC, or any standard C++11 implementation.

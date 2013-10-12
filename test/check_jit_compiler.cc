@@ -26,6 +26,13 @@ BOOST_AUTO_TEST_CASE(for_armv8_aarch64) {
 }
 #endif
 
+#ifndef DISABLE_MIPS
+BOOST_AUTO_TEST_CASE(for_mips32) {
+  BOOST_CHECK(compiler_for("mips32"));
+  BOOST_CHECK(compiler_for_mips32());
+}
+#endif
+
 #ifndef DISABLE_X86
 BOOST_AUTO_TEST_CASE(for_x86_64) {
   BOOST_CHECK(compiler_for("x86-64"));

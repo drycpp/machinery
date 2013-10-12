@@ -11,6 +11,10 @@ if !DISABLE_ARM
   check_PROGRAMS += check_arch_arm
 endif
 
+if !DISABLE_MIPS
+  check_PROGRAMS += check_arch_mips32
+endif
+
 if !DISABLE_X86
   check_PROGRAMS += check_arch_x86
 endif

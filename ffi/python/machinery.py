@@ -34,6 +34,6 @@ if __name__ == '__main__':
   for feature_name in ('ascii', 'debug', 'unicode'):
     print "machinery.has_feature('{}'): {}".format(feature_name, has_feature(feature_name))
   print
-  for module_name in ('arm', 'x86', 'ir', 'jit'):
+  for module_name in ('arm', 'mips', 'x86', 'ir', 'jit'):
     print "machinery.has_module('{}'): {}".format(module_name, has_module(module_name))
   print

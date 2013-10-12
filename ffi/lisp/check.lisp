@@ -25,7 +25,7 @@
   (list 'machinery:modulep
         (mapcar (lambda (module-name)
                   (list module-name (machinery:modulep module-name)))
-                '("arm" "x86" "ir" "jit"))))
+                '("arm" "mips" "x86" "ir" "jit"))))
 
 (format t "~&")
 

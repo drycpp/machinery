@@ -21,7 +21,7 @@ namespace machinery {
     /**
      * Returns a JIT compiler for the given target architecture.
      *
-     * @param target either "x86-64" or "armv8-aarch64"
+     * @param target either "x86-64", "armv8-aarch64", or "mips32"
      * @throws std::invalid_argument if `target` is unknown
      */
     std::unique_ptr<compiler> compiler_for(const char* target);
@@ -30,6 +30,11 @@ namespace machinery {
      * Returns a JIT compiler targeting the ARMv8 AArch64 architecture.
      */
     std::unique_ptr<compiler> compiler_for_armv8_aarch64();
+
+    /**
+     * Returns a JIT compiler targeting the MIPS32 architecture.
+     */
+    std::unique_ptr<compiler> compiler_for_mips32();
 
     /**
      * Returns a JIT compiler targeting the x86-64 architecture.

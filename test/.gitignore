@@ -8,6 +8,7 @@
 *.log
 *.trs
 check_arch_arm
+check_arch_mips32
 check_arch_x86
 check_ir
 check_jit_compiler
