@@ -88,7 +88,6 @@ AX_ARG_ENABLE_MODULE([ir],    [the target-independent IR])      # --enable-ir/--
 AX_ARG_ENABLE_MODULE([jit],   [the target-independent JIT])     # --enable-jit/--disable-jit
 
 dnl Check for libraries:
-AX_BOOST_BASE([1.48], [AX_BOOST_UNIT_TEST_FRAMEWORK])
 
 dnl Check for header files:
 AC_LANG_PUSH([C])
@@ -105,9 +104,9 @@ AC_CANONICAL_HOST
 AM_CPPFLAGS="$AM_CPPFLAGS -I\$(top_srcdir)/src -iquote \$(srcdir)"
 AM_CXXFLAGS="$AM_CXXFLAGS -Wall -Wextra -pipe"
 AM_LDFLAGS="$AM_LDFLAGS"
-TEST_CPPFLAGS="$AM_CPPFLAGS \$(BOOST_CPPFLAGS) -DBOOST_TEST_DYN_LINK"
+TEST_CPPFLAGS="$AM_CPPFLAGS -DCATCH_CONFIG_MAIN"
 TEST_CXXFLAGS="$AM_CXXFLAGS"
-TEST_LDFLAGS="$AM_LDFLAGS \$(BOOST_LDFLAGS) \$(BOOST_UNIT_TEST_FRAMEWORK_LIB)"
+TEST_LDFLAGS="$AM_LDFLAGS"
 AC_SUBST([AM_CPPFLAGS])
 AC_SUBST([AM_CXXFLAGS])
 AC_SUBST([AM_LDFLAGS])

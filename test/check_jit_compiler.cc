@@ -4,8 +4,7 @@
 #include <config.h>
 #endif
 
-#define BOOST_TEST_MODULE jit
-#include <boost/test/unit_test.hpp>
+#include "catch.hpp"
 
 #include <machinery/jit.h>
 #include <machinery/util/buffer.h>
@@ -15,27 +14,27 @@
 using namespace machinery::jit;
 using namespace machinery::util;
 
-BOOST_AUTO_TEST_CASE(for_unknown) {
-  BOOST_CHECK_THROW(compiler_for("unknown"), std::invalid_argument);
+TEST_CASE("for_unknown") {
+  REQUIRE_THROWS_AS(compiler_for("unknown"), std::invalid_argument);
 }
 
 #ifndef DISABLE_ARM
-BOOST_AUTO_TEST_CASE(for_armv8_aarch64) {
-  BOOST_CHECK(compiler_for("armv8-aarch64"));
-  BOOST_CHECK(compiler_for_armv8_aarch64());
+TEST_CASE("for_armv8_aarch64") {
+  REQUIRE(compiler_for("armv8-aarch64"));
+  REQUIRE(compiler_for_armv8_aarch64());
 }
 #endif
 
 #ifndef DISABLE_MIPS
-BOOST_AUTO_TEST_CASE(for_mips32) {
-  BOOST_CHECK(compiler_for("mips32"));
-  BOOST_CHECK(compiler_for_mips32());
+TEST_CASE("for_mips32") {
+  REQUIRE(compiler_for("mips32"));
+  REQUIRE(compiler_for_mips32());
 }
 #endif
 
 #ifndef DISABLE_X86
-BOOST_AUTO_TEST_CASE(for_x86_64) {
-  BOOST_CHECK(compiler_for("x86-64"));
-  BOOST_CHECK(compiler_for_x86_64());
+TEST_CASE("for_x86_64") {
+  REQUIRE(compiler_for("x86-64"));
+  REQUIRE(compiler_for_x86_64());
 }
 #endif

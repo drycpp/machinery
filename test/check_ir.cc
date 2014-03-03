@@ -4,8 +4,7 @@
 #include <config.h>
 #endif
 
-#define BOOST_TEST_MODULE ir
-#include <boost/test/unit_test.hpp>
+#include "catch.hpp"
 
 #include <machinery/ir.h>
 
@@ -13,6 +12,6 @@
 
 using namespace machinery::ir;
 
-BOOST_AUTO_TEST_CASE(ctor) {
+TEST_CASE("ctor") {
   // TODO
 }
