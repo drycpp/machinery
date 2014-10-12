@@ -6,6 +6,7 @@ DRY Machinery Manual
 
    intro
    install
+   arch
    faq
    contrib
    notes
