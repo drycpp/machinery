@@ -3,8 +3,11 @@ DRY Machinery
 
 .. image:: https://travis-ci.org/dryproject/machinery.png?branch=master
    :target: https://travis-ci.org/dryproject/machinery
-   :align: right
    :alt: Travis CI build status
+
+.. image:: https://scan.coverity.com/projects/3232/badge.svg
+   :target: https://scan.coverity.com/projects/3232
+   :alt: Coverity Scan build status
 
 Toolchain machinery for compilers, code generators, assemblers, linkers, and
 emulators.
@@ -99,14 +102,15 @@ Installation on Unix
 Elsewhere
 ---------
 
-Find this project at: GitHub_, Bitbucket_, Ohloh_, SourceForge_, and
-`Travis CI`_.
+Find this project at: GitHub_, Bitbucket_, Ohloh_, SourceForge_, `Travis
+CI`_, and `Coverity Scan`_.
 
-.. _GitHub:      http://github.com/dryproject/machinery
-.. _Bitbucket:   http://bitbucket.org/dryproject/machinery
-.. _Ohloh:       http://www.ohloh.net/p/machinery
-.. _SourceForge: http://sourceforge.net/projects/machinery/
-.. _Travis CI:   http://travis-ci.org/dryproject/machinery
+.. _GitHub:        http://github.com/dryproject/machinery
+.. _Bitbucket:     http://bitbucket.org/dryproject/machinery
+.. _Ohloh:         http://www.ohloh.net/p/machinery
+.. _SourceForge:   http://sourceforge.net/projects/machinery/
+.. _Travis CI:     http://travis-ci.org/dryproject/machinery
+.. _Coverity Scan: http://scan.coverity.com/projects/3232
 
 Author
 ------

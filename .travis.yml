@@ -11,7 +11,21 @@ before_install:
 before_script:
   - ./autogen.sh
 script:
-  - ./configure && make && make check
+  - if [ "$COVERITY_SCAN_BRANCH" != 1 ]; then ./configure && make && make check; fi
 branches:
   only:
     - master
+    - coverity
+
+# https://scan.coverity.com/projects/3232
+env:
+  global:
+  - secure: "XFesd2j/QxhMLLyyFpIW4fGIOcLwa2flKmIQIN1AqV6j2KHo4dS0MDb5odP3BkX1f9KF2VJc/wWsqKYMrLMK8yi5fWGgvs5irSijI2DyIhuaHqJie1vR/C0JNhOuWlfdVKjm7SLotSuayu9fIs+xN8nu6Z5G/iUPcgVY/HGFbyg="
+addons:
+  coverity_scan:
+    project:
+      name: dryproject/machinery
+    notification_email: arto@bendiken.net
+    build_command_prepend: cov-configure --comptype gcc --compiler $CC && ./configure
+    build_command: make
+    branch_pattern: coverity
