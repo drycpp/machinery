@@ -1,7 +1,8 @@
+*************
 DRY Machinery
-=============
+*************
 
-.. image:: https://travis-ci.org/dryproject/machinery.png?branch=master
+.. image:: https://api.travis-ci.org/dryproject/machinery.svg?branch=master
    :target: https://travis-ci.org/dryproject/machinery
    :alt: Travis CI build status
 
@@ -13,7 +14,7 @@ Toolchain machinery for compilers, code generators, assemblers, linkers, and
 emulators.
 
 Features
---------
+========
 
 * Currently targets the x86-64, ARMv8 AArch64, and MIPS32 architectures.
 * No runtime dependencies other than the system's C++ standard library.
@@ -23,10 +24,10 @@ Features
   usable in any context and for any purpose.
 
 Examples
---------
+========
 
 x86-64 JIT calculator
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 ::
 
@@ -71,12 +72,16 @@ x86-64 JIT calculator
    }
 
 Build Prerequisites
--------------------
+===================
 
-* Clang_ (>= 3.0) or GCC_ (>= 4.7)
+* Clang_ (>= 3.2) or GCC_ (>= 4.8)
 * Autoconf_ (>= 2.68)
 * Automake_ (>= 1.11)
 * Libtool_ (>= 2.2)
+
+.. note::
+
+   Older releases may work, but are not actively tested for.
 
 .. _Clang:    http://clang.llvm.org/
 .. _GCC:      http://gcc.gnu.org/
@@ -85,10 +90,10 @@ Build Prerequisites
 .. _Libtool:  http://www.gnu.org/software/libtool/
 
 Installation
-------------
+============
 
 Installation on Unix
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 ::
 
@@ -100,7 +105,7 @@ Installation on Unix
    $ sudo ldconfig                      # on Linux
 
 Elsewhere
----------
+=========
 
 Find this project at: GitHub_, Bitbucket_, Ohloh_, SourceForge_, `Travis
 CI`_, and `Coverity Scan`_.
@@ -113,14 +118,24 @@ CI`_, and `Coverity Scan`_.
 .. _Coverity Scan: http://scan.coverity.com/projects/3232
 
 Author
-------
+======
 
 This project is part of the `DRY <http://dryproject.org/>`_ initiative.
 
 * `Arto Bendiken <https://github.com/bendiken>`_ - http://ar.to/
 
+Donations
+=========
+
+If you found this software useful and would like to encourage its
+maintenance and further development, please consider making a $5 donation
+to the author(s) via Gratipay_ or Bitcoin_.
+
+.. _Gratipay: https://gratipay.com/bendiken/
+.. _Bitcoin:  bitcoin:15msntdJrvwesEztFdw5yf3yBbyNJSfZUb?label=machinery.dryproject.org&message=Donation
+
 License
--------
+=======
 
 This is free and unencumbered public domain software. For more information,
 see http://unlicense.org/ or the accompanying ``UNLICENSE`` file.
